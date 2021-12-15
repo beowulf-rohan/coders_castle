@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:async';
-import 'package:coders_castle/screens/homeScreen.dart';
+import 'package:coders_castle/widgets/resuable.dart';
 import 'package:flutter/material.dart';
-import 'package:glassmorphism/glassmorphism.dart';
+import 'package:coders_castle/screens/homeScreen.dart';
+import 'package:coders_castle/screens/profileScreen/profileScreen.dart';
+import 'package:coders_castle/screens/contestScreen/contestScreen.dart';
+import 'package:coders_castle/screens/statsScreen/statsScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,6 +22,9 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
       routes: {
         HomeScreen.id: (context) => HomeScreen(),
+        ProfileScreen.id: (context) => ProfileScreen(),
+        ContestScreen.id: (context) => ContestScreen(),
+        StatsScreen.id: (context) => StatsScreen(),
       },
     );
   }
@@ -35,13 +41,16 @@ class _MyHomePageState extends State<MyHomePage> {
   double widget1Opacity = 0.0;
   @override
   void initState() {
-    Future.delayed(Duration(milliseconds: 1000), () {
+    Timer(Duration(seconds: 5), () {
+      Navigator.pushReplacementNamed(context, HomeScreen.id);
+    });
+    // Timer(Duration(milliseconds: 500), () {
+    //   Navigator.pushNamed(context, HomeScreen.id);
+    // });
+    Future.delayed(const Duration(milliseconds: 1000), () {
       setState(() {
         widget1Opacity = 1;
       });
-    });
-    Timer(Duration(seconds: 5), () {
-      Navigator.pushNamed(context, HomeScreen.id);
     });
     super.initState();
   }
@@ -51,29 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: GlassmorphicContainer(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          border: 1.0,
-          borderRadius: 15,
-          blur: 10,
-          linearGradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.white.withOpacity(0.25),
-              Colors.white.withOpacity(0.05),
-            ],
-          ),
-          borderGradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.white.withOpacity(0.2),
-              Colors.white.withOpacity(0.2)
-            ],
-          ),
-          child: Center(
+        body: GlassBackground(
+          childWidget: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
