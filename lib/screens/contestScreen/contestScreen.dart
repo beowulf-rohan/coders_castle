@@ -1,4 +1,5 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, file_names, prefer_const_constructors
+import 'package:coders_castle/screens/contestScreen/reusable.dart';
 import 'package:coders_castle/widgets/resuable.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +14,91 @@ class _ContestScreenState extends State<ContestScreen> {
   @override
   Widget build(BuildContext context) {
     return GlassBackground(
-      childWidget: Center(
-        child: Text(
-          'Contests',
-          style: TextStyle(color: Colors.white),
+      childWidget: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: ListView(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 30),
+              // height: 400,
+              decoration: BoxDecoration(
+                color: Color(0xff2a2a2a).withOpacity(0.2),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  HeadingText(text: "Today"),
+                  ContestCard(
+                    path: 'images/leetcode.png',
+                    contestName: 'Leetcode Weekly 272',
+                    date: '16/12/21',
+                    time: '8:00 PM',
+                    duration: '1 hrs 30 min',
+                  ),
+                  ContestCard(
+                    path: 'images/leetcode.png',
+                    contestName: 'Leetcode Weekly 272',
+                    date: '16/12/21',
+                    time: '8:00 PM',
+                    duration: '1 hrs 30 min',
+                  ),
+                  ContestCard(
+                    path: 'images/leetcode.png',
+                    contestName: 'Leetcode Weekly 272',
+                    date: '16/12/21',
+                    time: '8:00 PM',
+                    duration: '1 hrs 30 min',
+                  ),
+                  SizedBox(height: 10)
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 30),
+              // height: 400,
+              decoration: BoxDecoration(
+                color: Color(0xff2a2a2a).withOpacity(0.2),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  HeadingText(text: "Upcoming"),
+                  ContestCard(
+                    path: 'images/leetcode.png',
+                    contestName: 'Leetcode Weekly 272',
+                    date: '16/12/21',
+                    time: '8:00 PM',
+                    duration: '1 hrs 30 min',
+                  ),
+                  ContestCard(
+                    path: 'images/leetcode.png',
+                    contestName: 'Leetcode Weekly 272',
+                    date: '16/12/21',
+                    time: '8:00 PM',
+                    duration: '1 hrs 30 min',
+                  ),
+                  ContestCard(
+                    path: 'images/leetcode.png',
+                    contestName: 'Leetcode Weekly 272',
+                    date: '16/12/21',
+                    time: '8:00 PM',
+                    duration: '1 hrs 30 min',
+                  ),
+                  ContestCard(
+                    path: 'images/leetcode.png',
+                    contestName: 'Leetcode Weekly 272',
+                    date: '16/12/21',
+                    time: '8:00 PM',
+                    duration: '1 hrs 30 min',
+                  ),
+                  SizedBox(height: 10)
+                ],
+              ),
+            ),
+            SizedBox(height: 30, width: double.infinity)
+          ],
         ),
       ),
     );

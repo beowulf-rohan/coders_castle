@@ -37,53 +37,51 @@ class _HomeScreenState extends State<HomeScreen> {
               )
             ],
           ),
-          child: SafeArea(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-              child: GNav(
-                rippleColor: Colors.white,
-                hoverColor: Colors.white,
-                gap: 8,
-                // backgroundColor: Colors.white, // activeColor: Colors.black,
-                iconSize: 24,
-                padding: EdgeInsets.symmetric(horizontal: 22.5, vertical: 12),
-                duration: Duration(milliseconds: 400),
-                tabBackgroundColor: Color(0xff2a2a2a),
-                color: Colors.white,
-                tabs: const [
-                  GButton(
-                    icon: LineIcons.calendar,
-                    haptic: true,
-                    text: 'Contests',
-                    textStyle: TextStyle(color: Colors.white),
-                    backgroundColor: Color(0xff2a2a2a),
-                    iconActiveColor: Colors.white,
-                  ),
-                  GButton(
-                    icon: LineIcons.chalkboard,
-                    haptic: true,
-                    text: 'Stats',
-                    textStyle: TextStyle(color: Colors.white),
-                    backgroundColor: Color(0xff2a2a2a),
-                    iconActiveColor: Colors.white,
-                  ),
-                  GButton(
-                    icon: LineIcons.user,
-                    haptic: true,
-                    text: 'Profile',
-                    textStyle: TextStyle(color: Colors.white),
-                    backgroundColor: Color(0xff2a2a2a),
-                    iconActiveColor: Colors.white,
-                  ),
-                ],
-                selectedIndex: _selectedIndex,
-                onTabChange: (index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                },
-              ),
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+            child: GNav(
+              rippleColor: Colors.white,
+              hoverColor: Colors.white,
+              gap: 8,
+              // backgroundColor: Colors.white, // activeColor: Colors.black,
+              iconSize: 24,
+              padding: EdgeInsets.symmetric(horizontal: 22.5, vertical: 12),
+              duration: Duration(milliseconds: 500),
+              tabBackgroundColor: Color(0xff2a2a2a),
+              color: Colors.white,
+              tabs: const [
+                GButton(
+                  icon: LineIcons.calendar,
+                  haptic: true,
+                  text: 'Contests',
+                  textStyle: TextStyle(color: Colors.white),
+                  backgroundColor: Color(0xff2a2a2a),
+                  iconActiveColor: Colors.white,
+                ),
+                GButton(
+                  icon: LineIcons.chalkboard,
+                  haptic: true,
+                  text: 'Stats',
+                  textStyle: TextStyle(color: Colors.white),
+                  backgroundColor: Color(0xff2a2a2a),
+                  iconActiveColor: Colors.white,
+                ),
+                GButton(
+                  icon: LineIcons.user,
+                  haptic: true,
+                  text: 'Profile',
+                  textStyle: TextStyle(color: Colors.white),
+                  backgroundColor: Color(0xff2a2a2a),
+                  iconActiveColor: Colors.white,
+                ),
+              ],
+              selectedIndex: _selectedIndex,
+              onTabChange: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
             ),
           ),
         ),

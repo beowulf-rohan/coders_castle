@@ -41,12 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
   double widget1Opacity = 0.0;
   @override
   void initState() {
-    Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, HomeScreen.id);
-    });
-    // Timer(Duration(milliseconds: 500), () {
-    //   Navigator.pushNamed(context, HomeScreen.id);
+    // Timer(Duration(seconds: 5), () {
+    //   Navigator.pushReplacementNamed(context, HomeScreen.id);
     // });
+    Timer(Duration(milliseconds: 500), () {
+      Navigator.pushNamed(context, HomeScreen.id);
+    });
     Future.delayed(const Duration(milliseconds: 1000), () {
       setState(() {
         widget1Opacity = 1;
