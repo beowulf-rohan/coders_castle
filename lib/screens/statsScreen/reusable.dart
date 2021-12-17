@@ -1,21 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:coders_castle/widgets/resuable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-<<<<<<< HEAD
-class PlatformCard extends StatefulWidget {
-  const PlatformCard(
-      {Key key,
-      @required this.path,
-      @required this.platformName,
-      @required this.stringKey,
-      @required this.boolKey})
-      : super(key: key);
-  final String path, platformName, stringKey, boolKey;
-
-  @override
-  State<PlatformCard> createState() => _PlatformCardState();
-=======
 class ContestContainer extends StatefulWidget {
   const ContestContainer({Key key, @required this.childWidget})
       : super(key: key);
@@ -23,77 +10,11 @@ class ContestContainer extends StatefulWidget {
 
   @override
   _ContestContainerState createState() => _ContestContainerState();
->>>>>>> 3a2ab504a58d285eaccec490adde46ac343d59e8
 }
 
 class _ContestContainerState extends State<ContestContainer> {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      child: Container(
-        // height: 50,
-        decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(left: 7.5, top: 3, bottom: 3),
-                      child: SizedBox(
-                        height: 40,
-                        width: 30,
-                        child: Image.asset(widget.path),
-                      ),
-                    ),
-                    SizedBox(width: 20),
-                    Text(
-                      widget.platformName,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isVisible = !isVisible;
-                      });
-                    },
-                    child: Icon(
-                      (isVisible)
-                          ? Icons.keyboard_arrow_up
-                          : Icons.keyboard_arrow_down,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Visibility(
-              visible: isVisible,
-              child: Column(
-                children: [
-                  
-                ],
-              ),
-            )
-          ],
-=======
     return Container(
       margin: EdgeInsets.only(top: 30),
       height: 400,
@@ -118,14 +39,11 @@ class HeadingText extends StatelessWidget {
           color: Colors.white,
           fontSize: 28,
           fontWeight: FontWeight.w600,
->>>>>>> 3a2ab504a58d285eaccec490adde46ac343d59e8
         ),
       ),
     );
   }
 }
-<<<<<<< HEAD
-=======
 
 class ContestCard extends StatelessWidget {
   const ContestCard(
@@ -142,35 +60,38 @@ class ContestCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Container(
-        height: 90,
+        height: 200,
         decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.1),
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Row(
+        child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 7.5, top: 3, bottom: 3),
               child: SizedBox(
                 height: 70,
                 width: 50,
-                child: Image.asset(path),
+                child: Image.asset('images/codechef.png'),
               ),
             ),
-            VerticalDivider(
-              indent: 10,
-              endIndent: 10,
-              color: Colors.white.withOpacity(0.5),
-              thickness: 1.5,
+            Container(
+              margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Divider(
+                indent: 20,
+                endIndent: 20,
+                color: Colors.white,
+                height: 15,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(height: 10),
                   Text(
-                    contestName,
+                    'username',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,
@@ -179,9 +100,10 @@ class ContestCard extends StatelessWidget {
                   ),
                   SizedBox(height: 7.5),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'On : ',
+                        'Max Rating : ',
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -196,7 +118,7 @@ class ContestCard extends StatelessWidget {
                       ),
                       SizedBox(width: 30),
                       Text(
-                        'At : ',
+                        'Current Rating : ',
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -213,9 +135,10 @@ class ContestCard extends StatelessWidget {
                   ),
                   SizedBox(height: 7.5),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Duration : ',
+                        'Designation : ',
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -239,4 +162,3 @@ class ContestCard extends StatelessWidget {
     );
   }
 }
->>>>>>> 3a2ab504a58d285eaccec490adde46ac343d59e8
