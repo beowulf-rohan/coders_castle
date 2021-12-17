@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:coders_castle/widgets/resuable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ContestContainer extends StatefulWidget {
@@ -59,35 +60,38 @@ class ContestCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Container(
-        height: 90,
+        height: 200,
         decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.1),
           borderRadius: BorderRadius.circular(15),
         ),
-        child: Row(
+        child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 7.5, top: 3, bottom: 3),
               child: SizedBox(
                 height: 70,
                 width: 50,
-                child: Image.asset(path),
+                child: Image.asset('images/codechef.png'),
               ),
             ),
-            VerticalDivider(
-              indent: 10,
-              endIndent: 10,
-              color: Colors.white.withOpacity(0.5),
-              thickness: 1.5,
+            Container(
+              margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Divider(
+                indent: 20,
+                endIndent: 20,
+                color: Colors.white,
+                height: 15,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(height: 10),
                   Text(
-                    contestName,
+                    'username',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15,
@@ -96,9 +100,10 @@ class ContestCard extends StatelessWidget {
                   ),
                   SizedBox(height: 7.5),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'On : ',
+                        'Max Rating : ',
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -113,7 +118,7 @@ class ContestCard extends StatelessWidget {
                       ),
                       SizedBox(width: 30),
                       Text(
-                        'At : ',
+                        'Current Rating : ',
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -130,9 +135,10 @@ class ContestCard extends StatelessWidget {
                   ),
                   SizedBox(height: 7.5),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Duration : ',
+                        'Designation : ',
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
