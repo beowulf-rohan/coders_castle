@@ -24,8 +24,8 @@ class _PlatformCardState extends State<PlatformCard> {
     final SharedPreferences sharedPref = await SharedPreferences.getInstance();
     String name = sharedPref.getString(widget.stringKey);
     setState(() {
-      username = name;
-      showUserName = (username == null) ? false : true;
+      username = (name == null) ? "" : name;
+      showUserName = (username == "") ? false : true;
     });
   }
 

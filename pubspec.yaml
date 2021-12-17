@@ -17,7 +17,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  fl_chart: ^0.40.6
   flutter_lints: ^1.0.0
   glassmorphism: ^3.0.0
   google_nav_bar: ^5.0.5
