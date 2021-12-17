@@ -1,8 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-import 'package:coders_castle/widgets/resuable.dart';
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-<<<<<<< HEAD
 class PlatformCard extends StatefulWidget {
   const PlatformCard(
       {Key key,
@@ -15,25 +14,41 @@ class PlatformCard extends StatefulWidget {
 
   @override
   State<PlatformCard> createState() => _PlatformCardState();
-=======
-class ContestContainer extends StatefulWidget {
-  const ContestContainer({Key key, @required this.childWidget})
-      : super(key: key);
-  final Widget childWidget;
-
-  @override
-  _ContestContainerState createState() => _ContestContainerState();
->>>>>>> 3a2ab504a58d285eaccec490adde46ac343d59e8
 }
 
-class _ContestContainerState extends State<ContestContainer> {
+class _PlatformCardState extends State<PlatformCard> {
+  bool isVisible = false, showUserName = false;
+  String username = "";
+
+  Future getUserName() async {
+    final SharedPreferences sharedPref = await SharedPreferences.getInstance();
+    String name = sharedPref.getString(widget.stringKey);
+    setState(() {
+      username = name;
+      showUserName = (username == null) ? false : true;
+    });
+  }
+
+  Future updateChanges() async {
+    final SharedPreferences sharedPref = await SharedPreferences.getInstance();
+    sharedPref.setString(widget.stringKey, username);
+    setState(() {
+      isVisible = false;
+      showUserName = true;
+    });
+  }
+
+  @override
+  void initState() {
+    getUserName().whenComplete(() => {});
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Container(
-        // height: 50,
         decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.1),
           borderRadius: BorderRadius.circular(15),
@@ -55,13 +70,29 @@ class _ContestContainerState extends State<ContestContainer> {
                       ),
                     ),
                     SizedBox(width: 20),
-                    Text(
-                      widget.platformName,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.platformName,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Visibility(
+                          visible: showUserName,
+                          child: Text(
+                            'Username : $username',
+                            style: TextStyle(
+                              color: Colors.white.withOpacity(0.7),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -71,6 +102,7 @@ class _ContestContainerState extends State<ContestContainer> {
                     onTap: () {
                       setState(() {
                         isVisible = !isVisible;
+                        showUserName = !showUserName;
                       });
                     },
                     child: Icon(
@@ -88,155 +120,65 @@ class _ContestContainerState extends State<ContestContainer> {
               visible: isVisible,
               child: Column(
                 children: [
-                  
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: TextField(
+                      onChanged: (value) {
+                        username = value;
+                      },
+                      controller: TextEditingController(text: username),
+                      // cursorColor: primaryColour,
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.7),
+                      ),
+                      decoration: InputDecoration(
+                        labelText: "Username",
+                        labelStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white.withOpacity(0.9),
+                        ),
+                        hintStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white.withOpacity(0.7),
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.white.withOpacity(0.8)),
+                        ),
+                        hintText: "Enter your Username",
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      updateChanges();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        height: 40,
+                        width: 100,
+                        decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.65),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Center(
+                          child: Text(
+                            'Update',
+                            style: TextStyle(
+                                color: Colors.white.withOpacity(0.9),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               ),
             )
           ],
-=======
-    return Container(
-      margin: EdgeInsets.only(top: 30),
-      height: 400,
-      decoration: BoxDecoration(
-          color: Color(0xff2a2a2a).withOpacity(0.5),
-          borderRadius: BorderRadius.circular(15)),
-      child: widget.childWidget,
-    );
-  }
-}
-
-class HeadingText extends StatelessWidget {
-  const HeadingText({Key key, @required this.text}) : super(key: key);
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 15, left: 20),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 28,
-          fontWeight: FontWeight.w600,
->>>>>>> 3a2ab504a58d285eaccec490adde46ac343d59e8
         ),
       ),
     );
   }
 }
-<<<<<<< HEAD
-=======
-
-class ContestCard extends StatelessWidget {
-  const ContestCard(
-      {Key key,
-      @required this.path,
-      @required this.contestName,
-      @required this.date,
-      @required this.time,
-      @required this.duration})
-      : super(key: key);
-  final String path, contestName, date, time, duration;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-      child: Container(
-        height: 90,
-        decoration: BoxDecoration(
-          color: Colors.grey.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Row(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 7.5, top: 3, bottom: 3),
-              child: SizedBox(
-                height: 70,
-                width: 50,
-                child: Image.asset(path),
-              ),
-            ),
-            VerticalDivider(
-              indent: 10,
-              endIndent: 10,
-              color: Colors.white.withOpacity(0.5),
-              thickness: 1.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 10),
-                  Text(
-                    contestName,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  SizedBox(height: 7.5),
-                  Row(
-                    children: [
-                      Text(
-                        'On : ',
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        date,
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white.withOpacity(0.5)),
-                      ),
-                      SizedBox(width: 30),
-                      Text(
-                        'At : ',
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        time,
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white.withOpacity(0.5)),
-                      )
-                    ],
-                  ),
-                  SizedBox(height: 7.5),
-                  Row(
-                    children: [
-                      Text(
-                        'Duration : ',
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white),
-                      ),
-                      Text(
-                        duration,
-                        style: TextStyle(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white.withOpacity(0.5)),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
->>>>>>> 3a2ab504a58d285eaccec490adde46ac343d59e8
