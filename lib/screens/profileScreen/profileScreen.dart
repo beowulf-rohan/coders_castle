@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:coders_castle/widgets/resuable.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +13,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return GlassBackground(
-      childWidget: Center(
-        child: Text(
-          'Profile',
-          style: TextStyle(color: Colors.white),
+      childWidget: Container(
+        margin: EdgeInsets.symmetric(horizontal: 20),
+        child: ListView(
+          children: [
+            Container(
+              margin: EdgeInsets.only(top: 30),
+              decoration: BoxDecoration(
+                color: Color(0xff2a2a2a).withOpacity(0.2),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  
+                ],
+              ),
+            ),
+            SizedBox(height: 30, width: double.infinity)
+          ],
         ),
       ),
     );
