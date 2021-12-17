@@ -1,7 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'dart:core';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fl_chart/fl_chart.dart';
 
 class HeadingText1 extends StatelessWidget {
   const HeadingText1({Key key, @required this.text}) : super(key: key);
@@ -40,12 +42,96 @@ class Codechef {
         children: [
           HeadingText1(text: "Codechef"),
           SizedBox(
-            height: 300.0,
+            height: 20,
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 25),
+            child: AspectRatio(
+              aspectRatio: 1.5,
+              child: LineChart(
+                LineChartData(
+                  minX: 0,
+                  maxX: 25,
+                  minY: 0,
+                  maxY: 2000,
+                  lineBarsData: [
+                    LineChartBarData(
+                      spots: [
+                        FlSpot(0, 100),
+                        FlSpot(1, 1000),
+                        FlSpot(2, 1100),
+                        FlSpot(3, 900),
+                        FlSpot(4, 1100),
+                        FlSpot(5, 1209),
+                        FlSpot(6, 1300),
+                        FlSpot(7, 1100),
+                        FlSpot(8, 2000),
+                        FlSpot(9, 1300),
+                        FlSpot(10, 1100),
+                        FlSpot(11, 1209),
+                        FlSpot(12, 1300),
+                        FlSpot(13, 1100),
+                        FlSpot(14, 1209),
+                        FlSpot(15, 100),
+                        FlSpot(16, 1100),
+                        FlSpot(17, 1209),
+                        FlSpot(18, 1300),
+                      ],
+                      colors: [Colors.white],
+                      dotData: FlDotData(
+                        show: true,
+                        getDotPainter: (spot, percent, barData, index) =>
+                            FlDotCirclePainter(
+                                radius: 3, color: Colors.white.withOpacity(1)),
+                      ),
+                    ),
+                  ],
+                  gridData: FlGridData(show: false),
+                  axisTitleData: FlAxisTitleData(
+                    leftTitle: AxisTitle(
+                      showTitle: true,
+                      titleText: 'Rating->',
+                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitle: AxisTitle(
+                        showTitle: true,
+                        titleText: 'No of contest->',
+                        textStyle:
+                            TextStyle(color: Colors.white, fontSize: 10.0),
+                        textAlign: TextAlign.center),
+                  ),
+                  titlesData: FlTitlesData(
+                    rightTitles: SideTitles(
+                      showTitles: false,
+                    ),
+                    topTitles: SideTitles(showTitles: false),
+                    leftTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                  ),
+                  borderData: FlBorderData(
+                    show: true,
+                    border: const Border(
+                      left: BorderSide(color: Colors.white),
+                      top: BorderSide(color: Colors.transparent),
+                      bottom: BorderSide(color: Colors.white),
+                      right: BorderSide(color: Colors.transparent),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
-              height: 200,
               decoration: BoxDecoration(
                 color: Colors.grey.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(15),
@@ -136,6 +222,9 @@ class Codechef {
                       ],
                     ),
                   ),
+                  SizedBox(
+                    height: 20.0,
+                  ),
                 ],
               ),
             ),
@@ -165,12 +254,96 @@ class Codeforces {
         children: [
           HeadingText1(text: "Codeforces"),
           SizedBox(
-            height: 300.0,
+            height: 20,
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 25),
+            child: AspectRatio(
+              aspectRatio: 1.5,
+              child: LineChart(
+                LineChartData(
+                  minX: 0,
+                  maxX: 25,
+                  minY: 0,
+                  maxY: 2000,
+                  lineBarsData: [
+                    LineChartBarData(
+                      spots: [
+                        FlSpot(0, 100),
+                        FlSpot(1, 1000),
+                        FlSpot(2, 1100),
+                        FlSpot(3, 900),
+                        FlSpot(4, 1100),
+                        FlSpot(5, 1209),
+                        FlSpot(6, 1300),
+                        FlSpot(7, 1100),
+                        FlSpot(8, 2000),
+                        FlSpot(9, 1300),
+                        FlSpot(10, 1100),
+                        FlSpot(11, 1209),
+                        FlSpot(12, 1300),
+                        FlSpot(13, 1100),
+                        FlSpot(14, 1209),
+                        FlSpot(15, 100),
+                        FlSpot(16, 1100),
+                        FlSpot(17, 1209),
+                        FlSpot(18, 1300),
+                      ],
+                      colors: [Colors.white],
+                      dotData: FlDotData(
+                        show: true,
+                        getDotPainter: (spot, percent, barData, index) =>
+                            FlDotCirclePainter(
+                                radius: 3, color: Colors.white.withOpacity(1)),
+                      ),
+                    ),
+                  ],
+                  gridData: FlGridData(show: false),
+                  titlesData: FlTitlesData(
+                    rightTitles: SideTitles(
+                      showTitles: false,
+                    ),
+                    topTitles: SideTitles(showTitles: false),
+                    leftTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                  ),
+                  axisTitleData: FlAxisTitleData(
+                    leftTitle: AxisTitle(
+                      showTitle: true,
+                      titleText: 'Rating->',
+                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitle: AxisTitle(
+                        showTitle: true,
+                        titleText: 'No of contest->',
+                        textStyle:
+                            TextStyle(color: Colors.white, fontSize: 10.0),
+                        textAlign: TextAlign.center),
+                  ),
+                  borderData: FlBorderData(
+                    show: true,
+                    border: const Border(
+                      left: BorderSide(color: Colors.white),
+                      top: BorderSide(color: Colors.transparent),
+                      bottom: BorderSide(color: Colors.white),
+                      right: BorderSide(color: Colors.transparent),
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
-              height: 200,
               decoration: BoxDecoration(
                 color: Colors.grey.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(15),
@@ -268,6 +441,7 @@ class Codeforces {
                       ],
                     ),
                   ),
+                  SizedBox(height: 20)
                 ],
               ),
             ),
@@ -300,7 +474,6 @@ class LeetCode {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
-              height: 200,
               decoration: BoxDecoration(
                 color: Colors.grey.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(15),
@@ -430,6 +603,7 @@ class LeetCode {
                             ),
                           ],
                         ),
+                        SizedBox(height: 20),
                       ],
                     ),
                   ),
@@ -460,10 +634,97 @@ class AtCoder {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           HeadingText1(text: "Atcoder"),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: EdgeInsets.only(right: 25),
+            child: AspectRatio(
+              aspectRatio: 1.5,
+              child: LineChart(
+                LineChartData(
+                  minX: 0,
+                  maxX: 25,
+                  minY: 0,
+                  maxY: 2000,
+                  lineBarsData: [
+                    LineChartBarData(
+                      spots: [
+                        FlSpot(0, 100),
+                        FlSpot(1, 1000),
+                        FlSpot(2, 1100),
+                        FlSpot(3, 900),
+                        FlSpot(4, 1100),
+                        FlSpot(5, 1209),
+                        FlSpot(6, 1300),
+                        FlSpot(7, 1100),
+                        FlSpot(8, 2000),
+                        FlSpot(9, 1300),
+                        FlSpot(10, 1100),
+                        FlSpot(11, 1209),
+                        FlSpot(12, 1300),
+                        FlSpot(13, 1100),
+                        FlSpot(14, 1209),
+                        FlSpot(15, 100),
+                        FlSpot(16, 1100),
+                        FlSpot(17, 1209),
+                        FlSpot(18, 1300),
+                      ],
+                      colors: [Colors.white],
+                      dotData: FlDotData(
+                        show: true,
+                        getDotPainter: (spot, percent, barData, index) =>
+                            FlDotCirclePainter(
+                                radius: 3, color: Colors.white.withOpacity(1)),
+                      ),
+                    ),
+                  ],
+                  gridData: FlGridData(show: false),
+                  titlesData: FlTitlesData(
+                    rightTitles: SideTitles(
+                      showTitles: false,
+                    ),
+                    topTitles: SideTitles(showTitles: false),
+                    leftTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                  ),
+                  axisTitleData: FlAxisTitleData(
+                    leftTitle: AxisTitle(
+                      showTitle: true,
+                      titleText: 'Rating->',
+                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitle: AxisTitle(
+                        showTitle: true,
+                        titleText: 'No of contest->',
+                        textStyle:
+                            TextStyle(color: Colors.white, fontSize: 10.0),
+                        textAlign: TextAlign.center),
+                  ),
+                  borderData: FlBorderData(
+                    show: true,
+                    border: const Border(
+                      left: BorderSide(color: Colors.white),
+                      top: BorderSide(color: Colors.transparent),
+                      bottom: BorderSide(color: Colors.white),
+                      right: BorderSide(color: Colors.transparent),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
-              height: 200,
               decoration: BoxDecoration(
                 color: Colors.grey.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(15),
@@ -554,6 +815,7 @@ class AtCoder {
                       ],
                     ),
                   ),
+                  SizedBox(height: 20)
                 ],
               ),
             ),
