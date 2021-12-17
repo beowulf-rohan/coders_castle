@@ -1,4 +1,5 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
+import 'package:coders_castle/screens/profileScreen/reusable.dart';
 import 'package:coders_castle/widgets/resuable.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +27,30 @@ class _ProfileScreenState extends State<ProfileScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  
+                  PlatformCard(
+                    path: 'images/leetcode.png',
+                    platformName: 'Leetcode',
+                    stringKey: 'leetocode',
+                    boolKey: 'bool_leetcode',
+                  ),
+                  PlatformCard(
+                    path: 'images/codechef.png',
+                    platformName: 'Codechef',
+                    stringKey: 'codechef',
+                    boolKey: 'bool_codechef',
+                  ),
+                  PlatformCard(
+                    path: 'images/codeforces.png',
+                    platformName: 'Codeforces',
+                    stringKey: 'codeforces',
+                    boolKey: 'bool_codeforces',
+                  ),
+                  PlatformCard(
+                    path: 'images/atcoder.png',
+                    platformName: 'AtCoder',
+                    stringKey: 'atcoder',
+                    boolKey: 'bool_atcoder',
+                  ),
                 ],
               ),
             ),

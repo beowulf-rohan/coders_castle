@@ -22,6 +22,7 @@ dev_dependencies:
   glassmorphism: ^3.0.0
   google_nav_bar: ^5.0.5
   line_icons: ^2.0.1
+  shared_preferences: ^2.0.11
 
 flutter:
   uses-material-design: true

@@ -2,61 +2,86 @@
 import 'package:flutter/material.dart';
 
 class PlatformCard extends StatefulWidget {
-  final String question, answer;
-  PlatformCard({Key key, @required this.question, @required this.answer})
-    : super(key: key);
+  const PlatformCard(
+      {Key key,
+      @required this.path,
+      @required this.platformName,
+      @required this.stringKey,
+      @required this.boolKey})
+      : super(key: key);
+  final String path, platformName, stringKey, boolKey;
+
   @override
-  _PlatformCardState createState() => _PlatformCardState();
+  State<PlatformCard> createState() => _PlatformCardState();
 }
 
 class _PlatformCardState extends State<PlatformCard> {
   bool isVisible = false;
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 11.0),
-        child: Container(
-          decoration: BoxDecoration(color: Colors.grey.shade200, borderRadius: BorderRadius.circular(20.0)),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Text(
-                        widget.question,
-                        style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      child: Container(
+        // height: 50,
+        decoration: BoxDecoration(
+          color: Colors.grey.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 7.5, top: 3, bottom: 3),
+                      child: SizedBox(
+                        height: 40,
+                        width: 30,
+                        child: Image.asset(widget.path),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isVisible = !isVisible;
-                        });
-                      },
-                      child: Icon((isVisible) ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down),
+                    SizedBox(width: 20),
+                    Text(
+                      widget.platformName,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Visibility(
-                visible: isVisible,
-                child: Padding(
-                    padding: const EdgeInsets.fromLTRB(15.0, 0, 15.0, 15.0),
-                    child: Text(
-                      widget.answer,
-                      style: TextStyle(fontSize: 15),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        isVisible = !isVisible;
+                      });
+                    },
+                    child: Icon(
+                      (isVisible)
+                          ? Icons.keyboard_arrow_up
+                          : Icons.keyboard_arrow_down,
+                      size: 30,
+                      color: Colors.white,
                     ),
                   ),
                 ),
-            ],
-          ),
+              ],
+            ),
+            Visibility(
+              visible: isVisible,
+              child: Column(
+                children: [
+                  
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );
