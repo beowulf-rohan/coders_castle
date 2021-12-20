@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
+import 'package:coders_castle/modals/contests_list.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
   static const String id = 'HomeScreen';
@@ -19,8 +21,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    get();
     Provider.of<ConnectivityProvider>(context, listen: false).startMonitoring();
   }
+
+  void get() async {
+    await Codeforces().getContestInfo();
+  }
+
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     ContestScreen(),
@@ -33,74 +41,76 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        body:  _widgetOptions.elementAt(_selectedIndex),
+        body: _widgetOptions.elementAt(_selectedIndex),
         bottomNavigationBar: pageUI(),
       ),
     );
   }
+
   Widget pageUI() {
     return Consumer<ConnectivityProvider>(
       builder: (consumerContext, model, child) {
         if (model.isOnline != null) {
           return model.isOnline
               ? Container(
-            decoration: BoxDecoration(
-              color: Colors.black,
-              boxShadow: [
-                BoxShadow(
-                  blurRadius: 20,
-                  color: Colors.black.withOpacity(.1),
-                )
-              ],
-            ),
-            child: Padding(
-              padding:
-              const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
-              child: GNav(
-                rippleColor: Colors.white,
-                hoverColor: Colors.white,
-                gap: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 20,
+                        color: Colors.black.withOpacity(.1),
+                      )
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15.0, vertical: 8),
+                    child: GNav(
+                      rippleColor: Colors.white,
+                      hoverColor: Colors.white,
+                      gap: 8,
 // backgroundColor: Colors.white, // activeColor: Colors.black,
-                iconSize: 24,
-                padding: EdgeInsets.symmetric(horizontal: 22.5, vertical: 12),
-                duration: Duration(milliseconds: 500),
-                tabBackgroundColor: Color(0xff2a2a2a),
-                color: Colors.white,
-                tabs: const [
-                  GButton(
-                    icon: LineIcons.calendar,
-                    haptic: true,
-                    text: 'Contests',
-                    textStyle: TextStyle(color: Colors.white),
-                    backgroundColor: Color(0xff2a2a2a),
-                    iconActiveColor: Colors.white,
+                      iconSize: 24,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 22.5, vertical: 12),
+                      duration: Duration(milliseconds: 500),
+                      tabBackgroundColor: Color(0xff2a2a2a),
+                      color: Colors.white,
+                      tabs: const [
+                        GButton(
+                          icon: LineIcons.calendar,
+                          haptic: true,
+                          text: 'Contests',
+                          textStyle: TextStyle(color: Colors.white),
+                          backgroundColor: Color(0xff2a2a2a),
+                          iconActiveColor: Colors.white,
+                        ),
+                        GButton(
+                          icon: LineIcons.chalkboard,
+                          haptic: true,
+                          text: 'Stats',
+                          textStyle: TextStyle(color: Colors.white),
+                          backgroundColor: Color(0xff2a2a2a),
+                          iconActiveColor: Colors.white,
+                        ),
+                        GButton(
+                          icon: LineIcons.user,
+                          haptic: true,
+                          text: 'Profile',
+                          textStyle: TextStyle(color: Colors.white),
+                          backgroundColor: Color(0xff2a2a2a),
+                          iconActiveColor: Colors.white,
+                        ),
+                      ],
+                      selectedIndex: _selectedIndex,
+                      onTabChange: (index) {
+                        setState(() {
+                          _selectedIndex = index;
+                        });
+                      },
+                    ),
                   ),
-                  GButton(
-                    icon: LineIcons.chalkboard,
-                    haptic: true,
-                    text: 'Stats',
-                    textStyle: TextStyle(color: Colors.white),
-                    backgroundColor: Color(0xff2a2a2a),
-                    iconActiveColor: Colors.white,
-                  ),
-                  GButton(
-                    icon: LineIcons.user,
-                    haptic: true,
-                    text: 'Profile',
-                    textStyle: TextStyle(color: Colors.white),
-                    backgroundColor: Color(0xff2a2a2a),
-                    iconActiveColor: Colors.white,
-                  ),
-                ],
-                selectedIndex: _selectedIndex,
-                onTabChange: (index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                },
-              ),
-            ),
-          )
+                )
               : NoInternet();
         }
         return Container(
