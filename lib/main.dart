@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:async';
+import 'package:coders_castle/screens/homePage.dart';
 import 'package:coders_castle/widgets/resuable.dart';
 import 'package:flutter/material.dart';
 import 'package:coders_castle/screens/homeScreen.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         ProfileScreen.id: (context) => ProfileScreen(),
         ContestScreen.id: (context) => ContestScreen(),
         StatsScreen.id: (context) => StatsScreen(),
+        HomePage.id: (context) => HomePage(),
       },
     );
   }
@@ -42,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, HomeScreen.id);
+      Navigator.pushReplacementNamed(context, HomePage.id);
     });
     // Timer(Duration(milliseconds: 500), () {
     //   Navigator.pushNamed(context, HomeScreen.id);
