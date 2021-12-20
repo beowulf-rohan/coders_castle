@@ -2,6 +2,7 @@
 import 'package:coders_castle/screens/contestScreen/reusable.dart';
 import 'package:coders_castle/widgets/resuable.dart';
 import 'package:flutter/material.dart';
+import 'package:coders_castle/modals/contests_list.dart';
 
 class ContestScreen extends StatefulWidget {
   const ContestScreen({Key key}) : super(key: key);
@@ -11,6 +12,95 @@ class ContestScreen extends StatefulWidget {
 }
 
 class _ContestScreenState extends State<ContestScreen> {
+  List<Widget> plist = [];
+  List<Widget> flist = [];
+
+  @override
+  void initState() {
+    super.initState();
+    plist.add(HeadingText(text: "Today"));
+
+    for (int j = 0; j < Codeforces.pat.length; j++) {
+      plist.add(ContestCard(
+        path: 'images/codeforces.png',
+        contestName: Codeforces.pcontestName[j],
+        date: Codeforces.pon[j],
+        time: Codeforces.pat[j],
+        duration: Codeforces.pduration[j],
+      ));
+    }
+    for (int j = 0; j < AtCoder.pat.length; j++) {
+      plist.add(ContestCard(
+        path: 'images/atcoder.png',
+        contestName: AtCoder.pcontestName[j],
+        date: AtCoder.pon[j],
+        time: AtCoder.pat[j],
+        duration: AtCoder.pduration[j],
+      ));
+    }
+    for (int j = 0; j < LeetCode.pat.length; j++) {
+      plist.add(ContestCard(
+        path: 'images/leetcode.png',
+        contestName: LeetCode.pcontestName[j],
+        date: LeetCode.pon[j],
+        time: LeetCode.pat[j],
+        duration: LeetCode.pduration[j],
+      ));
+    }
+    for (int j = 0; j < KickStart.pat.length; j++) {
+      plist.add(ContestCard(
+        path: 'images/google.png',
+        contestName: KickStart.pcontestName[j],
+        date: KickStart.pon[j],
+        time: KickStart.pat[j],
+        duration: KickStart.pduration[j],
+      ));
+    }
+    plist.add(SizedBox(height: 10));
+
+    flist.add(HeadingText(text: "Upcoming"));
+    for (int j = 0; j < Codeforces.fat.length; j++) {
+      flist.add(ContestCard(
+        path: 'images/codeforces.png',
+        contestName: Codeforces.fcontestName[j],
+        date: Codeforces.fon[j],
+        time: Codeforces.fat[j],
+        duration: Codeforces.fduration[j],
+      ));
+    }
+
+    for (int j = 0; j < AtCoder.fat.length; j++) {
+      flist.add(ContestCard(
+        path: 'images/atcoder.png',
+        contestName: AtCoder.fcontestName[j],
+        date: AtCoder.fon[j],
+        time: AtCoder.fat[j],
+        duration: AtCoder.fduration[j],
+      ));
+    }
+
+    for (int j = 0; j < LeetCode.fat.length; j++) {
+      flist.add(ContestCard(
+        path: 'images/leetcode.png',
+        contestName: LeetCode.fcontestName[j],
+        date: LeetCode.fon[j],
+        time: LeetCode.fat[j],
+        duration: LeetCode.fduration[j],
+      ));
+    }
+
+    for (int j = 0; j < KickStart.fat.length; j++) {
+      flist.add(ContestCard(
+        path: 'images/google.png',
+        contestName: KickStart.fcontestName[j],
+        date: KickStart.fon[j],
+        time: KickStart.fat[j],
+        duration: KickStart.fduration[j],
+      ));
+    }
+    flist.add(SizedBox(height: 10));
+  }
+
   @override
   Widget build(BuildContext context) {
     return GlassBackground(
@@ -27,31 +117,7 @@ class _ContestScreenState extends State<ContestScreen> {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  HeadingText(text: "Today"),
-                  ContestCard(
-                    path: 'images/leetcode.png',
-                    contestName: 'Leetcode Weekly 272',
-                    date: '16/12/21',
-                    time: '8:00 PM',
-                    duration: '1 hrs 30 min',
-                  ),
-                  ContestCard(
-                    path: 'images/hackerearth.png',
-                    contestName: 'Leetcode Weekly 272',
-                    date: '16/12/21',
-                    time: '8:00 PM',
-                    duration: '1 hrs 30 min',
-                  ),
-                  ContestCard(
-                    path: 'images/codechef.png',
-                    contestName: 'Leetcode Weekly 272',
-                    date: '16/12/21',
-                    time: '8:00 PM',
-                    duration: '1 hrs 30 min',
-                  ),
-                  SizedBox(height: 10)
-                ],
+                children: plist,
               ),
             ),
             Container(
@@ -63,45 +129,7 @@ class _ContestScreenState extends State<ContestScreen> {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  HeadingText(text: "Upcoming"),
-                  ContestCard(
-                    path: 'images/codeforces.png',
-                    contestName: 'Leetcode Weekly 272',
-                    date: '16/12/21',
-                    time: '8:00 PM',
-                    duration: '1 hrs 30 min',
-                  ),
-                  ContestCard(
-                    path: 'images/spoj.png',
-                    contestName: 'Leetcode Weekly 272',
-                    date: '16/12/21',
-                    time: '8:00 PM',
-                    duration: '1 hrs 30 min',
-                  ),
-                  ContestCard(
-                    path: 'images/hackerrank.png',
-                    contestName: 'Leetcode Weekly 272',
-                    date: '16/12/21',
-                    time: '8:00 PM',
-                    duration: '1 hrs 30 min',
-                  ),
-                  ContestCard(
-                    path: 'images/atcoder.png',
-                    contestName: 'Leetcode Weekly 272',
-                    date: '16/12/21',
-                    time: '8:00 PM',
-                    duration: '1 hrs 30 min',
-                  ),
-                  ContestCard(
-                    path: 'images/google.png',
-                    contestName: 'Leetcode Weekly 272',
-                    date: '16/12/21',
-                    time: '8:00 PM',
-                    duration: '1 hrs 30 min',
-                  ),
-                  SizedBox(height: 10)
-                ],
+                children: flist,
               ),
             ),
             SizedBox(height: 30, width: double.infinity)

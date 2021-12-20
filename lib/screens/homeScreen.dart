@@ -21,12 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    get();
     Provider.of<ConnectivityProvider>(context, listen: false).startMonitoring();
-  }
-
-  void get() async {
-    await Codeforces().getContestInfo();
   }
 
   int _selectedIndex = 0;

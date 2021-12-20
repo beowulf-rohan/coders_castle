@@ -7,6 +7,7 @@ import 'package:coders_castle/screens/homeScreen.dart';
 import 'package:coders_castle/screens/profileScreen/profileScreen.dart';
 import 'package:coders_castle/screens/contestScreen/contestScreen.dart';
 import 'package:coders_castle/screens/statsScreen/statsScreen.dart';
+import 'package:coders_castle/modals/contests_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -43,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double widget1Opacity = 0.0;
   @override
   void initState() {
+    get();
     Timer(Duration(seconds: 5), () {
       Navigator.pushReplacementNamed(context, HomePage.id);
     });
@@ -55,6 +57,13 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     });
     super.initState();
+  }
+
+  Future<void> get() async {
+    await Codeforces().getContestInfo();
+    await AtCoder().getContestInfo();
+    await KickStart().getContestInfo();
+    await LeetCode().getContestInfo();
   }
 
   @override
