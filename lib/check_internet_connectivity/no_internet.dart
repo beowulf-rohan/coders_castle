@@ -6,7 +6,10 @@ class NoInternet extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(20),
-      color: Colors.white,
+      decoration: BoxDecoration(
+        color: Color(0xff2a2a2a).withOpacity(0.2),
+        borderRadius: BorderRadius.circular(15),
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -14,20 +17,12 @@ class NoInternet extends StatelessWidget {
           Container(
             height: 200,
             width: 200,
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 25),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/no-internet.png"),
-                fit: BoxFit.fill,
-              ),
-            ),
+            child: Image.asset('images/no_internet.png'),
           ),
           Text(
             "No Internet Connection",
             style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ),
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
           ),
           Padding(
             padding: EdgeInsets.all(15),

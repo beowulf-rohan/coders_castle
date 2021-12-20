@@ -107,6 +107,7 @@ class Codechef {
                     topTitles: SideTitles(showTitles: false),
                     leftTitles: SideTitles(
                       showTitles: true,
+                      reservedSize: 30.0,
                       getTextStyles: (context, value) =>
                           const TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
@@ -305,6 +306,7 @@ class Codeforces {
                     ),
                     topTitles: SideTitles(showTitles: false),
                     leftTitles: SideTitles(
+                      reservedSize: 30.0,
                       showTitles: true,
                       getTextStyles: (context, value) =>
                           const TextStyle(color: Colors.white, fontSize: 10.0),
@@ -687,6 +689,7 @@ class AtCoder {
                     topTitles: SideTitles(showTitles: false),
                     leftTitles: SideTitles(
                       showTitles: true,
+                      reservedSize: 30.0,
                       getTextStyles: (context, value) =>
                           const TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
