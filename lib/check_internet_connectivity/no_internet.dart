@@ -24,15 +24,6 @@ class NoInternet extends StatelessWidget {
             style: TextStyle(
                 fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
           ),
-          Padding(
-            padding: EdgeInsets.all(15),
-            child: Text(
-              "You are not connected to the internet. Make sure Wi-Fi is on, Airplane Mode is Off and try again.",
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          )
         ],
       ),
     );
