@@ -25,15 +25,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    get();
     super.initState();
-  }
-
-  Future<void> get() async {
-    await Codeforces().getContestInfo();
-    await AtCoder().getContestInfo();
-    await KickStart().getContestInfo();
-    await LeetCode().getContestInfo();
   }
 
   @override

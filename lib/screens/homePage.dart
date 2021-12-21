@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:coders_castle/check_internet_connectivity/connectivity_provider.dart';
 import 'package:coders_castle/check_internet_connectivity/no_internet.dart';
+import 'package:coders_castle/modals/contests_list.dart';
 import 'package:coders_castle/screens/profileScreen/profileScreen.dart';
 import 'package:coders_castle/screens/statsScreen/statsScreen.dart';
 import 'package:coders_castle/widgets/resuable.dart';
@@ -40,6 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
   double widget1Opacity = 0.0;
   @override
   void initState() {
+    if (LeetCode.flinks.isEmpty &&
+        Codeforces.fat.isEmpty &&
+        AtCoder.fat.isEmpty &&
+        LeetCode.flinks.isEmpty) get();
     Timer(Duration(seconds: 5), () {
       Navigator.pushReplacementNamed(context, HomeScreen.id);
     });
@@ -52,6 +57,13 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     });
     super.initState();
+  }
+
+  Future<void> get() async {
+    await Codeforces().getContestInfo();
+    await AtCoder().getContestInfo();
+    await KickStart().getContestInfo();
+    await LeetCode().getContestInfo();
   }
 
   @override
