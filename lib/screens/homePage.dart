@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> get() async {
+    await CodeChef().getContestInfo();
     await Codeforces().getContestInfo();
     await AtCoder().getContestInfo();
     await KickStart().getContestInfo();
