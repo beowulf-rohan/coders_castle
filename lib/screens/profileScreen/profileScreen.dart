@@ -28,28 +28,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   PlatformCard(
-                    path: 'images/leetcode.png',
-                    platformName: 'Leetcode',
-                    stringKey: 'leetocode',
-                    boolKey: 'bool_leetcode',
-                  ),
-                  PlatformCard(
                     path: 'images/codechef.png',
                     platformName: 'Codechef',
                     stringKey: 'codechef',
-                    boolKey: 'bool_codechef',
                   ),
                   PlatformCard(
                     path: 'images/codeforces.png',
                     platformName: 'Codeforces',
                     stringKey: 'codeforces',
-                    boolKey: 'bool_codeforces',
+                  ),
+                  PlatformCard(
+                    path: 'images/leetcode.png',
+                    platformName: 'Leetcode',
+                    stringKey: 'leetcode',
                   ),
                   PlatformCard(
                     path: 'images/atcoder.png',
                     platformName: 'AtCoder',
                     stringKey: 'atcoder',
-                    boolKey: 'bool_atcoder',
                   ),
                 ],
               ),

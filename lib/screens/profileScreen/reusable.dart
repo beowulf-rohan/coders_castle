@@ -1,16 +1,16 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:coders_castle/modals/stats_list.dart' as stats;
 
 class PlatformCard extends StatefulWidget {
   const PlatformCard(
       {Key key,
       @required this.path,
       @required this.platformName,
-      @required this.stringKey,
-      @required this.boolKey})
+      @required this.stringKey})
       : super(key: key);
-  final String path, platformName, stringKey, boolKey;
+  final String path, platformName, stringKey;
 
   @override
   State<PlatformCard> createState() => _PlatformCardState();
@@ -36,6 +36,15 @@ class _PlatformCardState extends State<PlatformCard> {
       isVisible = false;
       showUserName = true;
     });
+    if (widget.stringKey.compareTo('leetcode') == 0) {
+      await stats.LeetCodePerformance().getPerformanceInfo(username);
+    } else if (widget.stringKey.compareTo('atcoder') == 0) {
+      await stats.AtcoderPerformance().getPerformanceInfo(username);
+    } else if (widget.stringKey.compareTo('codeforces') == 0) {
+      await stats.CodeforcesPerformance().getPerformanceInfo(username);
+    } else if (widget.stringKey.compareTo('codechef') == 0) {
+      await stats.CodeChefPerformance().getPerformanceInfo(username);
+    }
   }
 
   @override
