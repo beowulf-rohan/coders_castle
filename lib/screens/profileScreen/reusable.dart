@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:coders_castle/modals/stats_list.dart' as stats;
-
 class PlatformCard extends StatefulWidget {
   const PlatformCard(
       {Key key,
@@ -33,7 +32,6 @@ class _PlatformCardState extends State<PlatformCard> {
     final SharedPreferences sharedPref = await SharedPreferences.getInstance();
     sharedPref.setString(widget.stringKey, username);
     setState(() {
-      isVisible = false;
       showUserName = true;
     });
     if (widget.stringKey.compareTo('leetcode') == 0) {
@@ -45,6 +43,9 @@ class _PlatformCardState extends State<PlatformCard> {
     } else if (widget.stringKey.compareTo('codechef') == 0) {
       await stats.CodeChefPerformance().getPerformanceInfo(username);
     }
+    setState(() {
+      isVisible = false;
+    });
   }
 
   @override
