@@ -36,33 +36,75 @@ Widget EmptyUsernameContainer(String platform) {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        HeadingText1(text: platform),
+        //HeadingText1(text: platform,),
         SizedBox(
           height: 10,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
           child: Container(
-            alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.grey.withOpacity(0.1),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                  height: 10,
+                Padding(
+                  padding: const EdgeInsets.only(left: 7.5, top: 3, bottom: 3),
+                  child: SizedBox(
+                    height: 70,
+                    width: 50,
+                    child: Image.asset('images/${platform.toLowerCase()}.png'),
+                  ),
                 ),
-                Text(
-                  'Please Enter a Valid Username',
-                  style: TextStyle(
+                Container(
+                  margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+                  child: Divider(
+                    indent: 5,
+                    endIndent: 5,
                     color: Colors.white,
-                    fontSize: 20,
+                    height: 15,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Please enter a',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'valid username',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'to see your stats',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        'for this platform',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 20.0,
                 ),
               ],
             ),
