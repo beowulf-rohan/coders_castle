@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, file_names, prefer_const_constructors
 
 import 'dart:core';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:coders_castle/modals/stats_list.dart' as stats;
 
 class HeadingText1 extends StatelessWidget {
   const HeadingText1({Key key, @required this.text}) : super(key: key);
@@ -25,12 +27,28 @@ class HeadingText1 extends StatelessWidget {
 }
 
 class Codechef {
-  static String username = 'rahulladi';
-  static String maxRating = '1700';
-  static String presentRating = '1679';
-  static String designation = '4 star';
+  static String username = stats.CodeChefPerformance.username;
+  static int maxRating = stats.CodeChefPerformance.maxRating;
+  static int presentRating = stats.CodeChefPerformance.presentRating;
+  static String designation = stats.CodeChefPerformance.designation;
+  static List<dynamic> list = stats.CodeChefPerformance.ratings;
+  static double maxX = 25;
+  static List<FlSpot> flspots = [];
 
   static Widget StatsCard() {
+    username = stats.CodeChefPerformance.username;
+    maxRating = stats.CodeChefPerformance.maxRating;
+    presentRating = stats.CodeChefPerformance.presentRating;
+    designation = stats.CodeChefPerformance.designation;
+    list = stats.CodeChefPerformance.ratings;
+    maxX = (list.length / 10 + 1) * 10;
+
+    if (flspots.isEmpty) {
+      for (int j = 0; j < list.length; j++) {
+        flspots.add(FlSpot((j + 1).toDouble(), list[j].toDouble()));
+      }
+    }
+
     return Container(
       margin: EdgeInsets.only(top: 30),
       decoration: BoxDecoration(
@@ -51,38 +69,19 @@ class Codechef {
               child: LineChart(
                 LineChartData(
                   minX: 0,
-                  maxX: 25,
+                  maxX: maxX,
                   minY: 0,
-                  maxY: 2000,
+                  maxY: 2500,
                   lineBarsData: [
                     LineChartBarData(
-                      spots: [
-                        FlSpot(0, 100),
-                        FlSpot(1, 1000),
-                        FlSpot(2, 1100),
-                        FlSpot(3, 900),
-                        FlSpot(4, 1100),
-                        FlSpot(5, 1209),
-                        FlSpot(6, 1300),
-                        FlSpot(7, 1100),
-                        FlSpot(8, 2000),
-                        FlSpot(9, 1300),
-                        FlSpot(10, 1100),
-                        FlSpot(11, 1209),
-                        FlSpot(12, 1300),
-                        FlSpot(13, 1100),
-                        FlSpot(14, 1209),
-                        FlSpot(15, 100),
-                        FlSpot(16, 1100),
-                        FlSpot(17, 1209),
-                        FlSpot(18, 1300),
-                      ],
+                      spots: flspots,
                       colors: [Colors.white],
                       dotData: FlDotData(
                         show: true,
                         getDotPainter: (spot, percent, barData, index) =>
                             FlDotCirclePainter(
-                                radius: 3, color: Colors.white.withOpacity(1)),
+                                radius: 1.5,
+                                color: Colors.white.withOpacity(1)),
                       ),
                     ),
                   ],
@@ -165,7 +164,7 @@ class Codechef {
                       children: [
                         SizedBox(height: 10),
                         Text(
-                          'username',
+                          username,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -184,7 +183,7 @@ class Codechef {
                                   color: Colors.white),
                             ),
                             Text(
-                              maxRating,
+                              maxRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -199,7 +198,7 @@ class Codechef {
                                   color: Colors.white),
                             ),
                             Text(
-                              presentRating,
+                              presentRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -238,12 +237,28 @@ class Codechef {
 }
 
 class Codeforces {
-  static String username = 'rahulladi';
-  static String maxRating = '1700';
-  static String presentRating = '1679';
-  static String maxDesignation = 'master';
-  static String presentDesignation = 'pupil';
+  static String username = stats.CodeforcesPerformance.username;
+  static int maxRating = stats.CodeforcesPerformance.maxRating;
+  static int presentRating = stats.CodeforcesPerformance.presentRating;
+  static String designation = stats.CodeforcesPerformance.designation;
+  static List<dynamic> list = stats.CodeforcesPerformance.ratings;
+  static double maxX = 25;
+  static List<FlSpot> flspots = [];
+
   static Widget StatsCard() {
+    username = stats.CodeforcesPerformance.username;
+    maxRating = stats.CodeforcesPerformance.maxRating;
+    presentRating = stats.CodeforcesPerformance.presentRating;
+    designation = stats.CodeforcesPerformance.designation;
+    list = stats.CodeforcesPerformance.ratings;
+    maxX = (list.length / 10 + 1) * 10;
+    list = list.reversed.toList();
+
+    if (flspots.isEmpty) {
+      for (int j = 0; j < list.length; j++) {
+        flspots.add(FlSpot((j + 1).toDouble(), list[j].toDouble()));
+      }
+    }
     return Container(
       margin: EdgeInsets.only(top: 30),
       decoration: BoxDecoration(
@@ -264,59 +279,23 @@ class Codeforces {
               child: LineChart(
                 LineChartData(
                   minX: 0,
-                  maxX: 25,
+                  maxX: maxX,
                   minY: 0,
-                  maxY: 2000,
+                  maxY: 2500,
                   lineBarsData: [
                     LineChartBarData(
-                      spots: [
-                        FlSpot(0, 100),
-                        FlSpot(1, 1000),
-                        FlSpot(2, 1100),
-                        FlSpot(3, 900),
-                        FlSpot(4, 1100),
-                        FlSpot(5, 1209),
-                        FlSpot(6, 1300),
-                        FlSpot(7, 1100),
-                        FlSpot(8, 2000),
-                        FlSpot(9, 1300),
-                        FlSpot(10, 1100),
-                        FlSpot(11, 1209),
-                        FlSpot(12, 1300),
-                        FlSpot(13, 1100),
-                        FlSpot(14, 1209),
-                        FlSpot(15, 100),
-                        FlSpot(16, 1100),
-                        FlSpot(17, 1209),
-                        FlSpot(18, 1300),
-                      ],
+                      spots: flspots,
                       colors: [Colors.white],
                       dotData: FlDotData(
                         show: true,
                         getDotPainter: (spot, percent, barData, index) =>
                             FlDotCirclePainter(
-                                radius: 3, color: Colors.white.withOpacity(1)),
+                                radius: 1.5,
+                                color: Colors.white.withOpacity(1)),
                       ),
                     ),
                   ],
                   gridData: FlGridData(show: false),
-                  titlesData: FlTitlesData(
-                    rightTitles: SideTitles(
-                      showTitles: false,
-                    ),
-                    topTitles: SideTitles(showTitles: false),
-                    leftTitles: SideTitles(
-                      reservedSize: 30.0,
-                      showTitles: true,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                    bottomTitles: SideTitles(
-                      showTitles: true,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                  ),
                   axisTitleData: FlAxisTitleData(
                     leftTitle: AxisTitle(
                       showTitle: true,
@@ -329,6 +308,23 @@ class Codeforces {
                         textStyle:
                             TextStyle(color: Colors.white, fontSize: 10.0),
                         textAlign: TextAlign.center),
+                  ),
+                  titlesData: FlTitlesData(
+                    rightTitles: SideTitles(
+                      showTitles: false,
+                    ),
+                    topTitles: SideTitles(showTitles: false),
+                    leftTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 30.0,
+                      getTextStyles: (context, value) =>
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
                   ),
                   borderData: FlBorderData(
                     show: true,
@@ -378,7 +374,7 @@ class Codeforces {
                       children: [
                         SizedBox(height: 10),
                         Text(
-                          'username',
+                          username,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -397,7 +393,7 @@ class Codeforces {
                                   color: Colors.white),
                             ),
                             Text(
-                              maxRating,
+                              maxRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -412,7 +408,7 @@ class Codeforces {
                                   color: Colors.white),
                             ),
                             Text(
-                              presentRating,
+                              presentRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -422,17 +418,10 @@ class Codeforces {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              maxDesignation,
-                              style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white),
-                            ),
-                            Text(
-                              presentDesignation,
+                              designation,
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -443,7 +432,9 @@ class Codeforces {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20)
+                  SizedBox(
+                    height: 20.0,
+                  ),
                 ],
               ),
             ),
@@ -456,13 +447,21 @@ class Codeforces {
 }
 
 class LeetCode {
-  static String username = 'rahulladi';
-  static String problemsSolved = '250';
-  static String acceptanceRate = '50%';
-  static String hard = '10';
-  static String easy = '52';
-  static String medium = '100';
+  static String username = stats.LeetCodePerformance.username;
+  static String problemsSolved = stats.LeetCodePerformance.problemSolved;
+  static String acceptanceRate = stats.LeetCodePerformance.acceptanceRate;
+  static String hard = stats.LeetCodePerformance.hard;
+  static String easy = stats.LeetCodePerformance.medium;
+  static String medium = stats.LeetCodePerformance.easy;
+
   static Widget StatsCard() {
+    username = stats.LeetCodePerformance.username;
+    problemsSolved = stats.LeetCodePerformance.problemSolved;
+    acceptanceRate = stats.LeetCodePerformance.acceptanceRate;
+    hard = stats.LeetCodePerformance.hard;
+    easy = stats.LeetCodePerformance.medium;
+    medium = stats.LeetCodePerformance.easy;
+
     return Container(
       margin: EdgeInsets.only(top: 30),
       decoration: BoxDecoration(
@@ -508,7 +507,7 @@ class LeetCode {
                       children: [
                         SizedBox(height: 10),
                         Text(
-                          'username',
+                          username,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -621,11 +620,27 @@ class LeetCode {
 }
 
 class AtCoder {
-  static String username = 'rahulladi';
-  static String maxRating = '1700';
-  static String presentRating = '1679';
-  static String designation = 'master';
+  static String username = stats.AtcoderPerformance.username;
+  static int maxRating = stats.AtcoderPerformance.maxRating;
+  static int presentRating = stats.AtcoderPerformance.presentRating;
+  static String designation = stats.AtcoderPerformance.designation;
+  static List<dynamic> list = stats.AtcoderPerformance.ratings;
+  static double maxX = 25;
+  static List<FlSpot> flspots = [];
+
   static Widget StatsCard() {
+    username = stats.AtcoderPerformance.username;
+    maxRating = stats.AtcoderPerformance.maxRating;
+    presentRating = stats.AtcoderPerformance.presentRating;
+    designation = stats.AtcoderPerformance.designation;
+    list = stats.AtcoderPerformance.ratings;
+    maxX = (list.length / 10 + 1) * 10;
+
+    if (flspots.isEmpty) {
+      for (int j = 0; j < list.length; j++) {
+        flspots.add(FlSpot((j + 1).toDouble(), list[j].toDouble()));
+      }
+    }
     return Container(
       margin: EdgeInsets.only(top: 30),
       decoration: BoxDecoration(
@@ -646,42 +661,36 @@ class AtCoder {
               child: LineChart(
                 LineChartData(
                   minX: 0,
-                  maxX: 25,
+                  maxX: maxX,
                   minY: 0,
-                  maxY: 2000,
+                  maxY: 2500,
                   lineBarsData: [
                     LineChartBarData(
-                      spots: [
-                        FlSpot(0, 100),
-                        FlSpot(1, 1000),
-                        FlSpot(2, 1100),
-                        FlSpot(3, 900),
-                        FlSpot(4, 1100),
-                        FlSpot(5, 1209),
-                        FlSpot(6, 1300),
-                        FlSpot(7, 1100),
-                        FlSpot(8, 2000),
-                        FlSpot(9, 1300),
-                        FlSpot(10, 1100),
-                        FlSpot(11, 1209),
-                        FlSpot(12, 1300),
-                        FlSpot(13, 1100),
-                        FlSpot(14, 1209),
-                        FlSpot(15, 100),
-                        FlSpot(16, 1100),
-                        FlSpot(17, 1209),
-                        FlSpot(18, 1300),
-                      ],
+                      spots: flspots,
                       colors: [Colors.white],
                       dotData: FlDotData(
                         show: true,
                         getDotPainter: (spot, percent, barData, index) =>
                             FlDotCirclePainter(
-                                radius: 3, color: Colors.white.withOpacity(1)),
+                                radius: 1.5,
+                                color: Colors.white.withOpacity(1)),
                       ),
                     ),
                   ],
                   gridData: FlGridData(show: false),
+                  axisTitleData: FlAxisTitleData(
+                    leftTitle: AxisTitle(
+                      showTitle: true,
+                      titleText: 'Rating->',
+                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitle: AxisTitle(
+                        showTitle: true,
+                        titleText: 'No of contest->',
+                        textStyle:
+                            TextStyle(color: Colors.white, fontSize: 10.0),
+                        textAlign: TextAlign.center),
+                  ),
                   titlesData: FlTitlesData(
                     rightTitles: SideTitles(
                       showTitles: false,
@@ -698,19 +707,6 @@ class AtCoder {
                       getTextStyles: (context, value) =>
                           const TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
-                  ),
-                  axisTitleData: FlAxisTitleData(
-                    leftTitle: AxisTitle(
-                      showTitle: true,
-                      titleText: 'Rating->',
-                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                    bottomTitle: AxisTitle(
-                        showTitle: true,
-                        titleText: 'No of contest->',
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 10.0),
-                        textAlign: TextAlign.center),
                   ),
                   borderData: FlBorderData(
                     show: true,
@@ -760,7 +756,7 @@ class AtCoder {
                       children: [
                         SizedBox(height: 10),
                         Text(
-                          'username',
+                          username,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -779,7 +775,7 @@ class AtCoder {
                                   color: Colors.white),
                             ),
                             Text(
-                              maxRating,
+                              maxRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -794,7 +790,7 @@ class AtCoder {
                                   color: Colors.white),
                             ),
                             Text(
-                              presentRating,
+                              presentRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -818,7 +814,9 @@ class AtCoder {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20)
+                  SizedBox(
+                    height: 20.0,
+                  ),
                 ],
               ),
             ),
