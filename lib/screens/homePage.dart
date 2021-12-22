@@ -8,7 +8,7 @@ import 'package:coders_castle/screens/statsScreen/statsScreen.dart';
 import 'package:coders_castle/widgets/resuable.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:coders_castle/modals/stats_list.dart' as stats;
 import 'contestScreen/contestScreen.dart';
 import 'homeScreen.dart';
 
@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   double widget1Opacity = 0.0;
   @override
   void initState() {
+    super.initState();
     if (LeetCode.flinks.isEmpty &&
         Codeforces.fat.isEmpty &&
         AtCoder.fat.isEmpty &&
@@ -56,14 +57,18 @@ class _MyHomePageState extends State<MyHomePage> {
         widget1Opacity = 1;
       });
     });
-    super.initState();
   }
 
   Future<void> get() async {
+    await CodeChef().getContestInfo();
     await Codeforces().getContestInfo();
     await AtCoder().getContestInfo();
     await KickStart().getContestInfo();
     await LeetCode().getContestInfo();
+    await stats.CodeforcesPerformance().getPerformanceInfo();
+    await stats.CodeChefPerformance().getPerformanceInfo();
+    await stats.AtcoderPerformance().getPerformanceInfo();
+    await stats.LeetCodePerformance().getPerformanceInfo();
   }
 
   @override

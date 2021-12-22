@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, file_names, prefer_const_constructors
+
 import 'dart:async';
 import 'dart:io';
 
@@ -14,8 +16,8 @@ class ConnectivityProvider with ChangeNotifier {
   startMonitoring() async {
     await initConnectivity();
     _connectivity.onConnectivityChanged.listen((
-        ConnectivityResult result,
-        ) async {
+      ConnectivityResult result,
+    ) async {
       if (result == ConnectivityResult.none) {
         _isOnline = false;
         notifyListeners();
@@ -48,7 +50,7 @@ class ConnectivityProvider with ChangeNotifier {
     bool isConnected;
     try {
       final List<InternetAddress> result =
-      await InternetAddress.lookup('google.com');
+          await InternetAddress.lookup('google.com');
       if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
         isConnected = true;
       }

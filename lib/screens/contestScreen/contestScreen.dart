@@ -29,6 +29,17 @@ class _ContestScreenState extends State<ContestScreen> {
         duration: Codeforces.pduration[j],
       ));
     }
+
+    for (int j = 0; j < CodeChef.pat.length; j++) {
+      plist.add(ContestCard(
+        path: 'images/codechef.png',
+        contestName: CodeChef.pcontestName[j],
+        date: CodeChef.pon[j],
+        time: CodeChef.pat[j],
+        duration: CodeChef.pduration[j],
+      ));
+    }
+
     for (int j = 0; j < AtCoder.pat.length; j++) {
       plist.add(ContestCard(
         path: 'images/atcoder.png',
@@ -66,6 +77,16 @@ class _ContestScreenState extends State<ContestScreen> {
         date: Codeforces.fon[j],
         time: Codeforces.fat[j],
         duration: Codeforces.fduration[j],
+      ));
+    }
+
+    for (int j = 0; j < CodeChef.fat.length; j++) {
+      flist.add(ContestCard(
+        path: 'images/codechef.png',
+        contestName: CodeChef.fcontestName[j],
+        date: CodeChef.fon[j],
+        time: CodeChef.fat[j],
+        duration: CodeChef.fduration[j],
       ));
     }
 
