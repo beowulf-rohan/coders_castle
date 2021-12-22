@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'profileScreen/reusable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:coders_castle/check_internet_connectivity/connectivity_provider.dart';
 import 'package:coders_castle/check_internet_connectivity/no_internet.dart';
 import 'package:coders_castle/modals/contests_list.dart';
@@ -46,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Codeforces.fat.isEmpty &&
         AtCoder.fat.isEmpty &&
         LeetCode.flinks.isEmpty) get();
-    Timer(Duration(seconds: 5), () {
+    Timer(Duration(seconds: 15), () {
       Navigator.pushReplacementNamed(context, HomeScreen.id);
     });
     // Timer(Duration(milliseconds: 500), () {
@@ -65,10 +66,28 @@ class _MyHomePageState extends State<MyHomePage> {
     await AtCoder().getContestInfo();
     await KickStart().getContestInfo();
     await LeetCode().getContestInfo();
-    await stats.CodeforcesPerformance().getPerformanceInfo();
-    await stats.CodeChefPerformance().getPerformanceInfo();
-    await stats.AtcoderPerformance().getPerformanceInfo();
-    await stats.LeetCodePerformance().getPerformanceInfo();
+
+    final SharedPreferences sharedPref = await SharedPreferences.getInstance();
+    String codechefUsername = sharedPref.getString('codechef');
+    if (codechefUsername != null) {
+      await stats.CodeChefPerformance().getPerformanceInfo(codechefUsername);
+    }
+
+    String codeforcesUsername = sharedPref.getString('codeforces');
+    if (codeforcesUsername != null) {
+      await stats.CodeforcesPerformance()
+          .getPerformanceInfo(codeforcesUsername);
+    }
+
+    String leetcodeUsername = sharedPref.getString('leetcode');
+    if (leetcodeUsername != null) {
+      await stats.LeetCodePerformance().getPerformanceInfo(leetcodeUsername);
+    }
+
+    String atcoderUsername = sharedPref.getString('atcoder');
+    if (atcoderUsername != null) {
+      await stats.AtcoderPerformance().getPerformanceInfo(atcoderUsername);
+    }
   }
 
   @override

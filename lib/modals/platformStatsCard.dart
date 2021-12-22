@@ -26,6 +26,56 @@ class HeadingText1 extends StatelessWidget {
   }
 }
 
+Widget EmptyUsernameContainer(String platform) {
+  return Container(
+    margin: EdgeInsets.only(top: 30),
+    decoration: BoxDecoration(
+      color: Color(0xff2a2a2a).withOpacity(0.2),
+      borderRadius: BorderRadius.circular(15),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        HeadingText1(text: platform),
+        SizedBox(
+          height: 10,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+          child: Container(
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: Colors.grey.withOpacity(0.1),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  'Please Enter a Valid Username',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+      ],
+    ),
+  );
+}
+
 class Codechef {
   static String username = stats.CodeChefPerformance.username;
   static int maxRating = stats.CodeChefPerformance.maxRating;
@@ -33,20 +83,69 @@ class Codechef {
   static String designation = stats.CodeChefPerformance.designation;
   static List<dynamic> list = stats.CodeChefPerformance.ratings;
   static double maxX = 25;
+  static double maxY;
   static List<FlSpot> flspots = [];
+  static Color color1;
+  static Color color2;
+  static String status;
 
   static Widget StatsCard() {
+    status = stats.CodeChefPerformance.status;
     username = stats.CodeChefPerformance.username;
     maxRating = stats.CodeChefPerformance.maxRating;
     presentRating = stats.CodeChefPerformance.presentRating;
     designation = stats.CodeChefPerformance.designation;
     list = stats.CodeChefPerformance.ratings;
+    if (username == null ||
+        username.length == 0 ||
+        status.compareTo('Failure') == 0) {
+      return EmptyUsernameContainer('Codechef');
+    }
     maxX = (list.length / 10 + 1) * 10;
+    maxY = (maxRating.toDouble() / 500 + 1) * 500;
+    if (maxRating < 1400) {
+      designation = '★';
+      color1 = Color(0xff666666);
+    } else if (maxRating < 1600) {
+      designation = '★★';
+      color1 = Color(0xff1E7D22);
+    } else if (maxRating < 1800) {
+      designation = '★★★';
+      color1 = Color(0xff3366CC);
+    } else if (maxRating < 2000) {
+      designation = '★★★★';
+      color1 = Color(0xff684273);
+    } else if (maxRating < 2200) {
+      designation = '★★★★★';
+      color1 = Color(0xffFFD819);
+      //#FFD819
+    } else if (maxRating < 2400) {
+      designation = '★★★★★★';
+      color1 = Color(0xffFF9819);
+    } else {
+      designation = '★★★★★★★';
+      color1 = Color(0xffE91A34);
+    }
 
-    if (flspots.isEmpty) {
-      for (int j = 0; j < list.length; j++) {
-        flspots.add(FlSpot((j + 1).toDouble(), list[j].toDouble()));
-      }
+    if (presentRating < 1400) {
+      color2 = Color(0xff666666);
+    } else if (presentRating < 1600) {
+      color2 = Color(0xff1E7D22);
+    } else if (presentRating < 1800) {
+      color2 = Color(0xff3366CC);
+    } else if (presentRating < 2000) {
+      color2 = Color(0xff684273);
+    } else if (presentRating < 2200) {
+      color2 = Color(0xffFFD819);
+      //#FFD819
+    } else if (presentRating < 2400) {
+      color2 = Color(0xffFF9819);
+    } else {
+      color2 = Color(0xffE91A34);
+    }
+    flspots = [];
+    for (int j = 0; j < list.length; j++) {
+      flspots.add(FlSpot((j + 1).toDouble(), list[j].toDouble()));
     }
 
     return Container(
@@ -71,7 +170,7 @@ class Codechef {
                   minX: 0,
                   maxX: maxX,
                   minY: 0,
-                  maxY: 2500,
+                  maxY: maxY,
                   lineBarsData: [
                     LineChartBarData(
                       spots: flspots,
@@ -185,9 +284,10 @@ class Codechef {
                             Text(
                               maxRating.toString(),
                               style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white.withOpacity(0.5)),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: color1,
+                              ),
                             ),
                             SizedBox(width: 30),
                             Text(
@@ -200,9 +300,10 @@ class Codechef {
                             Text(
                               presentRating.toString(),
                               style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white.withOpacity(0.5)),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: color2,
+                              ),
                             )
                           ],
                         ),
@@ -213,9 +314,10 @@ class Codechef {
                             Text(
                               designation,
                               style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: color1,
+                              ),
                             ),
                           ],
                         ),
@@ -243,7 +345,11 @@ class Codeforces {
   static String designation = stats.CodeforcesPerformance.designation;
   static List<dynamic> list = stats.CodeforcesPerformance.ratings;
   static double maxX = 25;
+  static double maxY;
   static List<FlSpot> flspots = [];
+  static String status;
+  static Color color1;
+  static Color color2;
 
   static Widget StatsCard() {
     username = stats.CodeforcesPerformance.username;
@@ -251,14 +357,68 @@ class Codeforces {
     presentRating = stats.CodeforcesPerformance.presentRating;
     designation = stats.CodeforcesPerformance.designation;
     list = stats.CodeforcesPerformance.ratings;
+    status = stats.CodeforcesPerformance.status;
+    if (username == null ||
+        username.length == 0 ||
+        status.compareTo('Failure') == 0) {
+      return EmptyUsernameContainer('Codeforces');
+    }
+
     maxX = (list.length / 10 + 1) * 10;
     list = list.reversed.toList();
+    maxY = (maxRating.toDouble() / 500 + 1) * 500;
 
-    if (flspots.isEmpty) {
-      for (int j = 0; j < list.length; j++) {
-        flspots.add(FlSpot((j + 1).toDouble(), list[j].toDouble()));
-      }
+    flspots = [];
+    for (int j = 0; j < list.length; j++) {
+      flspots.add(FlSpot((j + 1).toDouble(), list[j].toDouble()));
     }
+
+    if (maxRating < 1200) {
+      color1 = Color(0xffCCCCCC);
+    } else if (maxRating < 1400) {
+      color1 = Color(0xff77FF77);
+    } else if (maxRating < 1600) {
+      color1 = Color(0xff77DDBB);
+    } else if (maxRating < 1900) {
+      color1 = Color(0xffAAAAFF);
+    } else if (maxRating < 2100) {
+      color1 = Color(0xffff88ff);
+      //#FFD819
+    } else if (maxRating < 2300) {
+      color1 = Color(0xffFFCC88);
+    } else if (maxRating < 2400) {
+      color1 = Color(0xffFFBB55);
+    } else if (maxRating < 2600) {
+      color1 = Color(0xffFF7777);
+    } else if (maxRating < 3000) {
+      color1 = Color(0xffFF3333);
+    } else {
+      color1 = Color(0xffAA0000);
+    }
+
+    if (presentRating < 1200) {
+      color2 = Color(0xffCCCCCC);
+    } else if (presentRating < 1400) {
+      color2 = Color(0xff77FF77);
+    } else if (presentRating < 1600) {
+      color2 = Color(0xff77DDBB);
+    } else if (presentRating < 1900) {
+      color2 = Color(0xffAAAAFF);
+    } else if (presentRating < 2100) {
+      color2 = Color(0xffff88ff);
+      //#FFD819
+    } else if (presentRating < 2300) {
+      color2 = Color(0xffFFCC88);
+    } else if (presentRating < 2400) {
+      color2 = Color(0xffFFBB55);
+    } else if (presentRating < 2600) {
+      color2 = Color(0xffFF7777);
+    } else if (presentRating < 3000) {
+      color2 = Color(0xffFF3333);
+    } else {
+      color2 = Color(0xffAA0000);
+    }
+
     return Container(
       margin: EdgeInsets.only(top: 30),
       decoration: BoxDecoration(
@@ -281,7 +441,7 @@ class Codeforces {
                   minX: 0,
                   maxX: maxX,
                   minY: 0,
-                  maxY: 2500,
+                  maxY: maxY,
                   lineBarsData: [
                     LineChartBarData(
                       spots: flspots,
@@ -397,7 +557,7 @@ class Codeforces {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white.withOpacity(0.5)),
+                                  color: color1),
                             ),
                             SizedBox(width: 30),
                             Text(
@@ -410,9 +570,10 @@ class Codeforces {
                             Text(
                               presentRating.toString(),
                               style: TextStyle(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white.withOpacity(0.5)),
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: color2,
+                              ),
                             )
                           ],
                         ),
@@ -425,7 +586,7 @@ class Codeforces {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white),
+                                  color: color1),
                             ),
                           ],
                         ),
@@ -453,6 +614,8 @@ class LeetCode {
   static String hard = stats.LeetCodePerformance.hard;
   static String easy = stats.LeetCodePerformance.medium;
   static String medium = stats.LeetCodePerformance.easy;
+  static String status;
+  static double maxY;
 
   static Widget StatsCard() {
     username = stats.LeetCodePerformance.username;
@@ -461,6 +624,13 @@ class LeetCode {
     hard = stats.LeetCodePerformance.hard;
     easy = stats.LeetCodePerformance.medium;
     medium = stats.LeetCodePerformance.easy;
+    status = stats.LeetCodePerformance.status;
+
+    if (username == null ||
+        username.length == 0 ||
+        status.compareTo('Failure') == 0) {
+      return EmptyUsernameContainer('Leetcode');
+    }
 
     return Container(
       margin: EdgeInsets.only(top: 30),
@@ -627,6 +797,10 @@ class AtCoder {
   static List<dynamic> list = stats.AtcoderPerformance.ratings;
   static double maxX = 25;
   static List<FlSpot> flspots = [];
+  static Color color1;
+  static Color color2;
+  static String status;
+  static double maxY;
 
   static Widget StatsCard() {
     username = stats.AtcoderPerformance.username;
@@ -634,13 +808,65 @@ class AtCoder {
     presentRating = stats.AtcoderPerformance.presentRating;
     designation = stats.AtcoderPerformance.designation;
     list = stats.AtcoderPerformance.ratings;
-    maxX = (list.length / 10 + 1) * 10;
-
-    if (flspots.isEmpty) {
-      for (int j = 0; j < list.length; j++) {
-        flspots.add(FlSpot((j + 1).toDouble(), list[j].toDouble()));
-      }
+    status = stats.AtcoderPerformance.status;
+    if (username == null ||
+        username.length == 0 ||
+        status.compareTo('Failure') == 0) {
+      return EmptyUsernameContainer('Atcoder');
     }
+    maxX = (list.length / 10 + 1) * 10;
+    maxY = (maxRating.toDouble() / 500 + 1) * 500;
+    flspots = [];
+    for (int j = 0; j < list.length; j++) {
+      flspots.add(FlSpot((j + 1).toDouble(), list[j].toDouble()));
+    }
+
+    if (maxRating < 400) {
+      color1 = Color(0xff797979);
+    } else if (maxRating < 800) {
+      color1 = Color(0xff7E3F00);
+    } else if (maxRating < 1200) {
+      color1 = Color(0xff008000);
+    } else if (maxRating < 1600) {
+      color1 = Color(0xff00BFBF);
+    } else if (maxRating < 2000) {
+      color1 = Color(0xff0000F4);
+      //#FFD819
+    } else if (maxRating < 2400) {
+      color1 = Color(0xffC0C000);
+    } else if (maxRating < 2800) {
+      color1 = Color(0xffFF8000);
+    } else if (maxRating < 3000) {
+      color1 = Color(0xffF50000);
+    } else if (maxRating < 3200) {
+      color1 = Color(0xffF5A3A3);
+    } else {
+      color1 = Color(0xffF00F0F);
+    }
+
+    if (presentRating < 400) {
+      color2 = Color(0xff797979);
+    } else if (presentRating < 800) {
+      color2 = Color(0xff7E3F00);
+    } else if (presentRating < 1200) {
+      color2 = Color(0xff008000);
+    } else if (presentRating < 1600) {
+      color2 = Color(0xff00BFBF);
+    } else if (presentRating < 2000) {
+      color2 = Color(0xff0000F4);
+      //#FFD819
+    } else if (presentRating < 2400) {
+      color2 = Color(0xffC0C000);
+    } else if (presentRating < 2800) {
+      color2 = Color(0xffFF8000);
+    } else if (presentRating < 3000) {
+      color2 = Color(0xffF50000);
+    } else if (presentRating < 3200) {
+      color2 = Color(0xffF5A3A3);
+    } else {
+      color2 = Color(0xffF00F0F);
+    }
+
     return Container(
       margin: EdgeInsets.only(top: 30),
       decoration: BoxDecoration(
@@ -663,7 +889,7 @@ class AtCoder {
                   minX: 0,
                   maxX: maxX,
                   minY: 0,
-                  maxY: 2500,
+                  maxY: maxY,
                   lineBarsData: [
                     LineChartBarData(
                       spots: flspots,
@@ -779,7 +1005,7 @@ class AtCoder {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white.withOpacity(0.5)),
+                                  color: color1),
                             ),
                             SizedBox(width: 30),
                             Text(
@@ -794,7 +1020,7 @@ class AtCoder {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white.withOpacity(0.5)),
+                                  color: color2),
                             )
                           ],
                         ),
@@ -807,7 +1033,7 @@ class AtCoder {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white),
+                                  color: color1),
                             ),
                           ],
                         ),

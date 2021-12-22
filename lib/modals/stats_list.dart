@@ -10,9 +10,10 @@ class CodeChefPerformance {
   static String status = 'Failure';
   static var ratings = [];
 
-  void getPerformanceInfo() async {
-    if (status.compareTo('Success') == 0) return;
-    String s = "https://cping-api2.herokuapp.com/api/codechef/rahulladi8686";
+  void getPerformanceInfo(String user) async {
+    username = user;
+    if (user == null || user.length == 0) return;
+    String s = "https://cping-api2.herokuapp.com/api/codechef/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
     var contestData = await networkHelper.getData();
@@ -21,7 +22,7 @@ class CodeChefPerformance {
       username = null;
       return;
     }
-    username = 'rahulladi8686';
+    username = user;
     presentRating = decodeData['rating'];
     maxRating = decodeData['highest_rating'];
     designation = decodeData['stars'];
@@ -39,9 +40,10 @@ class CodeforcesPerformance {
   static String status = 'Failure';
   static var ratings = [];
 
-  void getPerformanceInfo() async {
-    if (status.compareTo('Success') == 0) return;
-    String s = "https://cping-api2.herokuapp.com/api/codeforces/rahulladi8686";
+  void getPerformanceInfo(String user) async {
+    username = user;
+    if (user == null || user.length == 0) return;
+    String s = "https://cping-api2.herokuapp.com/api/codeforces/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
     var contestData = await networkHelper.getData();
@@ -50,7 +52,7 @@ class CodeforcesPerformance {
       username = null;
       return;
     }
-    username = 'rahulladi8686';
+    username = user;
     presentRating = decodeData['rating'];
     maxRating = decodeData['max rating'];
     designation = decodeData['max rank'];
@@ -68,9 +70,10 @@ class AtcoderPerformance {
   static String status = 'Failure';
   static var ratings = [];
 
-  void getPerformanceInfo() async {
-    if (status.compareTo('Success') == 0) return;
-    String s = "https://cping-api2.herokuapp.com/api/atcoder/chinmay0402";
+  void getPerformanceInfo(String user) async {
+    username = user;
+    if (user == null || user.length == 0) return;
+    String s = "https://cping-api2.herokuapp.com/api/atcoder/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
     var contestData = await networkHelper.getData();
@@ -79,7 +82,7 @@ class AtcoderPerformance {
       username = null;
       return;
     }
-    username = 'chinmay0402';
+    username = user;
     presentRating = decodeData['rating'];
     maxRating = decodeData['highest'];
     designation = decodeData['level'];
@@ -98,9 +101,10 @@ class LeetCodePerformance {
   static String medium;
   static String status = 'Failure';
 
-  void getPerformanceInfo() async {
-    if (status.compareTo('Success') == 0) return;
-    String s = "https://cping-api2.herokuapp.com/api/leetcode/chinmay0402";
+  void getPerformanceInfo(String user) async {
+    username = user;
+    if (user == null || user.length == 0) return;
+    String s = "https://cping-api2.herokuapp.com/api/leetcode/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
     var contestData = await networkHelper.getData();
@@ -109,7 +113,7 @@ class LeetCodePerformance {
       username = null;
       return;
     }
-    username = 'chinmay0402';
+    username = user;
     problemSolved = decodeData['total_problems_solved'];
     acceptanceRate = decodeData['acceptance_rate'];
     hard = decodeData['hard_questions_solved'];
