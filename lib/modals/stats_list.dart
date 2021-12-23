@@ -25,6 +25,7 @@ class CodeChefPerformance {
       status = decodeData['status'].toString();
       return;
     }
+    status = decodeData['status'].toString();
     username = user;
     presentRating = decodeData['rating'];
     maxRating = decodeData['highest_rating'];
@@ -55,6 +56,7 @@ class CodeforcesPerformance {
       status = decodeData['status'].toString();
       return;
     }
+    status = decodeData['status'].toString();
     username = user;
     presentRating = decodeData['rating'];
     maxRating = decodeData['max rating'];
@@ -86,6 +88,7 @@ class AtcoderPerformance {
       status = decodeData['status'].toString();
       return;
     }
+    status = decodeData['status'].toString();
     username = user;
     presentRating = decodeData['rating'];
     maxRating = decodeData['highest'];
@@ -118,6 +121,7 @@ class LeetCodePerformance {
       status = decodeData['status'].toString();
       return;
     }
+    status = decodeData['status'].toString();
     username = user;
     problemSolved = decodeData['total_problems_solved'];
     acceptanceRate = decodeData['acceptance_rate'];
