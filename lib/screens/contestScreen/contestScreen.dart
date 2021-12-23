@@ -110,7 +110,7 @@ class _ContestScreenState extends State<ContestScreen> {
       ));
     }
 
-    for (int j = 0; j < KickStart.fat.length; j++) {
+    for (int j = 0; j < 3 && j < KickStart.fat.length; j++) {
       flist.add(ContestCard(
         path: 'images/google.png',
         contestName: KickStart.fcontestName[j],
