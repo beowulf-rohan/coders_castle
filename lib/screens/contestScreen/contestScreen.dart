@@ -14,111 +14,228 @@ class ContestScreen extends StatefulWidget {
 class _ContestScreenState extends State<ContestScreen> {
   List<Widget> plist = [];
   List<Widget> flist = [];
+  List<SortedList> today = [];
+  List<SortedList> upcoming = [];
 
   @override
   void initState() {
     super.initState();
-    plist.add(HeadingText(text: "Today"));
 
     for (int j = 0; j < Codeforces.pat.length; j++) {
-      plist.add(ContestCard(
-        path: 'images/codeforces.png',
-        contestName: Codeforces.pcontestName[j],
-        date: Codeforces.pon[j],
-        time: Codeforces.pat[j],
-        duration: Codeforces.pduration[j],
-      ));
+      SortedList temp = SortedList();
+      temp.duration = Codeforces.pduration[j];
+      temp.time = Codeforces.pat[j];
+      temp.date = Codeforces.pon[j];
+      temp.contestName = Codeforces.pcontestName[j];
+      temp.path = 'images/codeforces.png';
+      today.add(temp);
     }
 
     for (int j = 0; j < CodeChef.pat.length; j++) {
-      plist.add(ContestCard(
-        path: 'images/codechef.png',
-        contestName: CodeChef.pcontestName[j],
-        date: CodeChef.pon[j],
-        time: CodeChef.pat[j],
-        duration: CodeChef.pduration[j],
-      ));
+      SortedList temp = SortedList();
+      temp.duration = CodeChef.pduration[j];
+      temp.time = CodeChef.pat[j];
+      temp.date = CodeChef.pon[j];
+      temp.contestName = CodeChef.pcontestName[j];
+      temp.path = 'images/codechef.png';
+      today.add(temp);
     }
 
     for (int j = 0; j < AtCoder.pat.length; j++) {
-      plist.add(ContestCard(
-        path: 'images/atcoder.png',
-        contestName: AtCoder.pcontestName[j],
-        date: AtCoder.pon[j],
-        time: AtCoder.pat[j],
-        duration: AtCoder.pduration[j],
-      ));
+      SortedList temp = SortedList();
+      temp.duration = AtCoder.pduration[j];
+      temp.time = AtCoder.pat[j];
+      temp.date = AtCoder.pon[j];
+      temp.contestName = AtCoder.pcontestName[j];
+      temp.path = 'images/atcoder.png';
+      today.add(temp);
     }
     for (int j = 0; j < LeetCode.pat.length; j++) {
-      plist.add(ContestCard(
-        path: 'images/leetcode.png',
-        contestName: LeetCode.pcontestName[j],
-        date: LeetCode.pon[j],
-        time: LeetCode.pat[j],
-        duration: LeetCode.pduration[j],
-      ));
+      SortedList temp = SortedList();
+      temp.duration = LeetCode.pduration[j];
+      temp.time = LeetCode.pat[j];
+      temp.date = LeetCode.pon[j];
+      temp.contestName = LeetCode.pcontestName[j];
+      temp.path = 'images/leetcode.png';
+      today.add(temp);
     }
     for (int j = 0; j < KickStart.pat.length; j++) {
+      SortedList temp = SortedList();
+      temp.duration = KickStart.pduration[j];
+      temp.time = KickStart.pat[j];
+      temp.date = KickStart.pon[j];
+      temp.contestName = KickStart.pcontestName[j];
+      temp.path = 'images/google.png';
+      today.add(temp);
+    }
+
+    for (int j = 0; j < 3 && j < Codeforces.fat.length; j++) {
+      SortedList temp = SortedList();
+      temp.path = 'images/codeforces.png';
+      temp.contestName = Codeforces.fcontestName[j];
+      temp.date = Codeforces.fon[j];
+      temp.time = Codeforces.fat[j];
+      temp.duration = Codeforces.fduration[j];
+      upcoming.add(temp);
+    }
+
+    for (int j = 0; j < 3 && j < CodeChef.fat.length; j++) {
+      SortedList temp = SortedList();
+      temp.path = 'images/codechef.png';
+      temp.contestName = CodeChef.fcontestName[j];
+      temp.date = CodeChef.fon[j];
+      temp.time = CodeChef.fat[j];
+      temp.duration = CodeChef.fduration[j];
+      upcoming.add(temp);
+    }
+
+    for (int j = 0; j < 3 && j < AtCoder.fat.length; j++) {
+      SortedList temp = SortedList();
+      temp.path = 'images/atcoder.png';
+      temp.contestName = AtCoder.fcontestName[j];
+      temp.date = AtCoder.fon[j];
+      temp.time = AtCoder.fat[j];
+      temp.duration = AtCoder.fduration[j];
+      upcoming.add(temp);
+    }
+
+    for (int j = 0; j < 3 && j < LeetCode.fat.length; j++) {
+      SortedList temp = SortedList();
+      temp.path = 'images/leetcode.png';
+      temp.contestName = LeetCode.fcontestName[j];
+      temp.date = LeetCode.fon[j];
+      temp.time = LeetCode.fat[j];
+      temp.duration = LeetCode.fduration[j];
+      upcoming.add(temp);
+    }
+
+    for (int j = 0; j < 3 && j < KickStart.fat.length; j++) {
+      SortedList temp = SortedList();
+      temp.path = 'images/google.png';
+      temp.contestName = KickStart.fcontestName[j];
+      temp.date = KickStart.fon[j];
+      temp.time = KickStart.fat[j];
+      temp.duration = KickStart.fduration[j];
+      upcoming.add(temp);
+    }
+
+    upcoming.sort((SortedList a, SortedList b) {
+      int year1, year2, month1, month2, day1, day2, hour1, hour2, min1, min2;
+      //print(a.date);
+      String s = a.date[6] + a.date[7] + a.date[8] + a.date[9];
+      year1 = int.parse(s);
+      s = b.date[6] + b.date[7] + b.date[8] + b.date[9];
+      year2 = int.parse(s);
+      s = a.date[3] + a.date[4];
+      month1 = int.parse(s);
+      s = b.date[3] + b.date[4];
+      month2 = int.parse(s);
+      s = a.date[0] + a.date[1];
+      day1 = int.parse(s);
+      s = b.date[0] + b.date[1];
+      day2 = int.parse(s);
+      s = a.time[0] + a.time[1];
+      hour1 = int.parse(s);
+      s = b.time[0] + b.time[1];
+      hour2 = int.parse(s);
+      s = a.time[3] + a.time[4];
+      min1 = int.parse(s);
+      s = b.time[3] + b.time[4];
+      min2 = int.parse(s);
+
+      if (year1 != year2) {
+        return year1 - year2;
+      }
+
+      if (month1 != month2) {
+        return month1 - month2;
+      }
+
+      if (day1 != day2) {
+        return day1 - day2;
+      }
+
+      if (hour1 != hour2) {
+        return hour1 - hour2;
+      }
+
+      if (min1 != min2) {
+        return min1 - min2;
+      }
+
+      return 0;
+    });
+
+    today.sort((SortedList a, SortedList b) {
+      int year1, year2, month1, month2, day1, day2, hour1, hour2, min1, min2;
+      //print(a.date);
+      String s = a.date[6] + a.date[7] + a.date[8] + a.date[9];
+      year1 = int.parse(s);
+      s = b.date[6] + b.date[7] + b.date[8] + b.date[9];
+      year2 = int.parse(s);
+      s = a.date[3] + a.date[4];
+      month1 = int.parse(s);
+      s = b.date[3] + b.date[4];
+      month2 = int.parse(s);
+      s = a.date[0] + a.date[1];
+      day1 = int.parse(s);
+      s = b.date[0] + b.date[1];
+      day2 = int.parse(s);
+      s = a.time[0] + a.time[1];
+      hour1 = int.parse(s);
+      s = b.time[0] + b.time[1];
+      hour2 = int.parse(s);
+      s = a.time[3] + a.time[4];
+      min1 = int.parse(s);
+      s = b.time[3] + b.time[4];
+      min2 = int.parse(s);
+
+      if (year1 != year2) {
+        return year1 - year2;
+      }
+
+      if (month1 != month2) {
+        return month1 - month2;
+      }
+
+      if (day1 != day2) {
+        return day1 - day2;
+      }
+
+      if (hour1 != hour2) {
+        return hour1 - hour2;
+      }
+
+      if (min1 != min2) {
+        return min1 - min2;
+      }
+
+      return 0;
+    });
+
+    plist.add(HeadingText(text: "Today"));
+    for (int j = 0; j < today.length; j++) {
       plist.add(ContestCard(
-        path: 'images/google.png',
-        contestName: KickStart.pcontestName[j],
-        date: KickStart.pon[j],
-        time: KickStart.pat[j],
-        duration: KickStart.pduration[j],
+        path: today[j].path,
+        contestName: today[j].contestName,
+        date: today[j].date,
+        time: today[j].time,
+        duration: today[j].duration,
       ));
     }
     plist.add(SizedBox(height: 10));
 
     flist.add(HeadingText(text: "Upcoming"));
-    for (int j = 0; j < 3 && j < Codeforces.fat.length; j++) {
+    for (int j = 0; j < upcoming.length; j++) {
       flist.add(ContestCard(
-        path: 'images/codeforces.png',
-        contestName: Codeforces.fcontestName[j],
-        date: Codeforces.fon[j],
-        time: Codeforces.fat[j],
-        duration: Codeforces.fduration[j],
+        path: upcoming[j].path,
+        contestName: upcoming[j].contestName,
+        date: upcoming[j].date,
+        time: upcoming[j].time,
+        duration: upcoming[j].duration,
       ));
     }
 
-    for (int j = 0; j < 3 && j < CodeChef.fat.length; j++) {
-      flist.add(ContestCard(
-        path: 'images/codechef.png',
-        contestName: CodeChef.fcontestName[j],
-        date: CodeChef.fon[j],
-        time: CodeChef.fat[j],
-        duration: CodeChef.fduration[j],
-      ));
-    }
-
-    for (int j = 0; j < 3 && j < AtCoder.fat.length; j++) {
-      flist.add(ContestCard(
-        path: 'images/atcoder.png',
-        contestName: AtCoder.fcontestName[j],
-        date: AtCoder.fon[j],
-        time: AtCoder.fat[j],
-        duration: AtCoder.fduration[j],
-      ));
-    }
-
-    for (int j = 0; j < 3 && j < LeetCode.fat.length; j++) {
-      flist.add(ContestCard(
-        path: 'images/leetcode.png',
-        contestName: LeetCode.fcontestName[j],
-        date: LeetCode.fon[j],
-        time: LeetCode.fat[j],
-        duration: LeetCode.fduration[j],
-      ));
-    }
-
-    for (int j = 0; j < 3 && j < KickStart.fat.length; j++) {
-      flist.add(ContestCard(
-        path: 'images/google.png',
-        contestName: KickStart.fcontestName[j],
-        date: KickStart.fon[j],
-        time: KickStart.fat[j],
-        duration: KickStart.fduration[j],
-      ));
-    }
     flist.add(SizedBox(height: 10));
   }
 
@@ -159,4 +276,12 @@ class _ContestScreenState extends State<ContestScreen> {
       ),
     );
   }
+}
+
+class SortedList {
+  String path;
+  String contestName;
+  String date;
+  String time;
+  String duration;
 }

@@ -38,6 +38,36 @@ class FormattedTime {
   }
 }
 
+int compare(String a, String b) {
+  int year1, year2, month1, month2, day1, day2, hour1, hour2, min1, min2;
+  //print(a.date);
+  String s = a[6] + a[7] + a[8] + a[9];
+  year1 = int.parse(s);
+  s = b[6] + b[7] + b[8] + b[9];
+  year2 = int.parse(s);
+  s = a[3] + a[4];
+  month1 = int.parse(s);
+  s = b[3] + b[4];
+  month2 = int.parse(s);
+  s = a[0] + a[1];
+  day1 = int.parse(s);
+  s = b[0] + b[1];
+  day2 = int.parse(s);
+  if (year1 != year2) {
+    return year1 - year2;
+  }
+
+  if (month1 != month2) {
+    return month1 - month2;
+  }
+
+  if (day1 != day2) {
+    return day1 - day2;
+  }
+
+  return 0;
+}
+
 class Codeforces {
   static var pcontestName = [];
   static var pduration = [];
@@ -91,7 +121,8 @@ class Codeforces {
       var local_time = DateTime.parse(date_time);
       //print(local_time);
       //print(date);
-      if (date.compareTo(datetime) == 0) {
+      String contestDate = DateFormat.Hm().format(local_time.toLocal());
+      if (compare(date, datetime) <= 0) {
         plinks.add(url);
         pduration.add(dura);
         pcontestName.add(name);
@@ -161,8 +192,9 @@ class AtCoder {
       //   time += date_time[k];
       // }
       var local_time = DateTime.parse(date_time);
-      //print(date);
-      if (date.compareTo(datetime) == 0) {
+      String contestDate = DateFormat.Hm().format(local_time.toLocal());
+      String todayDate = DateFormat.Hm().format(presentTime.toLocal());
+      if (compare(date, datetime) <= 0) {
         plinks.add(url);
         pduration.add(dura);
         pcontestName.add(name);
@@ -233,8 +265,9 @@ class KickStart {
       //   time += date_time[k];
       // }
       var local_time = DateTime.parse(date_time);
-      //print(date);
-      if (date.compareTo(datetime) == 0) {
+      String contestDate = DateFormat.Hm().format(local_time.toLocal());
+      String todayDate = DateFormat.Hm().format(presentTime.toLocal());
+      if (compare(date, datetime) <= 0) {
         plinks.add(url);
         pduration.add(dura);
         pcontestName.add(name);
@@ -304,8 +337,9 @@ class LeetCode {
       //   time += date_time[k];
       // }
       var local_time = DateTime.parse(date_time);
-      //print(date);
-      if (date.compareTo(datetime) == 0) {
+      String contestDate = DateFormat.Hm().format(local_time.toLocal());
+      String todayDate = DateFormat.Hm().format(presentTime.toLocal());
+      if (compare(date, datetime) <= 0) {
         plinks.add(url);
         pduration.add(dura);
         pcontestName.add(name);
@@ -384,8 +418,9 @@ class CodeChef {
       }
       temp += '.000Z';
       var local_time = DateTime.parse(temp);
-      //print(temp);
-      if (date.compareTo(datetime) == 0) {
+      String contestDate = DateFormat.Hm().format(local_time.toLocal());
+      String todayDate = DateFormat.Hm().format(presentTime.toLocal());
+      if (compare(date, datetime) <= 0) {
         plinks.add(url);
         pduration.add(dura);
         pcontestName.add(name);
