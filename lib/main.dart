@@ -4,7 +4,7 @@ import 'intermediateScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:coders_castle/check_internet_connectivity/connectivity_provider.dart';
-
+import 'package:flutter/services.dart';
 void main() {
   runApp(MyApp());
 }
@@ -24,6 +24,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -32,7 +36,8 @@ class _MyAppState extends State<MyApp> {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        // title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
         home: InterMediateScreen(),
       ),
     );

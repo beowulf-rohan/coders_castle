@@ -198,77 +198,11 @@ class Codechef {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeadingText1(text: "Codechef"),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 25),
-            child: AspectRatio(
-              aspectRatio: 1.5,
-              child: LineChart(
-                LineChartData(
-                  minX: 0,
-                  maxX: maxX,
-                  minY: 0,
-                  maxY: maxY,
-                  lineBarsData: [
-                    LineChartBarData(
-                      spots: flspots,
-                      colors: [Colors.white],
-                      dotData: FlDotData(
-                        show: true,
-                        getDotPainter: (spot, percent, barData, index) =>
-                            FlDotCirclePainter(
-                                radius: 1.5,
-                                color: Colors.white.withOpacity(1)),
-                      ),
-                    ),
-                  ],
-                  gridData: FlGridData(show: false),
-                  axisTitleData: FlAxisTitleData(
-                    leftTitle: AxisTitle(
-                      showTitle: true,
-                      titleText: 'Rating->',
-                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                    bottomTitle: AxisTitle(
-                        showTitle: true,
-                        titleText: 'No of contest->',
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 10.0),
-                        textAlign: TextAlign.center),
-                  ),
-                  titlesData: FlTitlesData(
-                    rightTitles: SideTitles(
-                      showTitles: false,
-                    ),
-                    topTitles: SideTitles(showTitles: false),
-                    leftTitles: SideTitles(
-                      showTitles: true,
-                      reservedSize: 30.0,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                    bottomTitles: SideTitles(
-                      showTitles: true,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                  ),
-                  borderData: FlBorderData(
-                    show: true,
-                    border: const Border(
-                      left: BorderSide(color: Colors.white),
-                      top: BorderSide(color: Colors.transparent),
-                      bottom: BorderSide(color: Colors.white),
-                      right: BorderSide(color: Colors.transparent),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // HeadingText1(text: "Codechef"),
+          // SizedBox(
+          //   height: 20,
+          // ),
+
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
@@ -298,13 +232,12 @@ class Codechef {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                        const EdgeInsets.symmetric(vertical: 3, horizontal: 15),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 10),
-                        Text(
-                          username,
+                        Text('Username : $username',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -313,7 +246,7 @@ class Codechef {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               'Max Rating : ',
@@ -329,8 +262,13 @@ class Codechef {
                                 fontWeight: FontWeight.w500,
                                 color: color1,
                               ),
-                            ),
-                            SizedBox(width: 30),
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 7.5),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
                             Text(
                               'Current Rating : ',
                               style: TextStyle(
@@ -350,8 +288,15 @@ class Codechef {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Text(
+                              'Stars : ',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
                             Text(
                               designation,
                               style: TextStyle(
@@ -372,7 +317,75 @@ class Codechef {
               ),
             ),
           ),
-          SizedBox(height: 10)
+          SizedBox(height: 10),
+          Padding(
+            padding: EdgeInsets.only(right: 25, left: 15),
+            child: AspectRatio(
+              aspectRatio: 1.5,
+              child: LineChart(
+                LineChartData(
+                  minX: 0,
+                  maxX: maxX,
+                  minY: 0,
+                  maxY: maxY,
+                  lineBarsData: [
+                    LineChartBarData(
+                      spots: flspots,
+                      colors: [Colors.white],
+                      dotData: FlDotData(
+                        show: true,
+                        getDotPainter: (spot, percent, barData, index) =>
+                            FlDotCirclePainter(
+                                radius: 1.5,
+                                color: Colors.white.withOpacity(1)),
+                      ),
+                    ),
+                  ],
+                  gridData: FlGridData(show: false),
+                  axisTitleData: FlAxisTitleData(
+                    leftTitle: AxisTitle(
+                      showTitle: true,
+                      titleText: 'Rating----->',
+                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitle: AxisTitle(
+                        showTitle: true,
+                        titleText: 'No of contest----->',
+                        textStyle:
+                        TextStyle(color: Colors.white, fontSize: 10.0),
+                        textAlign: TextAlign.center),
+                  ),
+                  titlesData: FlTitlesData(
+                    rightTitles: SideTitles(
+                      showTitles: false,
+                    ),
+                    topTitles: SideTitles(showTitles: false),
+                    leftTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 30.0,
+                      getTextStyles: (context, value) =>
+                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                  ),
+                  borderData: FlBorderData(
+                    show: true,
+                    border: const Border(
+                      left: BorderSide(color: Colors.white),
+                      top: BorderSide(color: Colors.transparent),
+                      bottom: BorderSide(color: Colors.white),
+                      right: BorderSide(color: Colors.transparent),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
         ],
       ),
     );
@@ -469,77 +482,11 @@ class Codeforces {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeadingText1(text: "Codeforces"),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 25),
-            child: AspectRatio(
-              aspectRatio: 1.5,
-              child: LineChart(
-                LineChartData(
-                  minX: 0,
-                  maxX: maxX,
-                  minY: 0,
-                  maxY: maxY,
-                  lineBarsData: [
-                    LineChartBarData(
-                      spots: flspots,
-                      colors: [Colors.white],
-                      dotData: FlDotData(
-                        show: true,
-                        getDotPainter: (spot, percent, barData, index) =>
-                            FlDotCirclePainter(
-                                radius: 1.5,
-                                color: Colors.white.withOpacity(1)),
-                      ),
-                    ),
-                  ],
-                  gridData: FlGridData(show: false),
-                  axisTitleData: FlAxisTitleData(
-                    leftTitle: AxisTitle(
-                      showTitle: true,
-                      titleText: 'Rating->',
-                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                    bottomTitle: AxisTitle(
-                        showTitle: true,
-                        titleText: 'No of contest->',
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 10.0),
-                        textAlign: TextAlign.center),
-                  ),
-                  titlesData: FlTitlesData(
-                    rightTitles: SideTitles(
-                      showTitles: false,
-                    ),
-                    topTitles: SideTitles(showTitles: false),
-                    leftTitles: SideTitles(
-                      showTitles: true,
-                      reservedSize: 30.0,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                    bottomTitles: SideTitles(
-                      showTitles: true,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                  ),
-                  borderData: FlBorderData(
-                    show: true,
-                    border: const Border(
-                      left: BorderSide(color: Colors.white),
-                      top: BorderSide(color: Colors.transparent),
-                      bottom: BorderSide(color: Colors.white),
-                      right: BorderSide(color: Colors.transparent),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // HeadingText1(text: "Codeforces"),
+          // SizedBox(
+          //   height: 20,
+          // ),
+
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
@@ -569,13 +516,13 @@ class Codeforces {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                        const EdgeInsets.symmetric(vertical: 3, horizontal: 15),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 10),
                         Text(
-                          username,
+                          'Username : $username',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -584,7 +531,7 @@ class Codeforces {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               'Max Rating : ',
@@ -600,7 +547,12 @@ class Codeforces {
                                   fontWeight: FontWeight.w500,
                                   color: color1),
                             ),
-                            SizedBox(width: 30),
+                          ],
+                        ),
+                        SizedBox(height: 7.5),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
                             Text(
                               'Current Rating : ',
                               style: TextStyle(
@@ -620,8 +572,15 @@ class Codeforces {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Text(
+                              'Title : ',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
                             Text(
                               designation,
                               style: TextStyle(
@@ -641,7 +600,75 @@ class Codeforces {
               ),
             ),
           ),
-          SizedBox(height: 10)
+          SizedBox(height: 10),
+          Padding(
+            padding: EdgeInsets.only(right: 25, left: 15),
+            child: AspectRatio(
+              aspectRatio: 1.5,
+              child: LineChart(
+                LineChartData(
+                  minX: 0,
+                  maxX: maxX,
+                  minY: 0,
+                  maxY: maxY,
+                  lineBarsData: [
+                    LineChartBarData(
+                      spots: flspots,
+                      colors: [Colors.white],
+                      dotData: FlDotData(
+                        show: true,
+                        getDotPainter: (spot, percent, barData, index) =>
+                            FlDotCirclePainter(
+                                radius: 1.5,
+                                color: Colors.white.withOpacity(1)),
+                      ),
+                    ),
+                  ],
+                  gridData: FlGridData(show: false),
+                  axisTitleData: FlAxisTitleData(
+                    leftTitle: AxisTitle(
+                      showTitle: true,
+                      titleText: 'Rating----->',
+                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitle: AxisTitle(
+                        showTitle: true,
+                        titleText: 'No of contest----->',
+                        textStyle:
+                        TextStyle(color: Colors.white, fontSize: 10.0),
+                        textAlign: TextAlign.center),
+                  ),
+                  titlesData: FlTitlesData(
+                    rightTitles: SideTitles(
+                      showTitles: false,
+                    ),
+                    topTitles: SideTitles(showTitles: false),
+                    leftTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 30.0,
+                      getTextStyles: (context, value) =>
+                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                  ),
+                  borderData: FlBorderData(
+                    show: true,
+                    border: const Border(
+                      left: BorderSide(color: Colors.white),
+                      top: BorderSide(color: Colors.transparent),
+                      bottom: BorderSide(color: Colors.white),
+                      right: BorderSide(color: Colors.transparent),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
         ],
       ),
     );
@@ -682,7 +709,7 @@ class LeetCode {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeadingText1(text: "Leetcode"),
+          // HeadingText1(text: "Leetcode"),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
@@ -712,13 +739,13 @@ class LeetCode {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                        const EdgeInsets.symmetric(vertical: 3, horizontal: 15),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 10),
                         Text(
-                          username,
+                          'Username : $username',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -727,7 +754,7 @@ class LeetCode {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               'Problem Solved : ',
@@ -747,10 +774,10 @@ class LeetCode {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Acceptance Rate',
+                              'Acceptance Rate : ',
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -767,17 +794,17 @@ class LeetCode {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Hard: ',
+                              'Easy: ',
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white),
+                                  color: Color(0xff43A047)),
                             ),
                             Text(
-                              hard,
+                              easy,
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -789,7 +816,7 @@ class LeetCode {
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white),
+                                  color: Color(0xffFB8C00)),
                             ),
                             Text(
                               medium,
@@ -800,14 +827,14 @@ class LeetCode {
                             ),
                             SizedBox(width: 10),
                             Text(
-                              'Easy: ',
+                              'Hard: ',
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
-                                  color: Colors.white),
+                                  color: Color(0xffE91E63)),
                             ),
                             Text(
-                              easy,
+                              hard,
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -917,77 +944,10 @@ class AtCoder {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          HeadingText1(text: "Atcoder"),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.only(right: 25),
-            child: AspectRatio(
-              aspectRatio: 1.5,
-              child: LineChart(
-                LineChartData(
-                  minX: 0,
-                  maxX: maxX,
-                  minY: 0,
-                  maxY: maxY,
-                  lineBarsData: [
-                    LineChartBarData(
-                      spots: flspots,
-                      colors: [Colors.white],
-                      dotData: FlDotData(
-                        show: true,
-                        getDotPainter: (spot, percent, barData, index) =>
-                            FlDotCirclePainter(
-                                radius: 1.5,
-                                color: Colors.white.withOpacity(1)),
-                      ),
-                    ),
-                  ],
-                  gridData: FlGridData(show: false),
-                  axisTitleData: FlAxisTitleData(
-                    leftTitle: AxisTitle(
-                      showTitle: true,
-                      titleText: 'Rating->',
-                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                    bottomTitle: AxisTitle(
-                        showTitle: true,
-                        titleText: 'No of contest->',
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 10.0),
-                        textAlign: TextAlign.center),
-                  ),
-                  titlesData: FlTitlesData(
-                    rightTitles: SideTitles(
-                      showTitles: false,
-                    ),
-                    topTitles: SideTitles(showTitles: false),
-                    leftTitles: SideTitles(
-                      showTitles: true,
-                      reservedSize: 30.0,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                    bottomTitles: SideTitles(
-                      showTitles: true,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
-                    ),
-                  ),
-                  borderData: FlBorderData(
-                    show: true,
-                    border: const Border(
-                      left: BorderSide(color: Colors.white),
-                      top: BorderSide(color: Colors.transparent),
-                      bottom: BorderSide(color: Colors.white),
-                      right: BorderSide(color: Colors.transparent),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          // HeadingText1(text: "Atcoder"),
+          // SizedBox(
+          //   height: 20,
+          // ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
             child: Container(
@@ -1017,13 +977,13 @@ class AtCoder {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+                        const EdgeInsets.symmetric(vertical: 3, horizontal: 15),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 10),
                         Text(
-                          username,
+                          'Username : $username',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -1032,7 +992,7 @@ class AtCoder {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               'Max Rating : ',
@@ -1048,7 +1008,12 @@ class AtCoder {
                                   fontWeight: FontWeight.w500,
                                   color: color1),
                             ),
-                            SizedBox(width: 30),
+                          ],
+                        ),
+                        SizedBox(height: 7.5),
+                        Row(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
                             Text(
                               'Current Rating : ',
                               style: TextStyle(
@@ -1067,8 +1032,15 @@ class AtCoder {
                         ),
                         SizedBox(height: 7.5),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Text(
+                              'Level : ',
+                              style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
                             Text(
                               designation,
                               style: TextStyle(
@@ -1088,7 +1060,76 @@ class AtCoder {
               ),
             ),
           ),
-          SizedBox(height: 10)
+          SizedBox(height: 10),
+          Padding(
+            padding: EdgeInsets.only(right: 25, left: 15),
+            child: AspectRatio(
+              aspectRatio: 1.5,
+              child: LineChart(
+                LineChartData(
+                  minX: 0,
+                  maxX: maxX,
+                  minY: 0,
+                  maxY: maxY,
+                  lineBarsData: [
+                    LineChartBarData(
+                      spots: flspots,
+                      colors: [Colors.white],
+                      dotData: FlDotData(
+                        show: true,
+                        getDotPainter: (spot, percent, barData, index) =>
+                            FlDotCirclePainter(
+                                radius: 1.5,
+                                color: Colors.white.withOpacity(1)),
+                      ),
+                    ),
+                  ],
+                  gridData: FlGridData(show: false),
+                  axisTitleData: FlAxisTitleData(
+                    leftTitle: AxisTitle(
+                      showTitle: true,
+                      titleText: 'Rating----->',
+                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitle: AxisTitle(
+                        showTitle: true,
+                        titleText: 'No of contest----->',
+                        textStyle:
+                        TextStyle(color: Colors.white, fontSize: 10.0),
+                        textAlign: TextAlign.center),
+                  ),
+                  titlesData: FlTitlesData(
+                    rightTitles: SideTitles(
+                      showTitles: false,
+                    ),
+                    topTitles: SideTitles(showTitles: false),
+                    leftTitles: SideTitles(
+                      showTitles: true,
+                      reservedSize: 30.0,
+                      getTextStyles: (context, value) =>
+                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                    bottomTitles: SideTitles(
+                      showTitles: true,
+                      getTextStyles: (context, value) =>
+                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                    ),
+                  ),
+                  borderData: FlBorderData(
+                    show: true,
+                    border: const Border(
+                      left: BorderSide(color: Colors.white),
+                      top: BorderSide(color: Colors.transparent),
+                      bottom: BorderSide(color: Colors.white),
+                      right: BorderSide(color: Colors.transparent),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+
         ],
       ),
     );

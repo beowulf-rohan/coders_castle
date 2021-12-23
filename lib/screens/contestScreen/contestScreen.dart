@@ -70,7 +70,7 @@ class _ContestScreenState extends State<ContestScreen> {
     plist.add(SizedBox(height: 10));
 
     flist.add(HeadingText(text: "Upcoming"));
-    for (int j = 0; j < Codeforces.fat.length; j++) {
+    for (int j = 0; j < 3 && j < Codeforces.fat.length; j++) {
       flist.add(ContestCard(
         path: 'images/codeforces.png',
         contestName: Codeforces.fcontestName[j],
@@ -80,7 +80,7 @@ class _ContestScreenState extends State<ContestScreen> {
       ));
     }
 
-    for (int j = 0; j < CodeChef.fat.length; j++) {
+    for (int j = 0; j < 3 && j < CodeChef.fat.length; j++) {
       flist.add(ContestCard(
         path: 'images/codechef.png',
         contestName: CodeChef.fcontestName[j],
@@ -90,7 +90,7 @@ class _ContestScreenState extends State<ContestScreen> {
       ));
     }
 
-    for (int j = 0; j < AtCoder.fat.length; j++) {
+    for (int j = 0; j < 3 && j < AtCoder.fat.length; j++) {
       flist.add(ContestCard(
         path: 'images/atcoder.png',
         contestName: AtCoder.fcontestName[j],
@@ -100,7 +100,7 @@ class _ContestScreenState extends State<ContestScreen> {
       ));
     }
 
-    for (int j = 0; j < LeetCode.fat.length; j++) {
+    for (int j = 0; j < 3 && j < LeetCode.fat.length; j++) {
       flist.add(ContestCard(
         path: 'images/leetcode.png',
         contestName: LeetCode.fcontestName[j],

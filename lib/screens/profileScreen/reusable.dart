@@ -2,6 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:coders_castle/modals/stats_list.dart' as stats;
+import 'package:coders_castle/progress_indicator/progressIndicator.dart';
+import 'package:provider/provider.dart';
+
 class PlatformCard extends StatefulWidget {
   const PlatformCard(
       {Key key,
@@ -31,9 +34,13 @@ class _PlatformCardState extends State<PlatformCard> {
   Future updateChanges() async {
     final SharedPreferences sharedPref = await SharedPreferences.getInstance();
     sharedPref.setString(widget.stringKey, username);
+    
+    Provider.of<ProgressIndicatorChange>(context, listen: false).changeSpinnerState(widget.stringKey);
+    
     setState(() {
       showUserName = true;
     });
+    
     if (widget.stringKey.compareTo('leetcode') == 0) {
       await stats.LeetCodePerformance().getPerformanceInfo(username);
     } else if (widget.stringKey.compareTo('atcoder') == 0) {
@@ -43,9 +50,12 @@ class _PlatformCardState extends State<PlatformCard> {
     } else if (widget.stringKey.compareTo('codechef') == 0) {
       await stats.CodeChefPerformance().getPerformanceInfo(username);
     }
+    
     setState(() {
       isVisible = false;
     });
+    
+    Provider.of<ProgressIndicatorChange>(context, listen: false).changeSpinnerState(widget.stringKey);
   }
 
   @override

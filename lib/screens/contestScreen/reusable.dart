@@ -58,7 +58,7 @@ class ContestCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Container(
-        height: 90,
+        // height: 90,
         decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.1),
           borderRadius: BorderRadius.circular(15),
@@ -66,7 +66,7 @@ class ContestCard extends StatelessWidget {
         child: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 7.5, top: 3, bottom: 3),
+              padding: const EdgeInsets.only(left: 15, top: 3, bottom: 3),
               child: SizedBox(
                 height: 70,
                 width: 50,
@@ -77,20 +77,25 @@ class ContestCard extends StatelessWidget {
               indent: 10,
               endIndent: 10,
               color: Colors.white.withOpacity(0.5),
-              thickness: 1.5,
+              thickness: 10,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 5),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 10),
-                  Text(
-                    contestName,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
+                  SingleChildScrollView(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width*0.52,
+                      child: Text(
+                        contestName,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 7.5),
@@ -146,6 +151,8 @@ class ContestCard extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 10),
+
                 ],
               ),
             ),

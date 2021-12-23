@@ -26,13 +26,13 @@ class FormattedTime {
     int minutes = secTime ~/ 1;
     String duration = "";
     if (days != 0) {
-      duration += days.toString() + " days ";
+      duration += days.toString() + " d ";
     }
     if (hours != 0) {
-      duration += hours.toString() + " hours ";
+      duration += hours.toString() + " hr ";
     }
     if (minutes != 0) {
-      duration += minutes.toString() + " minutes";
+      duration += minutes.toString() + " min";
     }
     return duration;
   }
