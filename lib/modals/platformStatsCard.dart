@@ -1,5 +1,4 @@
-// ignore_for_file: prefer_const_constructors
-// ignore_for_file: prefer_const_literals_to_create_immutables, file_names, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, file_names, prefer_const_constructors, non_constant_identifier_names
 
 import 'dart:core';
 import 'package:flutter/cupertino.dart';
@@ -139,7 +138,7 @@ class Codechef {
     designation = stats.CodeChefPerformance.designation;
     list = stats.CodeChefPerformance.ratings;
     if (username == null ||
-        username.length == 0 ||
+        username.isEmpty ||
         status.compareTo('Failure') == 0) {
       return EmptyUsernameContainer('Codechef');
     }
@@ -401,7 +400,7 @@ class Codeforces {
     list = stats.CodeforcesPerformance.ratings;
     status = stats.CodeforcesPerformance.status;
     if (username == null ||
-        username.length == 0 ||
+        username.isEmpty ||
         status.compareTo('Failure') == 0) {
       return EmptyUsernameContainer('Codeforces');
     }
@@ -669,7 +668,7 @@ class LeetCode {
     status = stats.LeetCodePerformance.status;
 
     if (username == null ||
-        username.length == 0 ||
+        username.isEmpty ||
         status.compareTo('Failure') == 0) {
       return EmptyUsernameContainer('Leetcode');
     }
@@ -852,7 +851,7 @@ class AtCoder {
     list = stats.AtcoderPerformance.ratings;
     status = stats.AtcoderPerformance.status;
     if (username == null ||
-        username.length == 0 ||
+        username.isEmpty ||
         status.compareTo('Failure') == 0) {
       return EmptyUsernameContainer('Atcoder');
     }

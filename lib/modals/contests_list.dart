@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names, avoid_print
+
 import 'dart:convert';
 import 'package:coders_castle/data_fetching/networking.dart';
 import 'package:intl/intl.dart';
@@ -48,7 +50,7 @@ class Codeforces {
   static var fon = [];
   static var flinks = [];
 
-  void getContestInfo() async {
+  Future<void> getContestInfo() async {
     String s = "https://www.kontests.net/api/v1/codeforces";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -64,7 +66,7 @@ class Codeforces {
 
       String sam = decodeData[j]['duration'].toString();
       int dur = int.parse(sam);
-      var d2 = Duration(seconds: dur);
+      // var d2 = Duration(seconds: dur);
       dur = dur ~/ 60;
       var dura = (FormattedTime().formatedTime(dur));
       String url = decodeData[j]['url'].toString();
@@ -82,10 +84,10 @@ class Codeforces {
       for (int k = 0; k < 4; k++) {
         date += date_time[k];
       }
-      String time = "";
-      for (int k = 11; k < 16; k++) {
-        time += date_time[k];
-      }
+      // String time = "";
+      // for (int k = 11; k < 16; k++) {
+      //   time += date_time[k];
+      // }
       var local_time = DateTime.parse(date_time);
       //print(local_time);
       //print(date);
@@ -120,7 +122,7 @@ class AtCoder {
   static var fon = [];
   static var flinks = [];
 
-  void getContestInfo() async {
+  Future<void> getContestInfo() async {
     String s = "https://www.kontests.net/api/v1/at_coder";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -136,7 +138,7 @@ class AtCoder {
 
       String sam = decodeData[j]['duration'].toString();
       int dur = int.parse(sam);
-      var d2 = Duration(seconds: dur);
+      // var d2 = Duration(seconds: dur);
       dur = dur ~/ 60;
       var dura = (FormattedTime().formatedTime(dur));
       String url = decodeData[j]['url'].toString();
@@ -154,10 +156,10 @@ class AtCoder {
       for (int k = 0; k < 4; k++) {
         date += date_time[k];
       }
-      String time = "";
-      for (int k = 11; k < 16; k++) {
-        time += date_time[k];
-      }
+      // String time = "";
+      // for (int k = 11; k < 16; k++) {
+      //   time += date_time[k];
+      // }
       var local_time = DateTime.parse(date_time);
       //print(date);
       if (date.compareTo(datetime) == 0) {
@@ -191,7 +193,7 @@ class KickStart {
   static var fon = [];
   static var flinks = [];
 
-  void getContestInfo() async {
+  Future<void> getContestInfo() async {
     String s = "https://www.kontests.net/api/v1/kick_start";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -208,7 +210,7 @@ class KickStart {
       String sam = decodeData[j]['duration'].toString();
       double temp = double.parse(sam);
       int dur = temp.toInt();
-      var d2 = Duration(seconds: dur);
+      // var d2 = Duration(seconds: dur);
       dur = dur ~/ 60;
       var dura = (FormattedTime().formatedTime(dur));
       String url = decodeData[j]['url'].toString();
@@ -226,10 +228,10 @@ class KickStart {
       for (int k = 0; k < 4; k++) {
         date += date_time[k];
       }
-      String time = "";
-      for (int k = 11; k < 16; k++) {
-        time += date_time[k];
-      }
+      // String time = "";
+      // for (int k = 11; k < 16; k++) {
+      //   time += date_time[k];
+      // }
       var local_time = DateTime.parse(date_time);
       //print(date);
       if (date.compareTo(datetime) == 0) {
@@ -263,7 +265,7 @@ class LeetCode {
   static var fon = [];
   static var flinks = [];
 
-  void getContestInfo() async {
+  Future<void> getContestInfo() async {
     String s = "https://www.kontests.net/api/v1/leet_code";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -279,7 +281,7 @@ class LeetCode {
 
       String sam = decodeData[j]['duration'].toString();
       int dur = int.parse(sam);
-      var d2 = Duration(seconds: dur);
+      // var d2 = Duration(seconds: dur);
       dur = dur ~/ 60;
       var dura = (FormattedTime().formatedTime(dur));
       String url = decodeData[j]['url'].toString();
@@ -297,10 +299,10 @@ class LeetCode {
       for (int k = 0; k < 4; k++) {
         date += date_time[k];
       }
-      String time = "";
-      for (int k = 11; k < 16; k++) {
-        time += date_time[k];
-      }
+      // String time = "";
+      // for (int k = 11; k < 16; k++) {
+      //   time += date_time[k];
+      // }
       var local_time = DateTime.parse(date_time);
       //print(date);
       if (date.compareTo(datetime) == 0) {
@@ -334,7 +336,7 @@ class CodeChef {
   static var fon = [];
   static var flinks = [];
 
-  void getContestInfo() async {
+  Future<void> getContestInfo() async {
     String s = "https://www.kontests.net/api/v1/code_chef";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -350,7 +352,7 @@ class CodeChef {
 
       String sam = decodeData[j]['duration'].toString();
       int dur = int.parse(sam);
-      var d2 = Duration(seconds: dur);
+      // var d2 = Duration(seconds: dur);
       dur = dur ~/ 60;
       var dura = (FormattedTime().formatedTime(dur));
       String url = decodeData[j]['url'].toString();
@@ -368,10 +370,10 @@ class CodeChef {
       for (int k = 0; k < 4; k++) {
         date += date_time[k];
       }
-      String time = "";
-      for (int k = 11; k < 16; k++) {
-        time += date_time[k];
-      }
+      // String time = "";
+      // for (int k = 11; k < 16; k++) {
+      //   time += date_time[k];
+      // }
       String temp = "";
       for (int j = 0; j < 10; j++) {
         temp += date_time[j];

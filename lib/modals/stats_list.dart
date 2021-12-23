@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:coders_castle/data_fetching/networking.dart';
@@ -10,9 +12,9 @@ class CodeChefPerformance {
   static String status = 'Failure';
   static var ratings = [];
 
-  void getPerformanceInfo(String user) async {
+  Future<void> getPerformanceInfo(String user) async {
     username = user;
-    if (user == null || user.length == 0) return;
+    if (user == null || user.isEmpty) return;
     String s = "https://cping-api2.herokuapp.com/api/codechef/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -40,9 +42,9 @@ class CodeforcesPerformance {
   static String status = 'Failure';
   static var ratings = [];
 
-  void getPerformanceInfo(String user) async {
+  Future<void> getPerformanceInfo(String user) async {
     username = user;
-    if (user == null || user.length == 0) return;
+    if (user == null || user.isEmpty) return;
     String s = "https://cping-api2.herokuapp.com/api/codeforces/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -70,9 +72,9 @@ class AtcoderPerformance {
   static String status = 'Failure';
   static var ratings = [];
 
-  void getPerformanceInfo(String user) async {
+  Future<void> getPerformanceInfo(String user) async {
     username = user;
-    if (user == null || user.length == 0) return;
+    if (user == null || user.isEmpty) return;
     String s = "https://cping-api2.herokuapp.com/api/atcoder/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -101,9 +103,9 @@ class LeetCodePerformance {
   static String medium;
   static String status = 'Failure';
 
-  void getPerformanceInfo(String user) async {
+  Future<void> getPerformanceInfo(String user) async {
     username = user;
-    if (user == null || user.length == 0) return;
+    if (user == null || user.isEmpty) return;
     String s = "https://cping-api2.herokuapp.com/api/leetcode/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);

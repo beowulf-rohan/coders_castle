@@ -1,13 +1,10 @@
 // ignore_for_file: file_names, prefer_const_constructors
-import 'package:coders_castle/check_internet_connectivity/connectivity_provider.dart';
-import 'package:coders_castle/check_internet_connectivity/no_internet.dart';
 import 'package:coders_castle/screens/contestScreen/contestScreen.dart';
 import 'package:coders_castle/screens/profileScreen/profileScreen.dart';
 import 'package:coders_castle/screens/statsScreen/statsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);

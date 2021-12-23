@@ -1,20 +1,19 @@
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_const_constructors_in_immutables
 import 'dart:async';
-import 'profileScreen/reusable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:coders_castle/check_internet_connectivity/connectivity_provider.dart';
-import 'package:coders_castle/check_internet_connectivity/no_internet.dart';
 import 'package:coders_castle/modals/contests_list.dart';
 import 'package:coders_castle/screens/profileScreen/profileScreen.dart';
 import 'package:coders_castle/screens/statsScreen/statsScreen.dart';
 import 'package:coders_castle/widgets/resuable.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:coders_castle/modals/stats_list.dart' as stats;
 import 'contestScreen/contestScreen.dart';
 import 'homeScreen.dart';
 
 class HomePage extends StatelessWidget {
   static const String id = 'Homepage';
+
+  HomePage({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

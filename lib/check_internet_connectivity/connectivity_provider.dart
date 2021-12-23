@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, file_names, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, file_names, prefer_const_constructors, prefer_final_fields, avoid_print
 
 import 'dart:async';
 import 'dart:io';
@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ConnectivityProvider with ChangeNotifier {
-  Connectivity _connectivity = new Connectivity();
+  Connectivity _connectivity = Connectivity();
 
   bool _isOnline;
   bool get isOnline => _isOnline;
