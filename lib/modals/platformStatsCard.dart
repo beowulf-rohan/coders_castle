@@ -137,6 +137,7 @@ class Codechef {
     presentRating = stats.CodeChefPerformance.presentRating;
     designation = stats.CodeChefPerformance.designation;
     list = stats.CodeChefPerformance.ratings;
+    print(status);
     if (username == null ||
         username.isEmpty ||
         status.compareTo('Failure') == 0) {
@@ -237,7 +238,8 @@ class Codechef {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         SizedBox(height: 10),
-                        Text('Username : $username',
+                        Text(
+                          'Username : $username',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
@@ -258,11 +260,10 @@ class Codechef {
                             Text(
                               maxRating.toString(),
                               style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                                color: color1,
-                              ),
-                            )
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: color1),
+                            ),
                           ],
                         ),
                         SizedBox(height: 7.5),
@@ -291,7 +292,7 @@ class Codechef {
                           // mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Stars : ',
+                              'Title : ',
                               style: TextStyle(
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500,
@@ -300,10 +301,9 @@ class Codechef {
                             Text(
                               designation,
                               style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                                color: color1,
-                              ),
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                  color: color1),
                             ),
                           ],
                         ),
@@ -352,7 +352,7 @@ class Codechef {
                         showTitle: true,
                         titleText: 'No of contest----->',
                         textStyle:
-                        TextStyle(color: Colors.white, fontSize: 10.0),
+                            TextStyle(color: Colors.white, fontSize: 10.0),
                         textAlign: TextAlign.center),
                   ),
                   titlesData: FlTitlesData(
@@ -364,12 +364,12 @@ class Codechef {
                       showTitles: true,
                       reservedSize: 30.0,
                       getTextStyles: (context, value) =>
-                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
                     bottomTitles: SideTitles(
                       showTitles: true,
                       getTextStyles: (context, value) =>
-                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
                   ),
                   borderData: FlBorderData(
@@ -635,7 +635,7 @@ class Codeforces {
                         showTitle: true,
                         titleText: 'No of contest----->',
                         textStyle:
-                        TextStyle(color: Colors.white, fontSize: 10.0),
+                            TextStyle(color: Colors.white, fontSize: 10.0),
                         textAlign: TextAlign.center),
                   ),
                   titlesData: FlTitlesData(
@@ -647,12 +647,12 @@ class Codeforces {
                       showTitles: true,
                       reservedSize: 30.0,
                       getTextStyles: (context, value) =>
-                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
                     bottomTitles: SideTitles(
                       showTitles: true,
                       getTextStyles: (context, value) =>
-                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
                   ),
                   borderData: FlBorderData(
@@ -1095,7 +1095,7 @@ class AtCoder {
                         showTitle: true,
                         titleText: 'No of contest----->',
                         textStyle:
-                        TextStyle(color: Colors.white, fontSize: 10.0),
+                            TextStyle(color: Colors.white, fontSize: 10.0),
                         textAlign: TextAlign.center),
                   ),
                   titlesData: FlTitlesData(
@@ -1107,12 +1107,12 @@ class AtCoder {
                       showTitles: true,
                       reservedSize: 30.0,
                       getTextStyles: (context, value) =>
-                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
                     bottomTitles: SideTitles(
                       showTitles: true,
                       getTextStyles: (context, value) =>
-                      const TextStyle(color: Colors.white, fontSize: 10.0),
+                          const TextStyle(color: Colors.white, fontSize: 10.0),
                     ),
                   ),
                   borderData: FlBorderData(
@@ -1129,7 +1129,6 @@ class AtCoder {
             ),
           ),
           SizedBox(height: 10),
-
         ],
       ),
     );
