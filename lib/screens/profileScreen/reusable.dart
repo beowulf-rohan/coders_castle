@@ -34,15 +34,19 @@ class _PlatformCardState extends State<PlatformCard> {
   Future updateChanges() async {
     final SharedPreferences sharedPref = await SharedPreferences.getInstance();
     sharedPref.setString(widget.stringKey, username);
-    
-    Provider.of<ProgressIndicatorChange>(context, listen: false).changeSpinnerState(widget.stringKey);
-    
+
+    Provider.of<ProgressIndicatorChange>(context, listen: false)
+        .changeSpinnerState(widget.stringKey);
+    bool showToast = false;
     setState(() {
       showUserName = true;
     });
-    
+
     if (widget.stringKey.compareTo('leetcode') == 0) {
       await stats.LeetCodePerformance().getPerformanceInfo(username);
+      if (stats.LeetCodePerformance.status.compareTo('Failed') == 0) {
+        print('failed');
+      }
     } else if (widget.stringKey.compareTo('atcoder') == 0) {
       await stats.AtcoderPerformance().getPerformanceInfo(username);
     } else if (widget.stringKey.compareTo('codeforces') == 0) {
@@ -50,12 +54,13 @@ class _PlatformCardState extends State<PlatformCard> {
     } else if (widget.stringKey.compareTo('codechef') == 0) {
       await stats.CodeChefPerformance().getPerformanceInfo(username);
     }
-    
+
     setState(() {
       isVisible = false;
     });
-    
-    Provider.of<ProgressIndicatorChange>(context, listen: false).changeSpinnerState(widget.stringKey);
+
+    Provider.of<ProgressIndicatorChange>(context, listen: false)
+        .changeSpinnerState(widget.stringKey);
   }
 
   @override

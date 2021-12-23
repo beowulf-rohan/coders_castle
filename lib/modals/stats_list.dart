@@ -22,6 +22,7 @@ class CodeChefPerformance {
     var decodeData = jsonDecode(contestData);
     if (decodeData['status'] == 'Failed') {
       username = null;
+      status = decodeData['status'].toString();
       return;
     }
     username = user;
@@ -29,7 +30,6 @@ class CodeChefPerformance {
     maxRating = decodeData['highest_rating'];
     designation = decodeData['stars'];
     ratings = decodeData['contest_ratings'];
-    status = decodeData['status'].toString();
     print(ratings);
   }
 }
@@ -52,6 +52,7 @@ class CodeforcesPerformance {
     var decodeData = jsonDecode(contestData);
     if (decodeData['status'] == 'Failed') {
       username = null;
+      status = decodeData['status'].toString();
       return;
     }
     username = user;
@@ -82,6 +83,7 @@ class AtcoderPerformance {
     var decodeData = jsonDecode(contestData);
     if (decodeData['status'] == 'Failed') {
       username = null;
+      status = decodeData['status'].toString();
       return;
     }
     username = user;
@@ -113,6 +115,7 @@ class LeetCodePerformance {
     var decodeData = jsonDecode(contestData);
     if (decodeData['status'] == 'Failed') {
       username = null;
+      status = decodeData['status'].toString();
       return;
     }
     username = user;
