@@ -21,6 +21,7 @@ class _ContestScreenState extends State<ContestScreen> {
   void initState() {
     super.initState();
 
+    //TODAY LIST
     for (int j = 0; j < Codeforces.pat.length; j++) {
       SortedList temp = SortedList();
       temp.duration = Codeforces.pduration[j];
@@ -28,6 +29,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = Codeforces.pon[j];
       temp.contestName = Codeforces.pcontestName[j];
       temp.path = 'images/codeforces.png';
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       today.add(temp);
     }
 
@@ -38,6 +40,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = CodeChef.pon[j];
       temp.contestName = CodeChef.pcontestName[j];
       temp.path = 'images/codechef.png';
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       today.add(temp);
     }
 
@@ -48,6 +51,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = AtCoder.pon[j];
       temp.contestName = AtCoder.pcontestName[j];
       temp.path = 'images/atcoder.png';
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       today.add(temp);
     }
     for (int j = 0; j < LeetCode.pat.length; j++) {
@@ -57,6 +61,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = LeetCode.pon[j];
       temp.contestName = LeetCode.pcontestName[j];
       temp.path = 'images/leetcode.png';
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       today.add(temp);
     }
     for (int j = 0; j < KickStart.pat.length; j++) {
@@ -66,9 +71,12 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = KickStart.pon[j];
       temp.contestName = KickStart.pcontestName[j];
       temp.path = 'images/google.png';
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       today.add(temp);
     }
 
+
+    //UPCOMING LIST
     for (int j = 0; j < 3 && j < Codeforces.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/codeforces.png';
@@ -76,6 +84,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = Codeforces.fon[j];
       temp.time = Codeforces.fat[j];
       temp.duration = Codeforces.fduration[j];
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -86,6 +95,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = CodeChef.fon[j];
       temp.time = CodeChef.fat[j];
       temp.duration = CodeChef.fduration[j];
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -96,6 +106,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = AtCoder.fon[j];
       temp.time = AtCoder.fat[j];
       temp.duration = AtCoder.fduration[j];
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -106,6 +117,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = LeetCode.fon[j];
       temp.time = LeetCode.fat[j];
       temp.duration = LeetCode.fduration[j];
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -116,6 +128,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = KickStart.fon[j];
       temp.time = KickStart.fat[j];
       temp.duration = KickStart.fduration[j];
+      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -221,6 +234,7 @@ class _ContestScreenState extends State<ContestScreen> {
         date: today[j].date,
         time: today[j].time,
         duration: today[j].duration,
+        url: today[j].url,
       ));
     }
     plist.add(SizedBox(height: 10));
@@ -233,6 +247,7 @@ class _ContestScreenState extends State<ContestScreen> {
         date: upcoming[j].date,
         time: upcoming[j].time,
         duration: upcoming[j].duration,
+        url: upcoming[j].url,
       ));
     }
 
@@ -284,4 +299,5 @@ class SortedList {
   String date;
   String time;
   String duration;
+  String url;
 }
