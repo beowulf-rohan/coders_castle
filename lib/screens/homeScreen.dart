@@ -2,6 +2,7 @@
 import 'package:coders_castle/progress_indicator/progressIndicator.dart';
 import 'package:coders_castle/screens/contestScreen/contestScreen.dart';
 import 'package:coders_castle/screens/profileScreen/profileScreen.dart';
+import 'package:coders_castle/screens/roadmapScreen/roadmapScreen.dart';
 import 'package:coders_castle/screens/statsScreen/statsScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -26,6 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ContestScreen(),
     StatsScreen(),
     ProfileScreen(),
+    RoadmapScreen(),
   ];
 
   @override
@@ -47,12 +49,13 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
               child: GNav(
                 rippleColor: Colors.white,
                 hoverColor: Colors.white,
                 gap: 8,
-    // backgroundColor: Colors.white, // activeColor: Colors.black,
+                // backgroundColor: Colors.white, // activeColor: Colors.black,
                 iconSize: 24,
                 padding: EdgeInsets.symmetric(horizontal: 22.5, vertical: 12),
                 duration: Duration(milliseconds: 500),
@@ -79,6 +82,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     icon: LineIcons.user,
                     haptic: true,
                     text: 'Profile',
+                    textStyle: TextStyle(color: Colors.white),
+                    backgroundColor: Color(0xff2a2a2a),
+                    iconActiveColor: Colors.white,
+                  ),
+                  GButton(
+                    icon: LineIcons.map,
+                    haptic: true,
+                    text: 'Roadmap',
                     textStyle: TextStyle(color: Colors.white),
                     backgroundColor: Color(0xff2a2a2a),
                     iconActiveColor: Colors.white,

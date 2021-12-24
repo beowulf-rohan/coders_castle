@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Codeforces.fat.isEmpty &&
         AtCoder.fat.isEmpty &&
         LeetCode.flinks.isEmpty) get();
-    Timer(Duration(seconds: 15), () {
+    Timer(Duration(seconds: 5), () {
       Navigator.pushReplacementNamed(context, HomeScreen.id);
     });
     // Timer(Duration(milliseconds: 500), () {

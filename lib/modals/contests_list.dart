@@ -136,7 +136,7 @@ class Codeforces {
         fat.add(DateFormat.Hm().format(local_time.toLocal()));
       }
     }
-    print(fcontestName);
+    //print(fcontestName);
     //print(fduration);
   }
 }
@@ -208,7 +208,7 @@ class AtCoder {
         fat.add(DateFormat.Hm().format(local_time.toLocal()));
       }
     }
-    print(fcontestName);
+    //print(fcontestName);
     //print(fduration);
   }
 }
@@ -281,7 +281,7 @@ class KickStart {
         fat.add(DateFormat.Hm().format(local_time.toLocal()));
       }
     }
-    print(fcontestName);
+    //print(fcontestName);
     //print(fduration);
   }
 }
@@ -353,7 +353,7 @@ class LeetCode {
         fat.add(DateFormat.Hm().format(local_time.toLocal()));
       }
     }
-    print(fcontestName);
+    //print(fcontestName);
     //print(fduration);
   }
 }
@@ -434,7 +434,7 @@ class CodeChef {
         fat.add(DateFormat.Hm().format(local_time.toLocal()));
       }
     }
-    print(fcontestName);
+    //print(fcontestName);
     //print(fduration);
   }
 }

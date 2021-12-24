@@ -31,7 +31,7 @@ class CodeChefPerformance {
     maxRating = decodeData['highest_rating'];
     designation = decodeData['stars'];
     ratings = decodeData['contest_ratings'];
-    print(ratings);
+    //print(ratings);
   }
 }
 
@@ -63,7 +63,7 @@ class CodeforcesPerformance {
     designation = decodeData['max rank'];
     ratings = decodeData['contests'];
     status = decodeData['status'].toString();
-    print(ratings);
+    //print(ratings);
   }
 }
 
@@ -95,7 +95,7 @@ class AtcoderPerformance {
     designation = decodeData['level'];
     ratings = decodeData['contest_ratings'];
     status = decodeData['status'].toString();
-    print(ratings);
+    //print(ratings);
   }
 }
 
@@ -129,6 +129,6 @@ class LeetCodePerformance {
     medium = decodeData['medium_questions_solved'];
     easy = decodeData['easy_questions_solved'];
     status = decodeData['status'];
-    print(acceptanceRate);
+    //print(acceptanceRate);
   }
 }
