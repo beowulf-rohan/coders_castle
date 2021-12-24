@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:coders_castle/modals/stats_list.dart' as stats;
 import 'package:coders_castle/progress_indicator/progressIndicator.dart';
 import 'package:provider/provider.dart';
+import 'package:alert/alert.dart';
 
 class PlatformCard extends StatefulWidget {
   const PlatformCard(
@@ -19,7 +20,7 @@ class PlatformCard extends StatefulWidget {
 }
 
 class _PlatformCardState extends State<PlatformCard> {
-  bool isVisible = false, showUserName = false;
+  bool isVisible = false;
   String username = "";
 
   Future getUserName() async {
@@ -27,7 +28,6 @@ class _PlatformCardState extends State<PlatformCard> {
     String name = sharedPref.getString(widget.stringKey);
     setState(() {
       username = (name == null) ? "" : name;
-      showUserName = (username == "") ? false : true;
     });
   }
 
@@ -37,16 +37,9 @@ class _PlatformCardState extends State<PlatformCard> {
 
     Provider.of<ProgressIndicatorChange>(context, listen: false)
         .changeSpinnerState(widget.stringKey);
-    bool showToast = false;
-    setState(() {
-      showUserName = true;
-    });
 
     if (widget.stringKey.compareTo('leetcode') == 0) {
       await stats.LeetCodePerformance().getPerformanceInfo(username);
-      if (stats.LeetCodePerformance.status.compareTo('Failed') == 0) {
-        print('failed');
-      }
     } else if (widget.stringKey.compareTo('atcoder') == 0) {
       await stats.AtcoderPerformance().getPerformanceInfo(username);
     } else if (widget.stringKey.compareTo('codeforces') == 0) {
@@ -61,6 +54,41 @@ class _PlatformCardState extends State<PlatformCard> {
 
     Provider.of<ProgressIndicatorChange>(context, listen: false)
         .changeSpinnerState(widget.stringKey);
+
+    bool validUsername = true;
+    if (stats.CodeChefPerformance.status.compareTo('Failed') == 0 &&
+        widget.stringKey.compareTo('codechef') == 0) {
+      Alert(message: 'Username does not exist', shortDuration: true).show();
+      setState(() {
+        validUsername = false;
+      });
+    } else if (stats.CodeforcesPerformance.status.compareTo('Failed') == 0 &&
+        widget.stringKey.compareTo('codeforces') == 0) {
+      Alert(message: 'Username does not exist', shortDuration: true).show();
+      setState(() {
+        validUsername = false;
+      });
+    } else if (stats.LeetCodePerformance.status.compareTo('Failed') == 0 &&
+        widget.stringKey.compareTo('leetcode') == 0) {
+      Alert(message: 'Username does not exist', shortDuration: true).show();
+      setState(() {
+        validUsername = false;
+      });
+    } else if (stats.AtcoderPerformance.status.compareTo('Failed') == 0 &&
+        widget.stringKey.compareTo('atcoder') == 0) {
+      Alert(message: 'Username does not exist', shortDuration: true).show();
+      setState(() {
+        validUsername = false;
+      });
+    } else  {
+      Alert(message: 'Username verified and added', shortDuration: true).show();
+    }
+
+    // if (validUsername) {
+    //   final SharedPreferences sharedPref =
+    //       await SharedPreferences.getInstance();
+    //   sharedPref.setString(widget.stringKey, username);
+    // }
   }
 
   @override
@@ -106,15 +134,12 @@ class _PlatformCardState extends State<PlatformCard> {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        Visibility(
-                          visible: showUserName,
-                          child: Text(
-                            'Username : $username',
-                            style: TextStyle(
-                              color: Colors.white.withOpacity(0.7),
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                            ),
+                        Text(
+                          'Username : $username',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.7),
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ],
@@ -127,7 +152,6 @@ class _PlatformCardState extends State<PlatformCard> {
                     onTap: () {
                       setState(() {
                         isVisible = !isVisible;
-                        showUserName = !showUserName;
                       });
                     },
                     child: Icon(
@@ -176,7 +200,9 @@ class _PlatformCardState extends State<PlatformCard> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      updateChanges();
+                      if (username != null) {
+                        updateChanges();
+                      }
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
