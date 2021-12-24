@@ -29,7 +29,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = Codeforces.pon[j];
       temp.contestName = Codeforces.pcontestName[j];
       temp.path = 'images/codeforces.png';
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = Codeforces.plinks[j];      // TODO: add link here
       today.add(temp);
     }
 
@@ -40,7 +40,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = CodeChef.pon[j];
       temp.contestName = CodeChef.pcontestName[j];
       temp.path = 'images/codechef.png';
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = CodeChef.plinks[j];      // TODO: add link here
       today.add(temp);
     }
 
@@ -51,7 +51,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = AtCoder.pon[j];
       temp.contestName = AtCoder.pcontestName[j];
       temp.path = 'images/atcoder.png';
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = AtCoder.plinks[j];      // TODO: add link here
       today.add(temp);
     }
     for (int j = 0; j < LeetCode.pat.length; j++) {
@@ -61,7 +61,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = LeetCode.pon[j];
       temp.contestName = LeetCode.pcontestName[j];
       temp.path = 'images/leetcode.png';
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = LeetCode.plinks[j];      // TODO: add link here
       today.add(temp);
     }
     for (int j = 0; j < KickStart.pat.length; j++) {
@@ -71,7 +71,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = KickStart.pon[j];
       temp.contestName = KickStart.pcontestName[j];
       temp.path = 'images/google.png';
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = KickStart.plinks[j];      // TODO: add link here
       today.add(temp);
     }
 
@@ -84,7 +84,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = Codeforces.fon[j];
       temp.time = Codeforces.fat[j];
       temp.duration = Codeforces.fduration[j];
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = Codeforces.flinks[j];      // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -95,7 +95,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = CodeChef.fon[j];
       temp.time = CodeChef.fat[j];
       temp.duration = CodeChef.fduration[j];
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = CodeChef.flinks[j];      // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -106,7 +106,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = AtCoder.fon[j];
       temp.time = AtCoder.fat[j];
       temp.duration = AtCoder.fduration[j];
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = AtCoder.flinks[j];      // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -117,7 +117,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = LeetCode.fon[j];
       temp.time = LeetCode.fat[j];
       temp.duration = LeetCode.fduration[j];
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = LeetCode.flinks[j];      // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -128,7 +128,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = KickStart.fon[j];
       temp.time = KickStart.fat[j];
       temp.duration = KickStart.fduration[j];
-      temp.url = 'https://codeforces.com/blog/entry/5518';      // TODO: add link here
+      temp.url = KickStart.flinks[j];      // TODO: add link here
       upcoming.add(temp);
     }
 
