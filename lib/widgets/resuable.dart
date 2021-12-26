@@ -10,15 +10,13 @@ class GlassBackground extends StatefulWidget {
 }
 
 class _GlassBackgroundState extends State<GlassBackground> {
-
-
   @override
   Widget build(BuildContext context) {
     return GlassmorphicContainer(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       border: 1.0,
-      borderRadius: 15,
+      borderRadius: 10,
       blur: 10,
       linearGradient: LinearGradient(
         begin: Alignment.topLeft,
