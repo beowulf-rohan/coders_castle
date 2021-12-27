@@ -113,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   'CODERS CASTLE',
                   style: TextStyle(
                     fontSize: 40,
+                    fontFamily: 'Fredoka',
                     color: Colors.white,
                   ),
                 ),
