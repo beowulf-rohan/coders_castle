@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:coders_castle/check_internet_connectivity/connectivity_provider.dart';
 import 'package:flutter/services.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -37,6 +38,9 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         // title: 'Flutter Demo',
+        theme: ThemeData(
+          fontFamily: 'Fredoka',
+        ),
         debugShowCheckedModeBanner: false,
         home: InterMediateScreen(),
       ),

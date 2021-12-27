@@ -9,7 +9,7 @@ class CodeChefPerformance {
   static int maxRating;
   static int presentRating;
   static String designation;
-  static String status = 'Failure';
+  static String status = 'Failed';
   static var ratings = [];
 
   Future<void> getPerformanceInfo(String user) async {
@@ -19,10 +19,15 @@ class CodeChefPerformance {
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
     var contestData = await networkHelper.getData();
-    var decodeData = jsonDecode(contestData);
-    if (decodeData['status'] == 'Failed') {
+    if (contestData == null) {
       username = null;
-      status = decodeData['status'].toString();
+      status = 'Failed';
+      return;
+    }
+    var decodeData = jsonDecode(contestData);
+    if (decodeData == null || decodeData['status'] == 'Failed') {
+      username = null;
+      status = 'Failed';
       return;
     }
     status = decodeData['status'].toString();
@@ -40,7 +45,7 @@ class CodeforcesPerformance {
   static int maxRating;
   static int presentRating;
   static String designation;
-  static String status = 'Failure';
+  static String status = 'Failed';
   static var ratings = [];
 
   Future<void> getPerformanceInfo(String user) async {
@@ -50,10 +55,15 @@ class CodeforcesPerformance {
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
     var contestData = await networkHelper.getData();
-    var decodeData = jsonDecode(contestData);
-    if (decodeData['status'] == 'Failed') {
+    if (contestData == null) {
       username = null;
-      status = decodeData['status'].toString();
+      status = 'Failed';
+      return;
+    }
+    var decodeData = jsonDecode(contestData);
+    if (decodeData == null || decodeData['status'] == 'Failed') {
+      username = null;
+      status = 'Failed';
       return;
     }
     status = decodeData['status'].toString();
@@ -72,7 +82,7 @@ class AtcoderPerformance {
   static int maxRating;
   static int presentRating;
   static String designation;
-  static String status = 'Failure';
+  static String status = 'Failed';
   static var ratings = [];
 
   Future<void> getPerformanceInfo(String user) async {
@@ -82,10 +92,15 @@ class AtcoderPerformance {
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
     var contestData = await networkHelper.getData();
-    var decodeData = jsonDecode(contestData);
-    if (decodeData['status'] == 'Failed') {
+    if (contestData == null) {
       username = null;
-      status = decodeData['status'].toString();
+      status = 'Failed';
+      return;
+    }
+    var decodeData = jsonDecode(contestData);
+    if (decodeData == null || decodeData['status'] == 'Failed') {
+      username = null;
+      status = 'Failed';
       return;
     }
     status = decodeData['status'].toString();
@@ -106,7 +121,7 @@ class LeetCodePerformance {
   static String hard;
   static String easy;
   static String medium;
-  static String status = 'Failure';
+  static String status = 'Failed';
 
   Future<void> getPerformanceInfo(String user) async {
     username = user;
@@ -115,10 +130,15 @@ class LeetCodePerformance {
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
     var contestData = await networkHelper.getData();
-    var decodeData = jsonDecode(contestData);
-    if (decodeData['status'] == 'Failed') {
+    if (contestData == null) {
       username = null;
-      status = decodeData['status'].toString();
+      status = 'Failed';
+      return;
+    }
+    var decodeData = jsonDecode(contestData);
+    if (decodeData == null || decodeData['status'] == 'Failed') {
+      username = null;
+      status = 'Failed';
       return;
     }
     status = decodeData['status'].toString();

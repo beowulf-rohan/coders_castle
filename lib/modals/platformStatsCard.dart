@@ -140,7 +140,7 @@ class Codechef {
     print(status);
     if (username == null ||
         username.isEmpty ||
-        status.compareTo('Failure') == 0) {
+        status.compareTo('Failed') == 0) {
       return EmptyUsernameContainer('Codechef');
     }
     maxX = (list.length / 10 + 1) * 10;
@@ -414,7 +414,7 @@ class Codeforces {
     status = stats.CodeforcesPerformance.status;
     if (username == null ||
         username.isEmpty ||
-        status.compareTo('Failure') == 0) {
+        status.compareTo('Failed') == 0) {
       return EmptyUsernameContainer('Codeforces');
     }
 
@@ -696,7 +696,7 @@ class LeetCode {
 
     if (username == null ||
         username.isEmpty ||
-        status.compareTo('Failure') == 0) {
+        status.compareTo('Failed') == 0) {
       return EmptyUsernameContainer('Leetcode');
     }
 
@@ -879,7 +879,7 @@ class AtCoder {
     status = stats.AtcoderPerformance.status;
     if (username == null ||
         username.isEmpty ||
-        status.compareTo('Failure') == 0) {
+        status.compareTo('Failed') == 0) {
       return EmptyUsernameContainer('Atcoder');
     }
     maxX = (list.length / 10 + 1) * 10;
