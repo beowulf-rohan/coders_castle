@@ -7,19 +7,6 @@ import 'package:intl/intl.dart';
 
 class FormattedTime {
   String formatedTime(int secTime) {
-    // String getParsedTime(String time) {
-    //   if (time.length <= 1) return "0$time";
-    //   return time;
-    // }
-
-    // int min = secTime ~/ 60;
-    // int sec = secTime % 60;
-
-    // String parsedTime =
-    //     getParsedTime(min.toString()) + ":" + getParsedTime(sec.toString());
-
-    // return parsedTime;
-
     int days = secTime ~/ (60 * 24);
     secTime = secTime % (60 * 24);
     int hours = secTime ~/ 60;
@@ -88,13 +75,13 @@ class All {
     var contestData = await networkHelper.getData();
     var decodeData = jsonDecode(contestData);
     int size = (decodeData as List<dynamic>).length;
-    print(size);
+    //print(size);
     DateTime presentTime = DateTime.now();
     String datetime = DateFormat("dd-MM-yyyy").format(presentTime);
     //print(datetime);
     for (int j = 0; j < size; j++) {
       String site = decodeData[j]['site'].toString();
-      if ((site.compareTo('Codechef') == 0 ||
+      if ((site.compareTo('CodeChef') == 0 ||
               site.compareTo('CodeForces') == 0 ||
               site.compareTo('AtCoder') == 0 ||
               site.compareTo('Kick Start') == 0 ||
@@ -126,16 +113,22 @@ class All {
       for (int k = 0; k < 4; k++) {
         date += date_time[k];
       }
-      // String time = "";
-      // for (int k = 11; k < 16; k++) {
-      //   time += date_time[k];
-      // }
+      String temp = "";
+      for (int j = 0; j < 10; j++) {
+        temp += date_time[j];
+      }
+      temp += 'T';
+      for (int j = 11; j < 19; j++) {
+        temp += date_time[j];
+      }
+      temp += '.000Z';
+      if (site.compareTo('CodeChef') == 0) date_time = temp;
       var local_time = DateTime.parse(date_time);
       //print(local_time);
       //print(date);
       String contestDate = DateFormat.Hm().format(local_time.toLocal());
       if (compare(date, datetime) <= 0) {
-        if (site.compareTo('Codechef') == 0) {
+        if (site.compareTo('CodeChef') == 0) {
           CodeChef.plinks.add(url);
           CodeChef.pduration.add(dura);
           CodeChef.pcontestName.add(name);
@@ -167,7 +160,7 @@ class All {
           KickStart.pat.add(DateFormat.Hm().format(local_time.toLocal()));
         }
       } else {
-        if (site.compareTo('Codechef') == 0) {
+        if (site.compareTo('CodeChef') == 0) {
           CodeChef.flinks.add(url);
           CodeChef.fduration.add(dura);
           CodeChef.fcontestName.add(name);
@@ -200,7 +193,7 @@ class All {
         }
       }
     }
-    print(KickStart.fcontestName);
+    //print(CodeChef.fcontestName);
   }
 }
 

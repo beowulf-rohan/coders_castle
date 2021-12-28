@@ -51,11 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // Timer(Duration(milliseconds: 500), () {
     //   Navigator.pushNamed(context, HomeScreen.id);
     // });
-    Future.delayed(const Duration(milliseconds: 100), () {
-      setState(() {
-        widget1Opacity = 1;
-      });
-    });
   }
 
   Future<void> get() async {
@@ -99,14 +94,10 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AnimatedOpacity(
-                  opacity: widget1Opacity,
-                  duration: Duration(milliseconds: 1000),
-                  child: SizedBox(
-                    height: 150,
-                    width: 150,
-                    child: Image.asset('images/logo.png'),
-                  ),
+                SizedBox(
+                  height: 150,
+                  width: 150,
+                  child: Image.asset('images/logo.png'),
                 ),
                 SizedBox(height: 50.0),
                 Text(
