@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 import 'package:coders_castle/data_fetching/networking.dart';
+import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
 
 class FormattedTime {
@@ -68,6 +69,141 @@ int compare(String a, String b) {
   return 0;
 }
 
+class All {
+  static var pcontestName = [];
+  static var pduration = [];
+  static var pat = [];
+  static var pon = [];
+  static var plinks = [];
+  static var fcontestName = [];
+  static var fduration = [];
+  static var fat = [];
+  static var fon = [];
+  static var flinks = [];
+
+  Future<void> getContestInfo() async {
+    String s = "https://www.kontests.net/api/v1/all";
+    Uri url = Uri.parse(s);
+    NetworkHelper networkHelper = NetworkHelper(url);
+    var contestData = await networkHelper.getData();
+    var decodeData = jsonDecode(contestData);
+    int size = (decodeData as List<dynamic>).length;
+    print(size);
+    DateTime presentTime = DateTime.now();
+    String datetime = DateFormat("dd-MM-yyyy").format(presentTime);
+    //print(datetime);
+    for (int j = 0; j < size; j++) {
+      String site = decodeData[j]['site'].toString();
+      if ((site.compareTo('Codechef') == 0 ||
+              site.compareTo('CodeForces') == 0 ||
+              site.compareTo('AtCoder') == 0 ||
+              site.compareTo('Kick Start') == 0 ||
+              site.compareTo('LeetCode') == 0) ==
+          false) {
+        continue;
+      }
+
+      String name = decodeData[j]['name'].toString();
+
+      String sam = decodeData[j]['duration'].toString();
+      double dou = double.parse(sam);
+      int dur = dou.toInt();
+      // var d2 = Duration(seconds: dur);
+      dur = dur ~/ 60;
+      var dura = (FormattedTime().formatedTime(dur));
+      String url = decodeData[j]['url'].toString();
+
+      String date_time = decodeData[j]['start_time'].toString();
+      String date = "";
+      for (int k = 8; k < 10; k++) {
+        date += date_time[k];
+      }
+      date += '-';
+      for (int k = 5; k < 7; k++) {
+        date += date_time[k];
+      }
+      date += '-';
+      for (int k = 0; k < 4; k++) {
+        date += date_time[k];
+      }
+      // String time = "";
+      // for (int k = 11; k < 16; k++) {
+      //   time += date_time[k];
+      // }
+      var local_time = DateTime.parse(date_time);
+      //print(local_time);
+      //print(date);
+      String contestDate = DateFormat.Hm().format(local_time.toLocal());
+      if (compare(date, datetime) <= 0) {
+        if (site.compareTo('Codechef') == 0) {
+          CodeChef.plinks.add(url);
+          CodeChef.pduration.add(dura);
+          CodeChef.pcontestName.add(name);
+          CodeChef.pon.add(date);
+          CodeChef.pat.add(DateFormat.Hm().format(local_time.toLocal()));
+        } else if (site.compareTo('CodeForces') == 0) {
+          Codeforces.plinks.add(url);
+          Codeforces.pduration.add(dura);
+          Codeforces.pcontestName.add(name);
+          Codeforces.pon.add(date);
+          Codeforces.pat.add(DateFormat.Hm().format(local_time.toLocal()));
+        } else if (site.compareTo('AtCoder') == 0) {
+          AtCoder.plinks.add(url);
+          AtCoder.pduration.add(dura);
+          AtCoder.pcontestName.add(name);
+          AtCoder.pon.add(date);
+          AtCoder.pat.add(DateFormat.Hm().format(local_time.toLocal()));
+        } else if (site.compareTo('LeetCode') == 0) {
+          LeetCode.plinks.add(url);
+          LeetCode.pduration.add(dura);
+          LeetCode.pcontestName.add(name);
+          LeetCode.pon.add(date);
+          LeetCode.pat.add(DateFormat.Hm().format(local_time.toLocal()));
+        } else if (site.compareTo('Kick Start') == 0) {
+          KickStart.plinks.add(url);
+          KickStart.pduration.add(dura);
+          KickStart.pcontestName.add(name);
+          KickStart.pon.add(date);
+          KickStart.pat.add(DateFormat.Hm().format(local_time.toLocal()));
+        }
+      } else {
+        if (site.compareTo('Codechef') == 0) {
+          CodeChef.flinks.add(url);
+          CodeChef.fduration.add(dura);
+          CodeChef.fcontestName.add(name);
+          CodeChef.fon.add(date);
+          CodeChef.fat.add(DateFormat.Hm().format(local_time.toLocal()));
+        } else if (site.compareTo('CodeForces') == 0) {
+          Codeforces.flinks.add(url);
+          Codeforces.fduration.add(dura);
+          Codeforces.fcontestName.add(name);
+          Codeforces.fon.add(date);
+          Codeforces.fat.add(DateFormat.Hm().format(local_time.toLocal()));
+        } else if (site.compareTo('AtCoder') == 0) {
+          AtCoder.flinks.add(url);
+          AtCoder.fduration.add(dura);
+          AtCoder.fcontestName.add(name);
+          AtCoder.fon.add(date);
+          AtCoder.fat.add(DateFormat.Hm().format(local_time.toLocal()));
+        } else if (site.compareTo('LeetCode') == 0) {
+          LeetCode.flinks.add(url);
+          LeetCode.fduration.add(dura);
+          LeetCode.fcontestName.add(name);
+          LeetCode.fon.add(date);
+          LeetCode.fat.add(DateFormat.Hm().format(local_time.toLocal()));
+        } else if (site.compareTo('Kick Start') == 0) {
+          KickStart.flinks.add(url);
+          KickStart.fduration.add(dura);
+          KickStart.fcontestName.add(name);
+          KickStart.fon.add(date);
+          KickStart.fat.add(DateFormat.Hm().format(local_time.toLocal()));
+        }
+      }
+    }
+    print(KickStart.fcontestName);
+  }
+}
+
 class Codeforces {
   static var pcontestName = [];
   static var pduration = [];
@@ -95,7 +231,8 @@ class Codeforces {
       String name = decodeData[j]['name'].toString();
 
       String sam = decodeData[j]['duration'].toString();
-      int dur = int.parse(sam);
+      double temp = double.parse(sam);
+      int dur = temp.toInt();
       // var d2 = Duration(seconds: dur);
       dur = dur ~/ 60;
       var dura = (FormattedTime().formatedTime(dur));
