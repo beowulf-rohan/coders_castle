@@ -37,7 +37,8 @@ class HeadingText extends StatelessWidget {
         style: TextStyle(
           color: Colors.white,
           fontSize: 28,
-          fontWeight: FontWeight.w600,
+          fontFamily: 'Fredoka',
+          fontWeight: FontWeight.w300,
         ),
       ),
     );

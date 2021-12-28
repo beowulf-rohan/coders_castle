@@ -76,6 +76,8 @@ Widget EmptyUsernameContainer(String platform) {
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
                         ),
                       ),
                       Text(
@@ -83,6 +85,8 @@ Widget EmptyUsernameContainer(String platform) {
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
                         ),
                       ),
                       Text(
@@ -90,6 +94,8 @@ Widget EmptyUsernameContainer(String platform) {
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
                         ),
                       ),
                       Text(
@@ -97,6 +103,8 @@ Widget EmptyUsernameContainer(String platform) {
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
                         ),
                       ),
                     ],
@@ -243,7 +251,8 @@ class Codechef {
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
-                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Fredoka',
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
                         SizedBox(height: 7.5),
@@ -254,14 +263,16 @@ class Codechef {
                               'Max Rating : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               maxRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: color1),
                             ),
                           ],
@@ -274,14 +285,16 @@ class Codechef {
                               'Current Rating : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               presentRating.toString(),
                               style: TextStyle(
                                 fontSize: 12,
-                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Fredoka',
+                                fontWeight: FontWeight.normal,
                                 color: color2,
                               ),
                             )
@@ -295,14 +308,16 @@ class Codechef {
                               'Title : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               designation,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: color1),
                             ),
                           ],
@@ -346,13 +361,20 @@ class Codechef {
                     leftTitle: AxisTitle(
                       showTitle: true,
                       titleText: 'Rating----->',
-                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                      textStyle: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
+                          fontSize: 10.0),
                     ),
                     bottomTitle: AxisTitle(
                         showTitle: true,
                         titleText: 'No of contest----->',
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 10.0),
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Fredoka',
+                            fontWeight: FontWeight.normal,
+                            fontSize: 10.0),
                         textAlign: TextAlign.center),
                   ),
                   titlesData: FlTitlesData(
@@ -363,13 +385,19 @@ class Codechef {
                     leftTitles: SideTitles(
                       showTitles: true,
                       reservedSize: 30.0,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                      getTextStyles: (context, value) => const TextStyle(
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 10.0),
                     ),
                     bottomTitles: SideTitles(
                       showTitles: true,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                      getTextStyles: (context, value) => const TextStyle(
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 10.0),
                     ),
                   ),
                   borderData: FlBorderData(
@@ -526,7 +554,8 @@ class Codeforces {
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
-                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Fredoka',
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
                         SizedBox(height: 7.5),
@@ -544,7 +573,8 @@ class Codeforces {
                               maxRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: color1),
                             ),
                           ],
@@ -557,14 +587,16 @@ class Codeforces {
                               'Current Rating : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               presentRating.toString(),
                               style: TextStyle(
                                 fontSize: 12,
-                                fontWeight: FontWeight.w500,
+                                fontFamily: 'Fredoka',
+                                fontWeight: FontWeight.normal,
                                 color: color2,
                               ),
                             )
@@ -578,14 +610,16 @@ class Codeforces {
                               'Title : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               designation,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: color1),
                             ),
                           ],
@@ -629,13 +663,20 @@ class Codeforces {
                     leftTitle: AxisTitle(
                       showTitle: true,
                       titleText: 'Rating----->',
-                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                      textStyle: TextStyle(
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 10.0),
                     ),
                     bottomTitle: AxisTitle(
                         showTitle: true,
                         titleText: 'No of contest----->',
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 10.0),
+                        textStyle: TextStyle(
+                            fontFamily: 'Fredoka',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.white,
+                            fontSize: 10.0),
                         textAlign: TextAlign.center),
                   ),
                   titlesData: FlTitlesData(
@@ -646,13 +687,19 @@ class Codeforces {
                     leftTitles: SideTitles(
                       showTitles: true,
                       reservedSize: 30.0,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                      getTextStyles: (context, value) => const TextStyle(
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 10.0),
                     ),
                     bottomTitles: SideTitles(
                       showTitles: true,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                      getTextStyles: (context, value) => const TextStyle(
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 10.0),
                     ),
                   ),
                   borderData: FlBorderData(
@@ -749,7 +796,8 @@ class LeetCode {
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
-                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Fredoka',
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
                         SizedBox(height: 7.5),
@@ -760,14 +808,16 @@ class LeetCode {
                               'Problem Solved : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               problemsSolved,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white.withOpacity(0.5)),
                             ),
                           ],
@@ -780,14 +830,16 @@ class LeetCode {
                               'Acceptance Rate : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               acceptanceRate,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white.withOpacity(0.5)),
                             ),
                           ],
@@ -800,14 +852,16 @@ class LeetCode {
                               'Easy: ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Color(0xff43A047)),
                             ),
                             Text(
                               easy,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white.withOpacity(0.5)),
                             ),
                             SizedBox(width: 10),
@@ -815,14 +869,16 @@ class LeetCode {
                               'Medium: ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Color(0xffFB8C00)),
                             ),
                             Text(
                               medium,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white.withOpacity(0.5)),
                             ),
                             SizedBox(width: 10),
@@ -830,14 +886,16 @@ class LeetCode {
                               'Hard: ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Color(0xffE91E63)),
                             ),
                             Text(
                               hard,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white.withOpacity(0.5)),
                             ),
                           ],
@@ -987,7 +1045,8 @@ class AtCoder {
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
-                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Fredoka',
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
                         SizedBox(height: 7.5),
@@ -998,14 +1057,16 @@ class AtCoder {
                               'Max Rating : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               maxRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: color1),
                             ),
                           ],
@@ -1018,14 +1079,16 @@ class AtCoder {
                               'Current Rating : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               presentRating.toString(),
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: color2),
                             )
                           ],
@@ -1038,14 +1101,16 @@ class AtCoder {
                               'Level : ',
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: Colors.white),
                             ),
                             Text(
                               designation,
                               style: TextStyle(
                                   fontSize: 12,
-                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'Fredoka',
+                                  fontWeight: FontWeight.normal,
                                   color: color1),
                             ),
                           ],
@@ -1089,13 +1154,20 @@ class AtCoder {
                     leftTitle: AxisTitle(
                       showTitle: true,
                       titleText: 'Rating----->',
-                      textStyle: TextStyle(color: Colors.white, fontSize: 10.0),
+                      textStyle: TextStyle(
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 10.0),
                     ),
                     bottomTitle: AxisTitle(
                         showTitle: true,
                         titleText: 'No of contest----->',
-                        textStyle:
-                            TextStyle(color: Colors.white, fontSize: 10.0),
+                        textStyle: TextStyle(
+                            fontFamily: 'Fredoka',
+                            fontWeight: FontWeight.normal,
+                            color: Colors.white,
+                            fontSize: 10.0),
                         textAlign: TextAlign.center),
                   ),
                   titlesData: FlTitlesData(
@@ -1106,13 +1178,19 @@ class AtCoder {
                     leftTitles: SideTitles(
                       showTitles: true,
                       reservedSize: 30.0,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                      getTextStyles: (context, value) => const TextStyle(
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 10.0),
                     ),
                     bottomTitles: SideTitles(
                       showTitles: true,
-                      getTextStyles: (context, value) =>
-                          const TextStyle(color: Colors.white, fontSize: 10.0),
+                      getTextStyles: (context, value) => const TextStyle(
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 10.0),
                     ),
                   ),
                   borderData: FlBorderData(

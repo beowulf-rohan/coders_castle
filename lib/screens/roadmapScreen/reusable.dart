@@ -61,13 +61,15 @@ class _PlatformCardState extends State<PlatformCard> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(10),
+                          padding: EdgeInsets.only(
+                              left: 25, right: 15, bottom: 15, top: 15),
                           child: Text(
                             widget.topic,
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 20,
-                              fontWeight: FontWeight.w700,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
                             ),
                           ),
                         ),
@@ -115,9 +117,11 @@ class _PlatformCardState extends State<PlatformCard> {
                           child: Text(
                             'Playlist',
                             style: TextStyle(
-                                color: Colors.white.withOpacity(0.9),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
+                              color: Colors.white.withOpacity(0.9),
+                              fontSize: 15,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                         ),
                       ),
@@ -140,11 +144,13 @@ class _PlatformCardState extends State<PlatformCard> {
                             borderRadius: BorderRadius.circular(10)),
                         child: Center(
                           child: Text(
-                            'Blog',
+                            'Article',
                             style: TextStyle(
-                                color: Colors.white.withOpacity(0.9),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
+                              color: Colors.white.withOpacity(0.9),
+                              fontSize: 15,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                         ),
                       ),
