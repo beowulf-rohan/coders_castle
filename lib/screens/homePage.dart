@@ -44,6 +44,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    setState(() {
+      showSpinner = true;
+    });
     get();
     // Timer(Duration(milliseconds: 500), () {
     //   Navigator.pushNamed(context, HomeScreen.id);
@@ -56,17 +59,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> get() async {
-    setState(() {
-      showSpinner = true;
-    });
-    await CodeChef().getContestInfo();
-    await Codeforces().getContestInfo();
-    await AtCoder().getContestInfo();
-    await KickStart().getContestInfo();
-    await LeetCode().getContestInfo();
-
+    // await CodeChef().getContestInfo();
+    // await Codeforces().getContestInfo();
+    // await AtCoder().getContestInfo();
+    // await KickStart().getContestInfo();
+    // await LeetCode().getContestInfo();
+    await All().getContestInfo();
     Navigator.pushReplacementNamed(context, HomeScreen.id);
-
     final SharedPreferences sharedPref = await SharedPreferences.getInstance();
     String codechefUsername = sharedPref.getString('codechef');
     if (codechefUsername != null) {
@@ -88,10 +87,6 @@ class _MyHomePageState extends State<MyHomePage> {
     if (atcoderUsername != null) {
       await stats.AtcoderPerformance().getPerformanceInfo(atcoderUsername);
     }
-
-    setState(() {
-      showSpinner = false;
-    });
   }
 
   @override
