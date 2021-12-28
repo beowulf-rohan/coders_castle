@@ -76,7 +76,7 @@ class _ContestScreenState extends State<ContestScreen> {
     }
 
     //UPCOMING LIST
-    for (int j = 0; j < 3 && j < Codeforces.fat.length; j++) {
+    for (int j = 0; j < Codeforces.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/codeforces.png';
       temp.contestName = Codeforces.fcontestName[j];
@@ -87,7 +87,7 @@ class _ContestScreenState extends State<ContestScreen> {
       upcoming.add(temp);
     }
 
-    for (int j = 0; j < 3 && j < CodeChef.fat.length; j++) {
+    for (int j = 0; j < CodeChef.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/codechef.png';
       temp.contestName = CodeChef.fcontestName[j];
@@ -98,7 +98,7 @@ class _ContestScreenState extends State<ContestScreen> {
       upcoming.add(temp);
     }
 
-    for (int j = 0; j < 3 && j < AtCoder.fat.length; j++) {
+    for (int j = 0; j < AtCoder.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/atcoder.png';
       temp.contestName = AtCoder.fcontestName[j];
@@ -109,7 +109,7 @@ class _ContestScreenState extends State<ContestScreen> {
       upcoming.add(temp);
     }
 
-    for (int j = 0; j < 3 && j < LeetCode.fat.length; j++) {
+    for (int j = 0; j < LeetCode.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/leetcode.png';
       temp.contestName = LeetCode.fcontestName[j];
@@ -120,7 +120,7 @@ class _ContestScreenState extends State<ContestScreen> {
       upcoming.add(temp);
     }
 
-    for (int j = 0; j < 3 && j < KickStart.fat.length; j++) {
+    for (int j = 0; j < KickStart.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/google.png';
       temp.contestName = KickStart.fcontestName[j];
@@ -239,7 +239,7 @@ class _ContestScreenState extends State<ContestScreen> {
     plist.add(SizedBox(height: 10));
 
     flist.add(HeadingText(text: "Upcoming"));
-    for (int j = 0; j < upcoming.length; j++) {
+    for (int j = 0; j < 15 && j < upcoming.length; j++) {
       flist.add(ContestCard(
         path: upcoming[j].path,
         contestName: upcoming[j].contestName,

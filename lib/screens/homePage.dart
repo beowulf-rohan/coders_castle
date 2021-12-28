@@ -11,6 +11,7 @@ import 'contestScreen/contestScreen.dart';
 import 'homeScreen.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:in_app_update/in_app_update.dart';
 
 class HomePage extends StatelessWidget {
   static const String id = 'Homepage';
@@ -42,6 +43,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   double widget1Opacity = 0.0;
   bool showSpinner = false;
+  AppUpdateInfo _updateInfo;
+
   @override
   void initState() {
     super.initState();
@@ -49,9 +52,23 @@ class _MyHomePageState extends State<MyHomePage> {
       showSpinner = true;
     });
     get();
-    // Timer(Duration(milliseconds: 500), () {
-    //   Navigator.pushNamed(context, HomeScreen.id);
-    // });
+    checkForUpdate();
+  }
+
+  Future<void> checkForUpdate() async {
+    InAppUpdate.checkForUpdate().then((info) {
+      setState(() {
+        _updateInfo = info;
+      });
+      if (_updateInfo.updateAvailability ==
+          UpdateAvailability.updateAvailable) {
+        print("Update Available....");
+        InAppUpdate.performImmediateUpdate();
+        print("Update in progress....");
+      } else {
+        print("No update Available....");
+      }
+    });
   }
 
   Future<void> get() async {
