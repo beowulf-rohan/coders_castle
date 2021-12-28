@@ -4,7 +4,8 @@ import 'package:flutter_web_browser/flutter_web_browser.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 class ContestContainer extends StatefulWidget {
-  const ContestContainer({Key key, @required this.childWidget}) : super(key: key);
+  const ContestContainer({Key key, @required this.childWidget})
+      : super(key: key);
   final Widget childWidget;
 
   @override
@@ -17,8 +18,9 @@ class _ContestContainerState extends State<ContestContainer> {
     return Container(
       margin: EdgeInsets.only(top: 30),
       height: 400,
-      decoration:
-          BoxDecoration(color: Color(0xff2a2a2a).withOpacity(0.5), borderRadius: BorderRadius.circular(15)),
+      decoration: BoxDecoration(
+          color: Color(0xff2a2a2a).withOpacity(0.5),
+          borderRadius: BorderRadius.circular(15)),
       child: widget.childWidget,
     );
   }
@@ -35,8 +37,9 @@ class HeadingText extends StatelessWidget {
         text,
         style: TextStyle(
           color: Colors.white,
+          fontFamily: 'Fredoka',
           fontSize: 28,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w300,
         ),
       ),
     );
@@ -132,7 +135,8 @@ class ContestCard extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15,
-                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Fredoka',
+                            fontWeight: FontWeight.normal,
                           ),
                         ),
                       ),
@@ -142,25 +146,35 @@ class ContestCard extends StatelessWidget {
                       children: [
                         Text(
                           'On : ',
-                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white),
                         ),
                         Text(
                           date,
                           style: TextStyle(
                               fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
                               color: Colors.white.withOpacity(0.5)),
                         ),
                         SizedBox(width: 30),
                         Text(
                           'At : ',
-                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white),
                         ),
                         Text(
                           time,
                           style: TextStyle(
                               fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
                               color: Colors.white.withOpacity(0.5)),
                         )
                       ],
@@ -170,13 +184,18 @@ class ContestCard extends StatelessWidget {
                       children: [
                         Text(
                           'Duration : ',
-                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.white),
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
+                              color: Colors.white),
                         ),
                         Text(
                           duration,
                           style: TextStyle(
                               fontSize: 12,
-                              fontWeight: FontWeight.w500,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
                               color: Colors.white.withOpacity(0.5)),
                         ),
                       ],

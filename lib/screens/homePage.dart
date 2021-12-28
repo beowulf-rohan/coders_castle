@@ -10,6 +10,8 @@ import 'package:coders_castle/modals/stats_list.dart' as stats;
 import 'contestScreen/contestScreen.dart';
 import 'homeScreen.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:in_app_update/in_app_update.dart';
 
 class HomePage extends StatelessWidget {
   static const String id = 'Homepage';
@@ -41,6 +43,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   double widget1Opacity = 0.0;
   bool showSpinner = false;
+  AppUpdateInfo _updateInfo;
+
   @override
   void initState() {
     super.initState();
@@ -48,13 +52,22 @@ class _MyHomePageState extends State<MyHomePage> {
       showSpinner = true;
     });
     get();
-    // Timer(Duration(milliseconds: 500), () {
-    //   Navigator.pushNamed(context, HomeScreen.id);
-    // });
-    Future.delayed(const Duration(milliseconds: 100), () {
+    checkForUpdate();
+  }
+
+  Future<void> checkForUpdate() async {
+    InAppUpdate.checkForUpdate().then((info) {
       setState(() {
-        widget1Opacity = 1;
+        _updateInfo = info;
       });
+      if (_updateInfo.updateAvailability ==
+          UpdateAvailability.updateAvailable) {
+        print("Update Available....");
+        InAppUpdate.performImmediateUpdate();
+        print("Update in progress....");
+      } else {
+        print("No update Available....");
+      }
     });
   }
 
@@ -99,15 +112,10 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AnimatedOpacity(
-                  opacity: widget1Opacity,
-                  duration: Duration(milliseconds: 1000),
-                  child: SizedBox(
+                SizedBox(
                     height: 150,
                     width: 150,
-                    child: Image.asset('images/logo.png'),
-                  ),
-                ),
+                    child: SvgPicture.asset("images/logo.svg")),
                 SizedBox(height: 50.0),
                 Text(
                   'CODERS CASTLE',

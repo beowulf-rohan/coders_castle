@@ -58,29 +58,33 @@ class _PlatformCardState extends State<PlatformCard> {
     bool validUsername = true;
     if (stats.CodeChefPerformance.status.compareTo('Failed') == 0 &&
         widget.stringKey.compareTo('codechef') == 0) {
-      Alert(message: 'Username does not exist', shortDuration: true).show();
+      Alert(message: 'Please enter a valid username', shortDuration: true)
+          .show();
       setState(() {
         validUsername = false;
       });
     } else if (stats.CodeforcesPerformance.status.compareTo('Failed') == 0 &&
         widget.stringKey.compareTo('codeforces') == 0) {
-      Alert(message: 'Username does not exist', shortDuration: true).show();
+      Alert(message: 'Please enter a valid username', shortDuration: true)
+          .show();
       setState(() {
         validUsername = false;
       });
     } else if (stats.LeetCodePerformance.status.compareTo('Failed') == 0 &&
         widget.stringKey.compareTo('leetcode') == 0) {
-      Alert(message: 'Username does not exist', shortDuration: true).show();
+      Alert(message: 'Please enter a valid username', shortDuration: true)
+          .show();
       setState(() {
         validUsername = false;
       });
     } else if (stats.AtcoderPerformance.status.compareTo('Failed') == 0 &&
         widget.stringKey.compareTo('atcoder') == 0) {
-      Alert(message: 'Username does not exist', shortDuration: true).show();
+      Alert(message: 'Please enter a valid username', shortDuration: true)
+          .show();
       setState(() {
         validUsername = false;
       });
-    } else  {
+    } else {
       Alert(message: 'Username verified and added', shortDuration: true).show();
     }
 
@@ -131,15 +135,17 @@ class _PlatformCardState extends State<PlatformCard> {
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
-                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Fredoka',
+                            fontWeight: FontWeight.w200,
                           ),
                         ),
                         Text(
-                          'Username : $username',
+                          'username : $username',
                           style: TextStyle(
                             color: Colors.white.withOpacity(0.7),
                             fontSize: 15,
-                            fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.w100,
+                            fontFamily: 'Fredoka',
                           ),
                         ),
                       ],
@@ -181,20 +187,21 @@ class _PlatformCardState extends State<PlatformCard> {
                         color: Colors.white.withOpacity(0.7),
                       ),
                       decoration: InputDecoration(
-                        labelText: "Username",
+                        labelText: "username",
                         labelStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Fredoka',
+                          fontWeight: FontWeight.w100,
                           color: Colors.white.withOpacity(0.9),
                         ),
                         hintStyle: TextStyle(
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w100,
                           color: Colors.white.withOpacity(0.7),
                         ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide:
                               BorderSide(color: Colors.white.withOpacity(0.8)),
                         ),
-                        hintText: "Enter your Username",
+                        hintText: "Enter your username",
                       ),
                     ),
                   ),
@@ -214,11 +221,13 @@ class _PlatformCardState extends State<PlatformCard> {
                             borderRadius: BorderRadius.circular(10)),
                         child: Center(
                           child: Text(
-                            'Update',
+                            'update',
                             style: TextStyle(
-                                color: Colors.white.withOpacity(0.9),
-                                fontSize: 20,
-                                fontWeight: FontWeight.w800),
+                              color: Colors.white.withOpacity(0.9),
+                              fontSize: 20,
+                              fontFamily: 'Fredoka',
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                         ),
                       ),

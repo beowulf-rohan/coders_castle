@@ -29,7 +29,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = Codeforces.pon[j];
       temp.contestName = Codeforces.pcontestName[j];
       temp.path = 'images/codeforces.png';
-      temp.url = Codeforces.plinks[j];      // TODO: add link here
+      temp.url = Codeforces.plinks[j]; // TODO: add link here
       today.add(temp);
     }
 
@@ -40,7 +40,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = CodeChef.pon[j];
       temp.contestName = CodeChef.pcontestName[j];
       temp.path = 'images/codechef.png';
-      temp.url = CodeChef.plinks[j];      // TODO: add link here
+      temp.url = CodeChef.plinks[j]; // TODO: add link here
       today.add(temp);
     }
 
@@ -51,7 +51,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = AtCoder.pon[j];
       temp.contestName = AtCoder.pcontestName[j];
       temp.path = 'images/atcoder.png';
-      temp.url = AtCoder.plinks[j];      // TODO: add link here
+      temp.url = AtCoder.plinks[j]; // TODO: add link here
       today.add(temp);
     }
     for (int j = 0; j < LeetCode.pat.length; j++) {
@@ -61,7 +61,7 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = LeetCode.pon[j];
       temp.contestName = LeetCode.pcontestName[j];
       temp.path = 'images/leetcode.png';
-      temp.url = LeetCode.plinks[j];      // TODO: add link here
+      temp.url = LeetCode.plinks[j]; // TODO: add link here
       today.add(temp);
     }
     for (int j = 0; j < KickStart.pat.length; j++) {
@@ -71,64 +71,63 @@ class _ContestScreenState extends State<ContestScreen> {
       temp.date = KickStart.pon[j];
       temp.contestName = KickStart.pcontestName[j];
       temp.path = 'images/google.png';
-      temp.url = KickStart.plinks[j];      // TODO: add link here
+      temp.url = KickStart.plinks[j]; // TODO: add link here
       today.add(temp);
     }
 
-
     //UPCOMING LIST
-    for (int j = 0; j < 3 && j < Codeforces.fat.length; j++) {
+    for (int j = 0; j < Codeforces.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/codeforces.png';
       temp.contestName = Codeforces.fcontestName[j];
       temp.date = Codeforces.fon[j];
       temp.time = Codeforces.fat[j];
       temp.duration = Codeforces.fduration[j];
-      temp.url = Codeforces.flinks[j];      // TODO: add link here
+      temp.url = Codeforces.flinks[j]; // TODO: add link here
       upcoming.add(temp);
     }
 
-    for (int j = 0; j < 3 && j < CodeChef.fat.length; j++) {
+    for (int j = 0; j < CodeChef.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/codechef.png';
       temp.contestName = CodeChef.fcontestName[j];
       temp.date = CodeChef.fon[j];
       temp.time = CodeChef.fat[j];
       temp.duration = CodeChef.fduration[j];
-      temp.url = CodeChef.flinks[j];      // TODO: add link here
+      temp.url = CodeChef.flinks[j]; // TODO: add link here
       upcoming.add(temp);
     }
 
-    for (int j = 0; j < 3 && j < AtCoder.fat.length; j++) {
+    for (int j = 0; j < AtCoder.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/atcoder.png';
       temp.contestName = AtCoder.fcontestName[j];
       temp.date = AtCoder.fon[j];
       temp.time = AtCoder.fat[j];
       temp.duration = AtCoder.fduration[j];
-      temp.url = AtCoder.flinks[j];      // TODO: add link here
+      temp.url = AtCoder.flinks[j]; // TODO: add link here
       upcoming.add(temp);
     }
 
-    for (int j = 0; j < 3 && j < LeetCode.fat.length; j++) {
+    for (int j = 0; j < LeetCode.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/leetcode.png';
       temp.contestName = LeetCode.fcontestName[j];
       temp.date = LeetCode.fon[j];
       temp.time = LeetCode.fat[j];
       temp.duration = LeetCode.fduration[j];
-      temp.url = LeetCode.flinks[j];      // TODO: add link here
+      temp.url = LeetCode.flinks[j]; // TODO: add link here
       upcoming.add(temp);
     }
 
-    for (int j = 0; j < 3 && j < KickStart.fat.length; j++) {
+    for (int j = 0; j < KickStart.fat.length; j++) {
       SortedList temp = SortedList();
       temp.path = 'images/google.png';
       temp.contestName = KickStart.fcontestName[j];
       temp.date = KickStart.fon[j];
       temp.time = KickStart.fat[j];
       temp.duration = KickStart.fduration[j];
-      temp.url = KickStart.flinks[j];      // TODO: add link here
+      temp.url = KickStart.flinks[j]; // TODO: add link here
       upcoming.add(temp);
     }
 
@@ -240,7 +239,7 @@ class _ContestScreenState extends State<ContestScreen> {
     plist.add(SizedBox(height: 10));
 
     flist.add(HeadingText(text: "Upcoming"));
-    for (int j = 0; j < upcoming.length; j++) {
+    for (int j = 0; j < 15 && j < upcoming.length; j++) {
       flist.add(ContestCard(
         path: upcoming[j].path,
         contestName: upcoming[j].contestName,
