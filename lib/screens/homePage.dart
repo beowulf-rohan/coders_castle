@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:coders_castle/modals/stats_list.dart' as stats;
 import 'contestScreen/contestScreen.dart';
 import 'homeScreen.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class HomePage extends StatelessWidget {
   static const String id = 'Homepage';
@@ -39,20 +40,15 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   double widget1Opacity = 0.0;
+  bool showSpinner = false;
   @override
   void initState() {
     super.initState();
-    if (LeetCode.flinks.isEmpty &&
-        Codeforces.fat.isEmpty &&
-        AtCoder.fat.isEmpty &&
-        LeetCode.flinks.isEmpty) get();
-    Timer(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, HomeScreen.id);
-    });
+    get();
     // Timer(Duration(milliseconds: 500), () {
     //   Navigator.pushNamed(context, HomeScreen.id);
     // });
-    Future.delayed(const Duration(milliseconds: 1000), () {
+    Future.delayed(const Duration(milliseconds: 100), () {
       setState(() {
         widget1Opacity = 1;
       });
@@ -60,11 +56,16 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> get() async {
+    setState(() {
+      showSpinner = true;
+    });
     await CodeChef().getContestInfo();
     await Codeforces().getContestInfo();
     await AtCoder().getContestInfo();
     await KickStart().getContestInfo();
     await LeetCode().getContestInfo();
+
+    Navigator.pushReplacementNamed(context, HomeScreen.id);
 
     final SharedPreferences sharedPref = await SharedPreferences.getInstance();
     String codechefUsername = sharedPref.getString('codechef');
@@ -87,6 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
     if (atcoderUsername != null) {
       await stats.AtcoderPerformance().getPerformanceInfo(atcoderUsername);
     }
+
+    setState(() {
+      showSpinner = false;
+    });
   }
 
   @override
@@ -101,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 AnimatedOpacity(
                   opacity: widget1Opacity,
-                  duration: Duration(milliseconds: 2500),
+                  duration: Duration(milliseconds: 1000),
                   child: SizedBox(
                     height: 150,
                     width: 150,
@@ -117,6 +122,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.white,
                   ),
                 ),
+                SizedBox(height: 50.0),
+                showSpinner
+                    ? LinearProgressIndicator(
+                        backgroundColor: Colors.white,
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
+                      )
+                    : null,
               ],
             ),
           ),
