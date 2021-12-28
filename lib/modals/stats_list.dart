@@ -14,7 +14,10 @@ class CodeChefPerformance {
 
   Future<void> getPerformanceInfo(String user) async {
     username = user;
-    if (user == null || user.isEmpty) return;
+    if (user == null || user.isEmpty) {
+      status = 'Failed';
+      return;
+    }
     String s = "https://cping-api2.herokuapp.com/api/codechef/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -50,7 +53,10 @@ class CodeforcesPerformance {
 
   Future<void> getPerformanceInfo(String user) async {
     username = user;
-    if (user == null || user.isEmpty) return;
+    if (user == null || user.isEmpty) {
+      status = 'Failed';
+      return;
+    }
     String s = "https://cping-api2.herokuapp.com/api/codeforces/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -87,7 +93,10 @@ class AtcoderPerformance {
 
   Future<void> getPerformanceInfo(String user) async {
     username = user;
-    if (user == null || user.isEmpty) return;
+    if (user == null || user.isEmpty) {
+      status = 'Failed';
+      return;
+    }
     String s = "https://cping-api2.herokuapp.com/api/atcoder/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);
@@ -125,7 +134,10 @@ class LeetCodePerformance {
 
   Future<void> getPerformanceInfo(String user) async {
     username = user;
-    if (user == null || user.isEmpty) return;
+    if (user == null || user.isEmpty) {
+      status = 'Failed';
+      return;
+    }
     String s = "https://cping-api2.herokuapp.com/api/leetcode/$user";
     Uri url = Uri.parse(s);
     NetworkHelper networkHelper = NetworkHelper(url);

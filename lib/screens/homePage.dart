@@ -10,6 +10,7 @@ import 'package:coders_castle/modals/stats_list.dart' as stats;
 import 'contestScreen/contestScreen.dart';
 import 'homeScreen.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget {
   static const String id = 'Homepage';
@@ -95,10 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 150,
-                  width: 150,
-                  child: Image.asset('images/logo.png'),
-                ),
+                    height: 150,
+                    width: 150,
+                    child: SvgPicture.asset("images/logo.svg")),
                 SizedBox(height: 50.0),
                 Text(
                   'CODERS CASTLE',
