@@ -22,6 +22,9 @@ class _StatsScreenState extends State<StatsScreen> {
             Codeforces.StatsCard(),
             LeetCode.StatsCard(),
             AtCoder.StatsCard(),
+            SizedBox(
+              height: 30,
+            )
           ],
         ),
       ),

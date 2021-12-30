@@ -72,7 +72,7 @@ Widget EmptyUsernameContainer(String platform) {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        'Please enter a',
+                        'Please enter your',
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
@@ -81,7 +81,7 @@ Widget EmptyUsernameContainer(String platform) {
                         ),
                       ),
                       Text(
-                        'valid username',
+                        'username in the',
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
@@ -90,7 +90,7 @@ Widget EmptyUsernameContainer(String platform) {
                         ),
                       ),
                       Text(
-                        'to see your stats',
+                        'profile section',
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
@@ -99,7 +99,7 @@ Widget EmptyUsernameContainer(String platform) {
                         ),
                       ),
                       Text(
-                        'for this platform',
+                        'to see your stats.',
                         style: TextStyle(
                           fontSize: 20.0,
                           color: Colors.white,
@@ -118,7 +118,7 @@ Widget EmptyUsernameContainer(String platform) {
           ),
         ),
         SizedBox(
-          height: 20,
+          height: 10,
         ),
       ],
     ),
