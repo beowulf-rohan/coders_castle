@@ -25,8 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     ContestScreen(),
-    StatsScreen(),
     ProfileScreen(),
+    StatsScreen(),
     RoadmapScreen(),
   ];
 
@@ -71,17 +71,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     iconActiveColor: Colors.white,
                   ),
                   GButton(
-                    icon: LineIcons.chalkboard,
+                    icon: LineIcons.user,
                     haptic: true,
-                    text: 'Stats',
+                    text: 'Profile',
                     textStyle: TextStyle(color: Colors.white),
                     backgroundColor: Color(0xff2a2a2a),
                     iconActiveColor: Colors.white,
                   ),
                   GButton(
-                    icon: LineIcons.user,
+                    icon: LineIcons.chalkboard,
                     haptic: true,
-                    text: 'Profile',
+                    text: 'Stats',
                     textStyle: TextStyle(color: Colors.white),
                     backgroundColor: Color(0xff2a2a2a),
                     iconActiveColor: Colors.white,
