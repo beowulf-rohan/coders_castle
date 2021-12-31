@@ -17,7 +17,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
-      inAsyncCall: Provider.of<ProgressIndicatorChange>(context).codechef | Provider.of<ProgressIndicatorChange>(context).codeforces | Provider.of<ProgressIndicatorChange>(context).leetcode | Provider.of<ProgressIndicatorChange>(context).atcoder,
+      progressIndicator: CircularProgressIndicator(
+        color: Colors.black,
+      ),
+      inAsyncCall: Provider.of<ProgressIndicatorChange>(context).codechef |
+          Provider.of<ProgressIndicatorChange>(context).codeforces |
+          Provider.of<ProgressIndicatorChange>(context).leetcode |
+          Provider.of<ProgressIndicatorChange>(context).atcoder,
       child: GlassBackground(
         childWidget: Container(
           margin: EdgeInsets.symmetric(horizontal: 20),
