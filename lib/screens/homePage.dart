@@ -51,17 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       showSpinner = true;
     });
-    if (CodeChef.flinks.length == 0 &&
-        Codeforces.flinks.length == 0 &&
-        AtCoder.flinks.length == 0 &&
-        LeetCode.flinks.length == 0 &&
-        KickStart.flinks.length == 0) {
-      get();
-    } else {
-      Timer(Duration(seconds: 2), () {
-        Navigator.pushNamed(context, HomeScreen.id);
-      });
-    }
+    get();
     checkForUpdate();
   }
 
@@ -145,13 +135,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 showSpinner
                     ? Padding(
-                        padding: EdgeInsets.symmetric(vertical: 15),
-                        child: LinearProgressIndicator(
-                          backgroundColor: Colors.white,
-                          valueColor:
-                              AlwaysStoppedAnimation<Color>(Colors.grey),
-                        ),
-                      )
+                  padding: EdgeInsets.symmetric(vertical: 15),
+                      child: LinearProgressIndicator(
+                  backgroundColor: Colors.white,
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.grey),
+                ),
+                    )
                     : null,
               ],
             ),
