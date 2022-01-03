@@ -737,8 +737,8 @@ class LeetCode {
     problemsSolved = stats.LeetCodePerformance.problemSolved;
     acceptanceRate = stats.LeetCodePerformance.acceptanceRate;
     hard = stats.LeetCodePerformance.hard;
-    easy = stats.LeetCodePerformance.medium;
-    medium = stats.LeetCodePerformance.easy;
+    easy = stats.LeetCodePerformance.easy;
+    medium = stats.LeetCodePerformance.medium;
     status = stats.LeetCodePerformance.status;
 
     if (username == null ||
