@@ -141,6 +141,24 @@ class All {
       temp += '.000Z';
       if (site.compareTo('CodeChef') == 0) date_time = temp;
       var local_time = DateTime.parse(date_time);
+      String etemp = "";
+      for (int j = 0; j < 10; j++) {
+        etemp += edate_time[j];
+      }
+      etemp += 'T';
+      for (int j = 11; j < 19; j++) {
+        etemp += edate_time[j];
+      }
+      etemp += '.000000';
+      edate_time = etemp;
+      var elocal_time = DateTime.parse(edate_time);
+      //print(elocal_time);
+      var presentTime = DateTime.now();
+      //print(presentTime);
+      if (elocal_time.compareTo(presentTime) <= 0 &&
+          compare(edate, datetime) == 0) {
+        continue;
+      }
       //print(local_time);
       //print(date);
       String contestDate = DateFormat.Hm().format(local_time.toLocal());
