@@ -113,6 +113,23 @@ class All {
       for (int k = 0; k < 4; k++) {
         date += date_time[k];
       }
+      String edate_time = decodeData[j]['end_time'].toString();
+      String edate = "";
+      for (int k = 8; k < 10; k++) {
+        edate += edate_time[k];
+      }
+      edate += '-';
+      for (int k = 5; k < 7; k++) {
+        edate += edate_time[k];
+      }
+      edate += '-';
+      for (int k = 0; k < 4; k++) {
+        edate += edate_time[k];
+      }
+
+      if (compare(edate, datetime) < 0) {
+        continue;
+      }
       String temp = "";
       for (int j = 0; j < 10; j++) {
         temp += date_time[j];
@@ -124,6 +141,24 @@ class All {
       temp += '.000Z';
       if (site.compareTo('CodeChef') == 0) date_time = temp;
       var local_time = DateTime.parse(date_time);
+      String etemp = "";
+      for (int j = 0; j < 10; j++) {
+        etemp += edate_time[j];
+      }
+      etemp += 'T';
+      for (int j = 11; j < 19; j++) {
+        etemp += edate_time[j];
+      }
+      etemp += '.000000';
+      edate_time = etemp;
+      var elocal_time = DateTime.parse(edate_time);
+      //print(elocal_time);
+      var presentTime = DateTime.now();
+      //print(presentTime);
+      if (elocal_time.compareTo(presentTime) <= 0 &&
+          compare(edate, datetime) == 0) {
+        continue;
+      }
       //print(local_time);
       //print(date);
       String contestDate = DateFormat.Hm().format(local_time.toLocal());
