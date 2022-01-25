@@ -113,6 +113,23 @@ class All {
       for (int k = 0; k < 4; k++) {
         date += date_time[k];
       }
+      String edate_time = decodeData[j]['end_time'].toString();
+      String edate = "";
+      for (int k = 8; k < 10; k++) {
+        edate += edate_time[k];
+      }
+      edate += '-';
+      for (int k = 5; k < 7; k++) {
+        edate += edate_time[k];
+      }
+      edate += '-';
+      for (int k = 0; k < 4; k++) {
+        edate += edate_time[k];
+      }
+
+      if (compare(edate, datetime) < 0) {
+        continue;
+      }
       String temp = "";
       for (int j = 0; j < 10; j++) {
         temp += date_time[j];
